@@ -212,14 +212,14 @@
             animation: typewriter 5s steps(40, end), blink 0.75s step-end infinite;
         }
         .gradient-bg {
-            background: linear-gradient(to bottom, #ffdab9, #ffbf9b, #ffa07a);
+            background: linear-gradient(to bottom, #e0e0e0, #c0c0c0, #a0a0a0);
             position: relative;
             overflow: hidden;
             height: 100vh;
         }
         .center-box {
             background: white;
-            border: 2px solid #ffa07a;
+            border: 2px solid #888888;
             padding: 2rem;
             border-radius: 8px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
@@ -265,6 +265,41 @@
             transform: scale(1.1);
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
         }
+
+        /* Floating Text Styles */
+        .floating-text {
+            position: absolute;
+            color: white;
+            font-family: 'Courier New', monospace;
+            font-size: 1.2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            background-color: rgba(80, 80, 80, 0.7);
+            padding: 5px 10px;
+            border-radius: 5px;
+            border: 1px solid rgba(120, 120, 120, 0.8);
+            opacity: 0;
+            transition: opacity 0.5s;
+            z-index: 2;
+        }
+
+        .floating-text span {
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 0;
+            border-right: 0.15em solid white;
+            animation: typing 3.5s steps(40, end) forwards, blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: white; }
+        }
     </style>
 </head>
 
@@ -281,6 +316,9 @@
 </div>
 
 <section class="gradient-bg">
+    <!-- Floating Text Container -->
+    <div id="floating-text-container"></div>
+    
     <!-- Bouncing Ball -->
     <div class="ball" id="ball"></div>
     <div class="tooltip" id="tooltip">Click me for a reward</div>
@@ -339,6 +377,9 @@
     const centerBox = document.getElementById('center-box');
     const tooltip = document.getElementById('tooltip');
 
+    // Change ball color to black
+    ball.style.backgroundColor = '#000000';
+
     let x = Math.random() * window.innerWidth;
     let y = Math.random() * window.innerHeight;
     let dx = (Math.random() - 0.5) * 2;
@@ -354,6 +395,9 @@
         let newDx = (Math.random() - 0.5) * 6;
         let newDy = (Math.random() - 0.5) * 6;
 
+        // Set ball color to black
+        newBall.style.backgroundColor = '#000000';
+        
         newBall.addEventListener('click', createBall);
 
         function animateNewBall() {
@@ -363,6 +407,7 @@
             if (newX + ballSize >= window.innerWidth || newX <= 0) newDx = -newDx + (Math.random() - 0.5);
             if (newY + ballSize >= window.innerHeight || newY <= 0) newDy = -newDy + (Math.random() - 0.5);
 
+            // Collision with center box
             if (
                 newX + ballSize > box.left && newX < box.right &&
                 newY + ballSize > box.top && newY < box.bottom
@@ -372,6 +417,56 @@
                 if (newY + ballSize > box.top && newY < box.top + ballSize) newDy = -Math.abs(newDy) + (Math.random() - 0.5);
                 if (newY < box.bottom && newY + ballSize > box.bottom - ballSize) newDy = Math.abs(newDy) + (Math.random() - 0.5);
             }
+
+            // Collision with floating texts
+            const floatingTexts = document.querySelectorAll('.floating-text');
+            floatingTexts.forEach(text => {
+                const textRect = text.getBoundingClientRect();
+                if (
+                    newX + ballSize > textRect.left && newX < textRect.right &&
+                    newY + ballSize > textRect.top && newY < textRect.bottom
+                ) {
+                    // Determine which side of the text was hit
+                    if (newX + ballSize > textRect.left && newX < textRect.left + ballSize) newDx = -Math.abs(newDx) * 1.1;
+                    if (newX < textRect.right && newX + ballSize > textRect.right - ballSize) newDx = Math.abs(newDx) * 1.1;
+                    if (newY + ballSize > textRect.top && newY < textRect.top + ballSize) newDy = -Math.abs(newDy) * 1.1;
+                    if (newY < textRect.bottom && newY + ballSize > textRect.bottom - ballSize) newDy = Math.abs(newDy) * 1.1;
+                    
+                    // Slightly bounce the text
+                    text.style.transform = `translate(${(Math.random() - 0.5) * 5}px, ${(Math.random() - 0.5) * 5}px)`;
+                    setTimeout(() => {
+                        text.style.transform = 'translate(0, 0)';
+                    }, 300);
+                }
+            });
+
+            // Collision with other balls
+            const balls = document.querySelectorAll('.ball');
+            balls.forEach(otherBall => {
+                if (otherBall === newBall) return; // Skip self
+                
+                const otherRect = otherBall.getBoundingClientRect();
+                const otherX = otherRect.left;
+                const otherY = otherRect.top;
+                
+                // Calculate distance between centers
+                const dx = (newX + ballSize/2) - (otherX + ballSize/2);
+                const dy = (newY + ballSize/2) - (otherY + ballSize/2);
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                
+                // Check if balls are colliding
+                if (distance < ballSize) {
+                    // Simple collision response - reverse directions and add randomness
+                    newDx = dx/distance * Math.abs(newDx) * 1.1;
+                    newDy = dy/distance * Math.abs(newDy) * 1.1;
+                    
+                    // Apply a small visual effect to the other ball
+                    otherBall.style.transform = 'scale(1.1)';
+                    setTimeout(() => {
+                        otherBall.style.transform = 'scale(1)';
+                    }, 100);
+                }
+            });
 
             newX += newDx * speed;
             newY += newDy * speed;
@@ -392,6 +487,7 @@
         if (x + ballSize >= window.innerWidth || x <= 0) dx = -dx + (Math.random() - 0.5);
         if (y + ballSize >= window.innerHeight || y <= 0) dy = -dy + (Math.random() - 0.5);
 
+        // Collision with center box
         if (
             x + ballSize > box.left && x < box.right &&
             y + ballSize > box.top && y < box.bottom
@@ -402,11 +498,58 @@
             if (y < box.bottom && y + ballSize > box.bottom - ballSize) dy = Math.abs(dy) + (Math.random() - 0.5);
         }
 
+        // Collision with floating texts
+        const floatingTexts = document.querySelectorAll('.floating-text');
+        floatingTexts.forEach(text => {
+            const textRect = text.getBoundingClientRect();
+            if (
+                x + ballSize > textRect.left && x < textRect.right &&
+                y + ballSize > textRect.top && y < textRect.bottom
+            ) {
+                // Determine which side of the text was hit
+                if (x + ballSize > textRect.left && x < textRect.left + ballSize) dx = -Math.abs(dx) * 1.1;
+                if (x < textRect.right && x + ballSize > textRect.right - ballSize) dx = Math.abs(dx) * 1.1;
+                if (y + ballSize > textRect.top && y < textRect.top + ballSize) dy = -Math.abs(dy) * 1.1;
+                if (y < textRect.bottom && y + ballSize > textRect.bottom - ballSize) dy = Math.abs(dy) * 1.1;
+                
+                // Slightly bounce the text
+                text.style.transform = `translate(${(Math.random() - 0.5) * 5}px, ${(Math.random() - 0.5) * 5}px)`;
+                setTimeout(() => {
+                    text.style.transform = 'translate(0, 0)';
+                }, 300);
+            }
+        });
+
+        // Collision with other balls
+        const balls = document.querySelectorAll('.ball');
+        balls.forEach(otherBall => {
+            if (otherBall === ball) return; // Skip the main ball
+            
+            const otherRect = otherBall.getBoundingClientRect();
+            const otherX = otherRect.left;
+            const otherY = otherRect.top;
+            
+            // Calculate distance between centers
+            const distX = (x + ballSize/2) - (otherX + ballSize/2);
+            const distY = (y + ballSize/2) - (otherY + ballSize/2);
+            const distance = Math.sqrt(distX * distX + distY * distY);
+            
+            // Check if balls are colliding
+            if (distance < ballSize) {
+                // Simple collision response - reverse directions with angle
+                dx = distX/distance * Math.abs(dx) * 1.1;
+                dy = distY/distance * Math.abs(dy) * 1.1;
+            }
+        });
+
         x += dx * speed;
         y += dy * speed;
 
         ball.style.left = `${x}px`;
         ball.style.top = `${y}px`;
+
+        tooltip.style.left = `${x + 20}px`;
+        tooltip.style.top = `${y - 20}px`;
 
         requestAnimationFrame(animate);
     }
@@ -424,6 +567,140 @@
     });
 
     ball.addEventListener('click', createBall);
+
+    // Floating Text Implementation
+    const floatingTexts = [
+        "Welcome to my portfolio",
+        "Full-stack developer",
+        "PSST... Click on the balls",
+        "Creative thinker",
+        "The balls seem funny, right?",
+        "JavaScript lover",
+        "Building digital experiences",
+        "Turning ideas into code",
+        "Passionate about UI/UX",
+        "Always learning"
+    ];
+
+    // Make sure floating text container exists
+    let floatingTextContainer = document.getElementById('floating-text-container');
+    if (!floatingTextContainer) {
+        console.log("Creating floating text container");
+        floatingTextContainer = document.createElement('div');
+        floatingTextContainer.id = 'floating-text-container';
+        document.querySelector('.gradient-bg').appendChild(floatingTextContainer);
+    }
+
+    function createFloatingText() {
+        console.log("Creating floating text");
+        
+        // Don't create more than 3 texts at once
+        if (document.querySelectorAll('.floating-text').length >= 3) {
+            console.log("Too many texts, not creating more");
+            return;
+        }
+        
+        // Get current dimensions
+        const viewportWidth = window.innerWidth;
+        const viewportHeight = window.innerHeight;
+        const boxRect = centerBox.getBoundingClientRect();
+        
+        // Choose random text
+        const textContent = floatingTexts[Math.floor(Math.random() * floatingTexts.length)];
+        console.log("Selected text:", textContent);
+        
+        // Create elements
+        const textElement = document.createElement('div');
+        textElement.className = 'floating-text';
+        
+        const span = document.createElement('span');
+        span.textContent = textContent;
+        textElement.appendChild(span);
+        
+        // Find position that doesn't overlap with center box
+        let posX, posY;
+        let validPosition = false;
+        let attempts = 0;
+        
+        // Get text dimensions (approximate)
+        const textWidth = textContent.length * 12; // Approximate width based on character count
+        const textHeight = 40; // Approximate height
+        
+        while (!validPosition && attempts < 50) {
+            // Generate random position within viewport
+            posX = Math.random() * (viewportWidth - textWidth - 40);
+            posY = Math.random() * (viewportHeight - textHeight - 40);
+            attempts++;
+            
+            // Check if position overlaps with center box
+            if (!(posX < boxRect.right && 
+                  posX + textWidth > boxRect.left && 
+                  posY < boxRect.bottom && 
+                  posY + textHeight > boxRect.top)) {
+                validPosition = true;
+            }
+        }
+        
+        console.log("Positioning text at:", posX, posY);
+        
+        // Position the element
+        textElement.style.left = `${posX}px`;
+        textElement.style.top = `${posY}px`;
+        
+        // Add to DOM
+        floatingTextContainer.appendChild(textElement);
+        
+        // Make visible with a slight delay
+        setTimeout(() => {
+            console.log("Making text visible");
+            textElement.style.opacity = '1';
+        }, 100);
+        
+        // Remove after display time
+        setTimeout(() => {
+            console.log("Starting to remove text");
+            textElement.style.opacity = '0';
+            setTimeout(() => {
+                textElement.remove();
+                console.log("Text removed from DOM");
+            }, 500);
+        }, 6000);
+    }
+
+    // Start creating floating texts
+    function startFloatingTexts() {
+        console.log("Starting floating texts sequence");
+        
+        // Create first text immediately
+        createFloatingText();
+        
+        // Create more texts at intervals
+        setInterval(createFloatingText, 3000);
+    }
+
+    // Start floating texts immediately (don't wait for anything)
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log("DOM loaded, starting floating texts in 1 second");
+        setTimeout(startFloatingTexts, 1000);
+    });
+
+    // Also try to start when page is fully loaded
+    window.addEventListener('load', function() {
+        console.log("Window loaded");
+        if (document.querySelectorAll('.floating-text').length === 0) {
+            console.log("No floating texts found, starting them");
+            setTimeout(startFloatingTexts, 500);
+        }
+    });
+
+    // Fallback - start floating texts after 2 seconds if not started yet
+    setTimeout(() => {
+        console.log("Fallback timer triggered");
+        if (document.querySelectorAll('.floating-text').length === 0) {
+            console.log("No floating texts found, starting them via fallback");
+            startFloatingTexts();
+        }
+    }, 2000);
 
     animate();
 </script>
