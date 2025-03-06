@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects Showcase</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#3b82f6',
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            200: '#bfdbfe',
+                            300: '#93c5fd',
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                            950: '#172554',
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .filter-btn.active {
+            background-color: #3b82f6;
+            color: white;
+        }
+        /* Theme toggle animation */
+        .theme-toggle {
+            transition: transform 0.5s ease;
+        }
+        .theme-toggle:hover {
+            transform: rotate(45deg);
+        }
+        /* Dark mode styles */
+        .dark {
+            --tw-text-opacity: 1;
+            color: rgb(229 231 235 / var(--tw-text-opacity));
+        }
+        .dark body {
+            --tw-bg-opacity: 1;
+            background-color: rgb(17 24 39 / var(--tw-bg-opacity));
+        }
+        .dark .bg-white {
+            --tw-bg-opacity: 1;
+            background-color: rgb(31 41 55 / var(--tw-bg-opacity));
+        }
+        .dark .text-gray-800 {
+            --tw-text-opacity: 1;
+            color: rgb(229 231 235 / var(--tw-text-opacity));
+        }
+        .dark .bg-gray-50 {
+            --tw-bg-opacity: 1;
+            background-color: rgb(17 24 39 / var(--tw-bg-opacity));
+        }
+        .dark .text-gray-600 {
+            --tw-text-opacity: 1;
+            color: rgb(209 213 219 / var(--tw-text-opacity));
+        }
+        .dark .project-card {
+            --tw-bg-opacity: 1;
+            background-color: rgb(31 41 55 / var(--tw-bg-opacity));
+            --tw-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--tw-shadow);
+        }
+        .dark .bg-gray-100 {
+            --tw-bg-opacity: 1;
+            background-color: rgb(55 65 81 / var(--tw-bg-opacity));
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+<!-- Top Navbar with Theme Toggle -->
+<nav class="bg-white dark:bg-gray-800 shadow-sm fixed top-0 left-0 right-0 z-50">
+    <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+        <div class="flex items-center space-x-4">
+            <!-- Theme Toggle Button -->
+            <button id="theme-toggle" class="theme-toggle p-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:focus:ring-gray-700">
+                <!-- Sun Icon (shown in light mode) -->
+                <svg id="sun-icon" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                </svg>
+                <!-- Moon Icon (shown in dark mode) -->
+                <svg id="moon-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                </svg>
+            </button>
+        </div>
+        <div class="flex items-center space-x-4">
+            <!-- Home Icon moved to the top right -->
+            <a href="index.html" class="text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1h2a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1h3" />
+                </svg>
+            </a>
+        </div>
+    </div>
+</nav>
+
+<!-- Spacer to prevent content from being hidden under the fixed navbar -->
+<div class="h-16"></div>
+
+<!-- Hero Section -->
+<section class="bg-gradient-to-r from-primary-700 to-primary-900 text-white py-20">
+    <div class="container mx-auto px-4 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">My Project Portfolio</h1>
+        <p class="text-xl max-w-2xl mx-auto mb-8">Showcasing my best work across web development, design, and more.</p>
+        <a href="#projects" class="bg-white text-primary-700 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors inline-block">View Projects</a>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="py-16 bg-gray-50 dark:bg-gray-900">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12">Featured Projects</h2>
+
+        <!-- Filter Buttons -->
+        <div class="flex flex-wrap justify-center gap-2 mb-10">
+            <button class="filter-btn active px-4 py-2 rounded-full border border-gray-300 text-sm font-medium" data-filter="all">All</button>
+            <button class="filter-btn px-4 py-2 rounded-full border border-gray-300 text-sm font-medium" data-filter="web">Web Development</button>
+            <button class="filter-btn px-4 py-2 rounded-full border border-gray-300 text-sm font-medium" data-filter="plugin">Plugin Development</button>
+        </div>
+
+        <!-- Projects Grid - Will be populated from JSON -->
+        <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Projects will be loaded here dynamically -->
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="bg-primary-800 text-white py-16">
+    <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold mb-4">Interested in working together?</h2>
+        <p class="text-xl max-w-2xl mx-auto mb-8">I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision.</p>
+        <a href="https://www.fiverr.com/jawadali1272/" class="bg-white text-primary-800 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors inline-block">Get In Touch</a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-white py-12">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="md:col-span-2">
+                <h3 class="text-xl font-bold mb-4">Seeker's Projects</h3>
+                <p class="text-gray-400 mb-4">Showcasing my best work and projects across various technologies and design disciplines.</p>
+                <div class="flex space-x-4">
+                    <!-- Social icons -->
+                    <a href="https://github.com/seekehr/" class="text-gray-400 hover:text-white transition-colors">
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                    <!-- More social icons... -->
+                </div>
+            </div>
+            <!-- Footer sections... -->
+        </div>
+        <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+            <p>&copy; 2025 Seeker. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- JavaScript for filtering projects, theme toggle, and loading projects from JSON -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Theme toggle functionality
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const sunIcon = document.getElementById('sun-icon');
+        const moonIcon = document.getElementById('moon-icon');
+
+        // Check for saved theme preference or use preferred color scheme
+        if (localStorage.getItem('color-theme') === 'dark' ||
+            (!localStorage.getItem('color-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            // Add dark class to html element
+            document.documentElement.classList.add('dark');
+            // Show moon icon, hide sun icon
+            sunIcon.classList.add('hidden');
+            moonIcon.classList.remove('hidden');
+        } else {
+            // Remove dark class from html element
+            document.documentElement.classList.remove('dark');
+            // Show sun icon, hide moon icon
+            sunIcon.classList.remove('hidden');
+            moonIcon.classList.add('hidden');
+        }
+
+        // Toggle theme on button click
+        themeToggleBtn.addEventListener('click', function() {
+            // Toggle dark class on html element
+            document.documentElement.classList.toggle('dark');
+
+            // Toggle icons
+            sunIcon.classList.toggle('hidden');
+            moonIcon.classList.toggle('hidden');
+
+            // Update localStorage
+            if (document.documentElement.classList.contains('dark')) {
+                localStorage.setItem('color-theme', 'dark');
+            } else {
+                localStorage.setItem('color-theme', 'light');
+            }
+        });
+
+        // Load projects from JSON file
+        fetch('/assets/projects.json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(projects => {
+                const projectsGrid = document.getElementById('projects-grid');
+
+                // Clear any existing content
+                projectsGrid.innerHTML = '';
+
+                // Add each project to the grid
+                projects.forEach(project => {
+                    const projectCard = createProjectCard(project);
+                    projectsGrid.appendChild(projectCard);
+                });
+
+                // Initialize filtering after projects are loaded
+                initializeFiltering();
+            })
+            .catch(error => {
+                console.error('Error loading projects:', error);
+                document.getElementById('projects-grid').innerHTML = `
+                    <div class="col-span-full text-center py-8">
+                        <p class="text-red-500">Failed to load projects. Please try again later.</p>
+                    </div>
+                `;
+            });
+
+        // Function to create a project card element
+        function createProjectCard(project) {
+            const card = document.createElement('div');
+            card.className = 'project-card bg-white rounded-lg overflow-hidden shadow-md';
+            card.setAttribute('data-category', project.category);
+
+            // Create technologies HTML
+            const technologiesHTML = project.technologies.map(tech =>
+                `<span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">${tech}</span>`
+            ).join('');
+
+            card.innerHTML = `
+                <img src="${project.image}" alt="${project.title}" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <span class="text-xs font-semibold bg-${project.categoryColor}-100 text-${project.categoryColor}-800 py-1 px-2 rounded-full">${project.categoryLabel}</span>
+                    <h3 class="text-xl font-bold mt-2">${project.title}</h3>
+                    <p class="text-gray-600 mt-2">${project.description}</p>
+                    <div class="mt-4 flex flex-wrap gap-2">
+                        ${technologiesHTML}
+                    </div>
+                    <div class="mt-6 flex justify-between items-center">
+                        <a href="${project.projectUrl}" class="text-primary-600 hover:text-primary-800 font-medium">View Project</a>
+                        <a href="${project.externalUrl}" class="text-gray-500 hover:text-gray-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            `;
+
+            return card;
+        }
+
+        // Initialize filtering functionality
+        function initializeFiltering() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const projectCards = document.querySelectorAll('.project-card');
+
+            // Add click event to filter buttons
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterBtns.forEach(b => b.classList.remove('active'));
+
+                    // Add active class to clicked button
+                    this.classList.add('active');
+
+                    // Get filter value
+                    const filterValue = this.getAttribute('data-filter');
+
+                    // Filter projects
+                    projectCards.forEach(card => {
+                        if (filterValue === 'all') {
+                            card.style.display = 'block';
+                        } else {
+                            if (card.getAttribute('data-category') === filterValue) {
+                                card.style.display = 'block';
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        }
+                    });
+                });
+            });
+        }
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>
+

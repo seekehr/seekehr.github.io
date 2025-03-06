@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "title": "NotesX",
+    "description": "A fully responsive self-hosted note-taking website with an elegant design and convenient note-writing and managing.",
+    "image": "/assets/notesx.png",
+    "category": "web",
+    "categoryLabel": "Web Development",
+    "categoryColor": "blue",
+    "technologies": ["HTML", "CSS", "JavaScript", "NextJS"],
+    "projectUrl": "https://github.com/seekehr/NotesX",
+    "externalUrl": "https://github.com/seekehr/NotesX"
+  },
+  {
+    "id": 2,
+    "title": "Portfolio Website",
+    "description": "This very website!",
+    "image": "/assets/portfoliowebsite.png",
+    "category": "web",
+    "categoryLabel": "Web Development",
+    "categoryColor": "yellow",
+    "technologies": ["HTML", "TailwindCSS", "JavaScript"],
+    "projectUrl": "https://github.com/seekehr/seekehr.github.io",
+    "externalUrl": "https://github.com/seekehr/seekehr.github.io"
+  }
+]
+
