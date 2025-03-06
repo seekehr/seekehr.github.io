@@ -6,6 +6,196 @@
     <title>Seeker's Portfolio</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
+        /* Loading Screen */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #292929;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            z-index: 9999;
+        }
+
+        .loading-screen.hidden {
+            display: none;
+        }
+
+        .progress-text {
+            font-family: 'Courier New', monospace;
+            font-size: 1.2rem;
+            color: white;
+            letter-spacing: 2px;
+            font-weight: bold;
+            text-align: center;
+            width: 100%;
+        }
+
+        .progress-percentage {
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+            color: white;
+            letter-spacing: 2px;
+            text-align: center;
+            width: 100%;
+        }
+
+        /* Cup container */
+        .cup-container {
+            position: relative;
+            width: 120px;
+            height: 160px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Cup shape */
+        .cup {
+            position: relative;
+            width: 100px;
+            height: 120px;
+            background-color: transparent;
+            border: 4px solid white;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        /* Cup handle */
+        .cup::after {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 55px;
+            border: 4px solid white;
+            border-left: none;
+            border-radius: 0 15px 15px 0;
+            right: -30px;
+            top: 30px;
+        }
+
+        /* Water in the cup */
+        .water {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #00AAFF;
+            transform-origin: bottom;
+            transform: scaleY(0);
+            transition: transform 0.15s ease-in-out;
+        }
+
+        /* Enhanced Water Surface Wave */
+        .water-surface {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            overflow: hidden;
+            transform: translateY(-5px);
+        }
+
+        .wave {
+            position: absolute;
+            width: 200%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 45%;
+        }
+
+        .wave-1 {
+            animation: wave1 2s linear infinite;
+            top: -8px;
+            left: -50%;
+        }
+
+        .wave-2 {
+            animation: wave2 3s linear infinite;
+            top: -4px;
+            left: -30%;
+            opacity: 0.6;
+        }
+
+        @keyframes wave1 {
+            0% {
+                transform: translateX(-50%) rotateZ(0deg);
+            }
+            50% {
+                transform: translateX(25%) rotateZ(180deg);
+            }
+            100% {
+                transform: translateX(-50%) rotateZ(360deg);
+            }
+        }
+
+        @keyframes wave2 {
+            0% {
+                transform: translateX(-30%) rotateZ(0deg);
+            }
+            50% {
+                transform: translateX(25%) rotateZ(-180deg);
+            }
+            100% {
+                transform: translateX(-30%) rotateZ(-360deg);
+            }
+        }
+
+        /* Water droplet/splash effect */
+        .droplet {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            animation: droplet 0.6s ease-out forwards;
+            z-index: 2;
+        }
+
+        @keyframes droplet {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-15px) scale(0);
+                opacity: 0;
+            }
+        }
+
+        /* Water ripple effect */
+        .ripple {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: ripple 0.8s ease-out forwards;
+            top: 5px;
+            z-index: 1;
+        }
+
+        @keyframes ripple {
+            0% {
+                width: 0;
+                height: 0;
+                opacity: 0.8;
+            }
+            100% {
+                width: 60px;
+                height: 15px;
+                opacity: 0;
+            }
+        }
+
+        /* Rest of CSS remained the same */
         @keyframes typewriter {
             from { width: 0; }
             to { width: 100%; }
@@ -77,32 +267,74 @@
         }
     </style>
 </head>
-<body class="gradient-bg">
-<!-- Bouncing Ball -->
-<div class="ball" id="ball"></div>
-<div class="tooltip" id="tooltip">Click me for a reward</div>
 
-<!-- Hero Section -->
-<section class="center-box text-center" id="center-box">
-    <div class="typewriter">
-        <h1 class="text-2xl font-bold text-gray-800">Seeker</h1>
+<body>
+<!-- Loading Screen -->
+<div class="loading-screen" id="loading-screen">
+    <div class="progress-text" id="progress-text">LOADING...</div>
+    <div class="cup-container">
+        <div class="cup">
+            <div class="water" id="water-level"></div>
+        </div>
     </div>
-    <div class="flex justify-center space-x-4">
-        <!-- Github Button -->
-        <a href="https://github.com/seekehr/" target="_blank" class="button flex items-center bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800">
-            <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="Github Logo" class="h-5 w-5 mr-2">
-            Github
-        </a>
-        <!-- Fiverr Button -->
-        <a href="https://www.fiverr.com/jawadali1272/create-the-backend-of-any-website-for-you-in-php-or-js" target="_blank" class="button flex items-center bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600">
-            <img src="/assets/fiverr-icon.svg" alt="Fiverr Logo" class="h-5 w-5 mr-2">
-            Fiverr
-        </a>
-    </div>
-    <a href="#projects" class="button bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 mt-6">Projects</a>
+    <div class="progress-percentage" id="percentage-text">0%</div>
+</div>
+
+<section class="gradient-bg">
+    <!-- Bouncing Ball -->
+    <div class="ball" id="ball"></div>
+    <div class="tooltip" id="tooltip">Click me for a reward</div>
+
+    <!-- Hero Section -->
+    <section class="center-box text-center" id="center-box">
+        <div class="typewriter">
+            <h1 class="text-2xl font-bold text-gray-800">Seeker</h1>
+        </div>
+        <div class="flex justify-center space-x-4">
+            <!-- Github Button -->
+            <a href="https://github.com/seekehr/" target="_blank" class="button flex items-center bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800">
+                <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="Github Logo" class="h-5 w-5 mr-2">
+                Github
+            </a>
+            <!-- Fiverr Button -->
+            <a href="https://www.fiverr.com/jawadali1272/create-the-backend-of-any-website-for-you-in-php-or-js" target="_blank" class="button flex items-center bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600">
+                <img src="/assets/fiverr-icon.svg" alt="Fiverr Logo" class="h-5 w-5 mr-2">
+                Fiverr
+            </a>
+        </div>
+        <a href="#projects" class="button bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 mt-6">Projects</a>
+    </section>
 </section>
 
 <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const waterLevel = document.getElementById("water-level");
+        const percentageText = document.getElementById("percentage-text");
+        const loadingScreen = document.getElementById("loading-screen");
+        let progress = 0;
+        let loadInterval;
+
+        function updateProgress() {
+            // Increase progress by a random amount between 10-15%
+            progress += Math.floor(Math.random() * 6) + 10;
+            if (progress > 100) progress = 100;
+
+            // Update water level and percentage text
+            waterLevel.style.transform = `scaleY(${progress / 100})`;
+            percentageText.textContent = `${progress}%`;
+
+            // If loading is complete, hide the loading screen
+            if (progress >= 100) {
+                clearInterval(loadInterval);
+                loadingScreen.classList.add('hidden');
+            }
+        }
+
+        // Start updating progress every 100ms (faster)
+        loadInterval = setInterval(updateProgress, 100);
+    });
+
+    //ball
     const ball = document.getElementById('ball');
     const centerBox = document.getElementById('center-box');
     const tooltip = document.getElementById('tooltip');
@@ -194,9 +426,6 @@
     ball.addEventListener('click', createBall);
 
     animate();
-
-
-
 </script>
 </body>
 </html>
