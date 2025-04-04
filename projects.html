@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects Showcase</title>
+    <title>Projects Showcase - Seeker's Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -29,6 +29,8 @@
                 }
             }
         }
+
+
     </script>
     <style>
         .project-card {
@@ -84,6 +86,7 @@
             --tw-bg-opacity: 1;
             background-color: rgb(55 65 81 / var(--tw-bg-opacity));
         }
+
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -104,11 +107,15 @@
             </button>
         </div>
         <div class="flex items-center space-x-4">
-            <!-- Home Icon moved to the top right -->
+            <!-- Navigation Links -->
             <a href="index.html" class="text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1h2a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1h3" />
-                </svg>
+                Home
+            </a>
+            <a href="projects.html" class="text-primary-600 dark:text-primary-400 font-medium">
+                Projects
+            </a>
+            <a href="clients.html" class="text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                Clients
             </a>
         </div>
     </div>
@@ -120,7 +127,7 @@
 <!-- Hero Section -->
 <section class="bg-gradient-to-r from-primary-700 to-primary-900 text-white py-20">
     <div class="container mx-auto px-4 text-center">
-        <h1 class="text-4xl md:text-5xl font-bold mb-4">My Project Portfolio</h1>
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">My Portfolio</h1>
         <p class="text-xl max-w-2xl mx-auto mb-8">Showcasing my best work across web development, design, and more.</p>
         <a href="#projects" class="bg-white text-primary-700 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors inline-block">View Projects</a>
     </div>
@@ -178,6 +185,7 @@
         </div>
     </div>
 </footer>
+
 
 <!-- JavaScript for filtering projects, theme toggle, and loading projects from JSON -->
 <script>
@@ -337,6 +345,7 @@
             });
         });
     });
+
 </script>
 </body>
 </html>

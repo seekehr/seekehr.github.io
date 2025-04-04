@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Satisfied Clients - Seeker's Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#10b981', // green-500
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            200: '#a7f3d0',
+                            300: '#6ee7b7',
+                            400: '#34d399',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46',
+                            900: '#064e3b',
+                            950: '#022c22',
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .client-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        .client-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-color: #10b981; /* green-500 */
+        }
+        .filter-btn.active {
+            background-color: #10b981;
+            color: white;
+        }
+        /* Theme toggle animation */
+        .theme-toggle {
+            transition: transform 0.5s ease;
+        }
+        .theme-toggle:hover {
+            transform: rotate(45deg);
+        }
+        /* Modal animation */
+        .modal-container {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            overflow-y: auto;
+            padding: 2rem 1rem;
+        }
+        .modal-container.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-content {
+            transform: translateY(-20px);
+            transition: transform 0.3s ease;
+            width: 100%;
+            max-width: 600px; /* Increased from ~512px (max-w-lg) to ~600px (about 20% larger) */
+            max-height: fit-content;
+            overflow-x: hidden;
+            overflow-y: visible;
+        }
+        .modal-container.active .modal-content {
+            transform: translateY(0);
+        }
+        /* Dark mode styles */
+        .dark {
+            --tw-text-opacity: 1;
+            color: rgb(229 231 235 / var(--tw-text-opacity));
+        }
+        .dark body {
+            --tw-bg-opacity: 1;
+            background-color: rgb(17 24 39 / var(--tw-bg-opacity));
+        }
+        .dark .bg-white {
+            --tw-bg-opacity: 1;
+            background-color: rgb(31 41 55 / var(--tw-bg-opacity));
+        }
+        .dark .text-gray-800 {
+            --tw-text-opacity: 1;
+            color: rgb(229 231 235 / var(--tw-text-opacity));
+        }
+        .dark .bg-gray-50 {
+            --tw-bg-opacity: 1;
+            background-color: rgb(17 24 39 / var(--tw-bg-opacity));
+        }
+        .dark .text-gray-600 {
+            --tw-text-opacity: 1;
+            color: rgb(209 213 219 / var(--tw-text-opacity));
+        }
+        .dark .client-card {
+            --tw-bg-opacity: 1;
+            background-color: rgb(31 41 55 / var(--tw-bg-opacity));
+            --tw-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--tw-shadow);
+        }
+        .dark .bg-gray-100 {
+            --tw-bg-opacity: 1;
+            background-color: rgb(55 65 81 / var(--tw-bg-opacity));
+        }
+        .dark .bg-primary-50 {
+            background-color: rgba(6, 78, 59, 0.2);
+        }
+        .dark .border-primary-200 {
+            border-color: #047857;
+        }
+        .dark .modal-content {
+            background-color: rgb(31 41 55);
+            border-color: #047857;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+<!-- Top Navbar with Theme Toggle -->
+<nav class="bg-white dark:bg-gray-800 shadow-sm fixed top-0 left-0 right-0 z-50">
+    <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+        <div class="flex items-center space-x-4">
+            <!-- Theme Toggle Button -->
+            <button id="theme-toggle" class="theme-toggle p-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:focus:ring-gray-700">
+                <!-- Sun Icon (shown in light mode) -->
+                <svg id="sun-icon" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                </svg>
+                <!-- Moon Icon (shown in dark mode) -->
+                <svg id="moon-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                </svg>
+            </button>
+        </div>
+        <div class="flex items-center space-x-4">
+            <!-- Navigation Links -->
+            <a href="index.html" class="text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                Home
+            </a>
+            <a href="projects.html" class="text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                Projects
+            </a>
+            <a href="clients.html" class="text-primary-600 dark:text-primary-400 font-medium">
+                Clients
+            </a>
+        </div>
+    </div>
+</nav>
+
+<!-- Spacer to prevent content from being hidden under the fixed navbar -->
+<div class="h-16"></div>
+
+<!-- Hero Section with Green Theme -->
+<section class="bg-gradient-to-r from-primary-700 to-primary-900 text-white py-20">
+    <div class="container mx-auto px-4 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Our Satisfied Clients</h1>
+        <p class="text-xl max-w-2xl mx-auto mb-8">Discover the success stories and reviews from clients who have trusted us with their projects.</p>
+        <a href="#clients" class="bg-white text-primary-700 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors inline-block">View Reviews</a>
+    </div>
+</section>
+
+<!-- Clients Section -->
+<section id="clients" class="py-16 bg-gradient-to-r from-primary-50 to-primary-100 dark:from-primary-900 dark:to-primary-800">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-4 text-primary-800 dark:text-primary-300">Client Reviews</h2>
+        <p class="text-center text-primary-600 dark:text-primary-400 mb-12 max-w-2xl mx-auto">Hear what our clients have to say about our services and solutions.</p>
+
+        <!-- Filter Buttons -->
+        <div class="flex flex-wrap justify-center gap-2 mb-10">
+            <button class="filter-btn active px-4 py-2 rounded-full border border-primary-300 text-sm font-medium bg-primary-500 text-white hover:bg-primary-600 transition-colors" data-filter="all">All</button>
+            <button class="filter-btn px-4 py-2 rounded-full border border-primary-300 text-sm font-medium bg-white text-primary-700 hover:bg-primary-50 transition-colors" data-filter="corporate">Corporate</button>
+            <button class="filter-btn px-4 py-2 rounded-full border border-primary-300 text-sm font-medium bg-white text-primary-700 hover:bg-primary-50 transition-colors" data-filter="startup">Startup</button>
+            <button class="filter-btn px-4 py-2 rounded-full border border-primary-300 text-sm font-medium bg-white text-primary-700 hover:bg-primary-50 transition-colors" data-filter="individual">Individual</button>
+        </div>
+
+        <!-- Clients Grid - Will be populated from JSON -->
+        <div id="clients-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Clients will be loaded here dynamically -->
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="bg-primary-800 text-white py-16">
+    <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold mb-4">Ready to become our next success story?</h2>
+        <p class="text-xl max-w-2xl mx-auto mb-8">Let's work together to bring your vision to life and create something amazing.</p>
+        <a href="https://www.fiverr.com/jawadali1272/" class="bg-white text-primary-800 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors inline-block">Get In Touch</a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-white py-12">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="md:col-span-2">
+                <h3 class="text-xl font-bold mb-4">Seeker's Portfolio</h3>
+                <p class="text-gray-400 mb-4">Showcasing my best work and projects across various technologies and design disciplines.</p>
+                <div class="flex space-x-4">
+                    <!-- Social icons -->
+                    <a href="https://github.com/seekehr/" class="text-gray-400 hover:text-white transition-colors">
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                    <!-- More social icons... -->
+                </div>
+            </div>
+            <!-- Footer sections... -->
+        </div>
+        <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+            <p>&copy; 2025 Seeker. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Project Details Modal -->
+<div id="project-modal" class="modal-container fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+    <div class="modal-content bg-white dark:bg-gray-800 rounded-lg shadow-xl border-2 border-primary-200 dark:border-primary-700">
+        <!-- Modal Header -->
+        <div class="bg-primary-50 dark:bg-primary-900 p-4 flex justify-between items-center border-b border-primary-200 dark:border-primary-700">
+            <div class="flex items-center">
+                <div id="modal-icon" class="w-10 h-10 rounded-full bg-primary-500 flex items-center justify-center text-white mr-3">
+                    <!-- Icon will be inserted here -->
+                </div>
+                <h3 id="modal-title" class="text-xl font-bold text-primary-800 dark:text-primary-300">Project Title</h3>
+            </div>
+            <button id="close-modal" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Modal Body -->
+        <div class="p-6">
+            <div class="mb-4">
+                <img id="modal-image" src="/placeholder.svg" alt="Project Image" class="w-full h-56 object-cover rounded-lg">
+            </div>
+
+            <div class="mb-4">
+                <h4 class="text-lg font-semibold text-primary-700 dark:text-primary-400 mb-2">Client</h4>
+                <p id="modal-client" class="text-gray-700 dark:text-gray-300">Client Name</p>
+            </div>
+
+            <div class="mb-4">
+                <h4 class="text-lg font-semibold text-primary-700 dark:text-primary-400 mb-2">Project Description</h4>
+                <p id="modal-description" class="text-gray-700 dark:text-gray-300 whitespace-pre-line break-words">Extended project description will appear here.</p>
+            </div>
+
+            <div class="mb-4">
+                <h4 class="text-lg font-semibold text-primary-700 dark:text-primary-400 mb-2">Services Provided</h4>
+                <div id="modal-services" class="flex flex-wrap gap-2">
+                    <!-- Services will be inserted here -->
+                </div>
+            </div>
+
+            <div class="mt-6 flex justify-end">
+                <a id="modal-website-link" href="#" target="_blank" class="text-white bg-primary-600 hover:bg-primary-700 px-4 py-2 rounded-lg font-medium transition-colors flex items-center">
+                    <span>Visit Website</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript for filtering clients, theme toggle, and loading clients from JSON -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Theme toggle functionality
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const sunIcon = document.getElementById('sun-icon');
+        const moonIcon = document.getElementById('moon-icon');
+
+        // Check for saved theme preference or use preferred color scheme
+        if (localStorage.getItem('color-theme') === 'dark' ||
+            (!localStorage.getItem('color-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            // Add dark class to html element
+            document.documentElement.classList.add('dark');
+            // Show moon icon, hide sun icon
+            sunIcon.classList.add('hidden');
+            moonIcon.classList.remove('hidden');
+        } else {
+            // Remove dark class from html element
+            document.documentElement.classList.remove('dark');
+            // Show sun icon, hide moon icon
+            sunIcon.classList.remove('hidden');
+            moonIcon.classList.add('hidden');
+        }
+
+        // Toggle theme on button click
+        themeToggleBtn.addEventListener('click', function() {
+            // Toggle dark class on html element
+            document.documentElement.classList.toggle('dark');
+
+            // Toggle icons
+            sunIcon.classList.toggle('hidden');
+            moonIcon.classList.toggle('hidden');
+
+            // Update localStorage
+            if (document.documentElement.classList.contains('dark')) {
+                localStorage.setItem('color-theme', 'dark');
+            } else {
+                localStorage.setItem('color-theme', 'light');
+            }
+        });
+
+        // Helper function to truncate text
+        function truncateText(text, maxLength) {
+            if (text.length <= maxLength) return text;
+            return text.substring(0, maxLength - 3) + '...';
+        }
+
+        // Format description with line breaks
+        function formatDescription(text) {
+            // Add line breaks after sentences
+            return text.replace(/\.\s+/g, '.\n\n');
+        }
+
+        // Modal functionality
+        const modal = document.getElementById('project-modal');
+        const closeModalBtn = document.getElementById('close-modal');
+
+        // Close modal when clicking the close button
+        closeModalBtn.addEventListener('click', function() {
+            closeModal();
+        });
+
+        // Close modal when clicking outside the modal content
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Close modal when pressing Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+
+        function openModal(client) {
+            // Set modal content
+            document.getElementById('modal-title').textContent = client.name;
+            document.getElementById('modal-image').src = client.image;
+            document.getElementById('modal-image').alt = client.name;
+            document.getElementById('modal-client').textContent = client.name;
+
+            // Format and limit description to 1000 characters
+            let description = client.extendedDescription || client.testimonial;
+            description = truncateText(description, 1000);
+            description = formatDescription(description);
+            document.getElementById('modal-description').textContent = description;
+
+            document.getElementById('modal-website-link').href = client.websiteUrl;
+
+            // Set icon (first letter of client name)
+            const iconElement = document.getElementById('modal-icon');
+            iconElement.innerHTML = '';
+            if (client.iconUrl) {
+                const iconImg = document.createElement('img');
+                iconImg.src = client.iconUrl;
+                iconImg.alt = client.name + ' icon';
+                iconImg.className = 'w-full h-full object-cover rounded-full';
+                iconElement.appendChild(iconImg);
+            } else {
+                // Fallback to first letter if no icon URL is available
+                iconElement.textContent = client.name.charAt(0);
+            }
+
+            // Set services
+            const servicesContainer = document.getElementById('modal-services');
+            servicesContainer.innerHTML = '';
+            client.services.forEach(service => {
+                const serviceTag = document.createElement('span');
+                serviceTag.className = 'bg-primary-50 dark:bg-primary-800 text-primary-800 dark:text-primary-200 text-xs px-2 py-1 rounded';
+                serviceTag.textContent = service;
+                servicesContainer.appendChild(serviceTag);
+            });
+
+            // Show modal
+            modal.classList.add('active');
+
+            // Prevent body scrolling when modal is open
+            // document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+
+            // Re-enable body scrolling
+            // document.body.style.overflow = '';
+        }
+
+        // Load clients from JSON file
+        fetch('/assets/clients.json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(clients => {
+                const clientsGrid = document.getElementById('clients-grid');
+
+                // Clear any existing content
+                clientsGrid.innerHTML = '';
+
+                // Add each client to the grid
+                clients.forEach(client => {
+                    const clientCard = createClientCard(client);
+                    clientsGrid.appendChild(clientCard);
+                });
+
+                // Initialize filtering after clients are loaded
+                initializeFiltering();
+
+                // Add event listeners to "View Project" buttons
+                document.querySelectorAll('.view-project-btn').forEach((btn, index) => {
+                    btn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        openModal(clients[index]);
+                    });
+                });
+            })
+            .catch(error => {
+                console.error('Error loading clients:', error);
+                document.getElementById('clients-grid').innerHTML = `
+                    <div class="col-span-full text-center py-8">
+                        <p class="text-red-500">Failed to load clients. Please try again later.</p>
+                    </div>
+                `;
+            });
+
+        // Function to create a client card element
+        function createClientCard(client) {
+            const card = document.createElement('div');
+            card.className = 'client-card bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md border-2 border-primary-200 dark:border-primary-700 transition-all duration-300';
+            card.setAttribute('data-category', client.category);
+
+            // Create services HTML
+            const servicesHTML = client.services.map(service =>
+                `<span class="bg-primary-50 dark:bg-primary-800 text-primary-800 dark:text-primary-200 text-xs px-2 py-1 rounded">${service}</span>`
+            ).join('');
+
+            // Truncate testimonial to 150 characters
+            const truncatedTestimonial = truncateText(client.testimonial, 150);
+
+            card.innerHTML = `
+                <div class="relative">
+                    <img src="${client.image}" alt="${client.name}" class="w-full h-48 object-cover">
+                    <div class="absolute top-0 right-0 m-2 bg-primary-500 text-white text-xs py-1 px-2 rounded-full">${client.categoryLabel}</div>
+                </div>
+                <div class="p-6 border-t-2 border-primary-200 dark:border-primary-700">
+                    <h3 class="text-xl font-bold mt-2 text-primary-800 dark:text-primary-300">${client.name}</h3>
+                    <div class="mt-2 text-primary-600 dark:text-primary-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block mr-1" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block mr-1" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block mr-1" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block mr-1" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                        </svg>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mt-3 italic h-24 overflow-hidden">"${truncatedTestimonial}"</p>
+                    <div class="mt-4 flex flex-wrap gap-2">
+                        ${servicesHTML}
+                    </div>
+                    <div class="mt-6 flex justify-between items-center">
+                        <button class="view-project-btn text-white bg-primary-600 hover:bg-primary-700 px-4 py-2 rounded-lg font-medium transition-colors">View Project</button>
+                        <a href="${client.websiteUrl}" target="_blank" class="text-primary-600 dark:text-primary-400 hover:text-primary-800 dark:hover:text-primary-300 flex items-center">
+                            <span class="mr-1">Visit</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            `;
+
+            return card;
+        }
+
+        // Initialize filtering functionality
+        function initializeFiltering() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const clientCards = document.querySelectorAll('.client-card');
+
+            // Add click event to filter buttons
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterBtns.forEach(b => {
+                        b.classList.remove('active');
+                        b.classList.remove('bg-primary-500');
+                        b.classList.remove('text-white');
+                        b.classList.add('bg-white');
+                        b.classList.add('text-primary-700');
+                    });
+
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    this.classList.remove('bg-white');
+                    this.classList.remove('text-primary-700');
+                    this.classList.add('bg-primary-500');
+                    this.classList.add('text-white');
+
+                    // Get filter value
+                    const filterValue = this.getAttribute('data-filter');
+
+                    // Filter clients
+                    clientCards.forEach(card => {
+                        if (filterValue === 'all') {
+                            card.style.display = 'block';
+                        } else {
+                            if (card.getAttribute('data-category') === filterValue) {
+                                card.style.display = 'block';
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        }
+                    });
+                });
+            });
+        }
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>
+

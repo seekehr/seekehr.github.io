@@ -1,0 +1,31 @@
+[
+  {
+    "name": "LunarProxy",
+    "testimonial": "Working with Seeker was a game-changer for our social media. Their marketed video went viral and boosted our engagement a lot!",
+    "image": "/assets/lunarproxy.png",
+    "iconUrl": "/assets/lunarlogo.png",
+    "category": "startup",
+    "categoryLabel": "Startup",
+    "services": ["Social Media", "Editing", "Marketing"],
+    "websiteUrl": "https://lunarproxy.net"
+  },
+  {
+    "name": "Prim",
+    "testimonial": "I hired Seeker to edit a video for my social media platform and I was severely impressed with the results. The video was not only visually stunning but also perfectly relatable with social media humour.",
+    "image": "/assets/prim.png",
+    "iconUrl": "/assets/primavatar.png",
+    "category": "individual",
+    "categoryLabel": "Individual",
+    "services": ["Web App", "Branding", "API Integration"],
+    "websiteUrl": "https://lunarproxy.net"
+  },
+  {
+    "name": "Sulfurium Network",
+    "testimonial": "The game server for MCPE primarily developed by Seeker using his extensive PHP skills.",
+    "image": "/assets/sulfurium.png",
+    "category": "corporate",
+    "categoryLabel": "Corporate",
+    "services": ["PHP", "MySQL", "Game Server", "CLI"],
+    "websiteUrl": "https://discord.gg/odin-1041616706327552000"
+  }
+]
