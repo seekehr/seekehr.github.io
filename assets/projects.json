@@ -22,6 +22,30 @@
     "technologies": ["HTML", "TailwindCSS", "JavaScript"],
     "projectUrl": "https://github.com/seekehr/seekehr.github.io",
     "externalUrl": "https://github.com/seekehr/seekehr.github.io"
+  },
+  {
+    "id": 3,
+    "title": "NotTwitterFront",
+    "description": "Frontend of the self-developed social media website that serves as a replacement for/is heavily inspired by Twitter, made using React and Tailwind.",
+    "image": "/assets/nottwitter.png",
+    "category": "web",
+    "categoryLabel": "Web Development",
+    "categoryColor": "green",
+    "technologies": ["JSX", "TailwindCSS", "TypeScript", "ReactJS", "HTML"],
+    "projectUrl": "https://github.com/seekehr/NotTwitterFront",
+    "externalUrl": "https://github.com/seekehr/NotTwitterFront"
+  },
+  {
+    "id": 4,
+    "title": "NotTwitterBackend",
+    "description": "Backend of the self-developed social media website that serves as a replacement for/is heavily inspired by Twitter, made using Express.",
+    "image": "/assets/nottwitter.png",
+    "category": "web",
+    "categoryLabel": "Web Development",
+    "categoryColor": "yellow",
+    "technologies": ["TypeScript", "ExpressJS"],
+    "projectUrl": "https://github.com/seekehr/NotTwitter",
+    "externalUrl": "https://github.com/seekehr/NotTwitter"
   }
 ]
 
