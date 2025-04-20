@@ -578,8 +578,11 @@
 
     // Start floating texts immediately (don't wait for anything)
     document.addEventListener('DOMContentLoaded', function() {
-        console.log("DOM loaded, starting floating texts in 1 second");
-        setTimeout(startFloatingTexts, 1000);
+        console.log("DOM fully loaded and parsed");
+        if (document.querySelectorAll('.floating-text').length === 0) {
+            console.log("No floating texts found, starting them");
+            startFloatingTexts();
+        }
     });
 
     // Also try to start when page is fully loaded

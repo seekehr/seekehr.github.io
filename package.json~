@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "@tailwindcss/cli": "^4.0.9",
+    "tailwindcss": "^4.0.9"
+  },
+  "name": "seekehr.github.io",
+  "version": "1.0.0",
+  "description": "Portfolio website hosted on Github Pages.",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seekehr/seekehr.github.io.git"
+  },
+  "author": "Seekehr",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/seekehr/seekehr.github.io/issues"
+  },
+  "homepage": "https://github.com/seekehr/seekehr.github.io#readme"
+}
