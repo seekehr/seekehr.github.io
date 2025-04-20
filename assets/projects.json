@@ -66,7 +66,7 @@
     "image": "/assets/pathfinder.jpg",
     "category": "plugin",
     "categoryLabel": "Plugin Development",
-    "categoryColor": "indigo",
+    "categoryColor": "red",
     "technologies": ["PHP", "PocketMine-MP", "Pathfinding", "Algorithms"],
     "projectUrl": "https://github.com/seekehr/pfpm",
     "externalUrl": "https://github.com/seekehr/pfpm"
@@ -78,7 +78,7 @@
     "image": "/assets/poggitpe.png",
     "category": "plugin",
     "categoryLabel": "Plugin Development",
-    "categoryColor": "indigo",
+    "categoryColor": "red",
     "technologies": ["PHP", "PocketMine-MP", "Poggit API"],
     "projectUrl": "https://github.com/seekehr/PoggitPE",
     "externalUrl": "https://github.com/seekehr/PoggitPE"
