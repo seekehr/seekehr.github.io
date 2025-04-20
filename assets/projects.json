@@ -6,37 +6,37 @@
     "image": "/assets/notesx.png",
     "category": "web",
     "categoryLabel": "Web Development",
-    "categoryColor": "pink",
+    "categoryColor": "blue",
     "technologies": ["HTML", "CSS", "JavaScript", "NextJS"],
     "projectUrl": "https://github.com/seekehr/NotesX",
     "externalUrl": "https://github.com/seekehr/NotesX"
   },
   {
-    "id": 2,
+    "id": 5,
     "title": "NotTwitterFront",
     "description": "Frontend of the self-developed social media website that serves as a replacement for/is heavily inspired by Twitter, made using React and Tailwind.",
     "image": "/assets/nottwitter.png",
     "category": "web",
     "categoryLabel": "Web Development",
-    "categoryColor": "green",
+    "categoryColor": "blue",
     "technologies": ["JSX", "TailwindCSS", "TypeScript", "ReactJS", "HTML"],
     "projectUrl": "https://github.com/seekehr/NotTwitterFront",
     "externalUrl": "https://github.com/seekehr/NotTwitterFront"
   },
   {
-    "id": 3,
+    "id": 6,
     "title": "NotTwitterBackend",
     "description": "Backend of the self-developed social media website that serves as a replacement for/is heavily inspired by Twitter, made using Express.",
     "image": "/assets/nottwitter.png",
     "category": "web",
     "categoryLabel": "Web Development",
-    "categoryColor": "yellow",
+    "categoryColor": "blue",
     "technologies": ["TypeScript", "ExpressJS"],
     "projectUrl": "https://github.com/seekehr/NotTwitter",
     "externalUrl": "https://github.com/seekehr/NotTwitter"
   },
   {
-    "id": 4,
+    "id": 2,
     "title": "LoanTracker",
     "description": "A SaaS-inspired website to track loans, built using React/Tailwind and Express/MySQL/Redis.",
     "image": "/assets/loanpicture.png",
@@ -48,7 +48,7 @@
     "externalUrl": "https://youtu.be/LUcKv93m5lY?si=S5venFNsLeFufIN-"
   },
   {
-    "id": 5,
+    "id": 4,
     "title": "PasswordManager",
     "description": "A password manager app inspired by KeePassXC, featuring Argon2 hashing for master passwords and encryption for stored passwords. Supports multiple profiles and secure backup functionality.",
     "image": "/assets/passwordmanager.png",
@@ -60,7 +60,7 @@
     "externalUrl": "https://github.com/seekehr/PasswordManager"
   },
   {
-    "id": 6,
+    "id": 3,
     "title": "pfpm",
     "description": "A pathfinding (WIP) plugin for PocketMine-MP, encouraging extensibility using API for developers",
     "image": "/assets/pathfinder.jpg",
@@ -78,7 +78,7 @@
     "image": "/assets/poggitpe.png",
     "category": "plugin",
     "categoryLabel": "Plugin Development",
-    "categoryColor": "red",
+    "categoryColor": "indigo",
     "technologies": ["PHP", "PocketMine-MP", "Poggit API"],
     "projectUrl": "https://github.com/seekehr/PoggitPE",
     "externalUrl": "https://github.com/seekehr/PoggitPE"
@@ -90,7 +90,7 @@
     "image": "/assets/portfoliowebsite.png",
     "category": "web",
     "categoryLabel": "Web Development",
-    "categoryColor": "gray",
+    "categoryColor": "blue",
     "technologies": ["HTML", "TailwindCSS", "JavaScript"],
     "projectUrl": "https://github.com/seekehr/seekehr.github.io",
     "externalUrl": "https://github.com/seekehr/seekehr.github.io"
