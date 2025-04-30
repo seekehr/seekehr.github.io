@@ -465,31 +465,22 @@
 
         @media (max-width: 768px) {
             .nav-links {
-                /* position: absolute; */
-                /* top: 100%; */
-                /* right: 0; */
-                /* max-height: 0; */
-                /* overflow: hidden; */
-                /* transition: max-height 0.3s ease-out, padding 0.3s ease-out; */
-                
                 /* Sidebar Styles */
                 position: fixed;
                 top: 0;
-                left: -100%; /* Start off-screen */
+                right: -250px; /* Start off-screen to the right */
                 height: 100vh;
                 width: 250px; /* Sidebar width */
                 background: #1a1625; /* Darker sidebar background */
                 flex-direction: column;
                 align-items: flex-start; /* Align links to start */
                 padding: 2rem 1rem; /* Sidebar padding */
-                transition: left 0.3s ease-in-out; /* Transition for slide */
+                transition: right 0.3s ease-in-out; /* Transition for slide */
                 z-index: 1000; /* Ensure sidebar is on top */
             }
 
             .nav-links.active { 
-                /* max-height: 300px; */
-                /* padding: 1rem 0; */
-                left: 0; /* Slide in */
+                right: 0; /* Slide in from right */
             }
 
             .hamburger {
@@ -883,6 +874,7 @@
 
     const heroContent = document.querySelector('.hero-content');
     const expertiseContainer = document.querySelector('.expertise-container');
+    const navbarElement = document.querySelector('.navbar'); // Get navbar element
 
     function createFloatingText() {
         console.log("Creating floating text");
@@ -898,6 +890,7 @@
         const viewportHeight = window.innerHeight;
         const heroRect = heroContent.getBoundingClientRect();
         const expertiseRect = expertiseContainer.getBoundingClientRect();
+        const navbarRect = navbarElement.getBoundingClientRect(); // Get navbar bounds
         
         // Choose random text
         const textContent = floatingTexts[Math.floor(Math.random() * floatingTexts.length)];
@@ -942,8 +935,16 @@
                 posY + textHeight > expertiseRect.top
             );
 
-            // Check if position is valid (not overlapping)
-            if (!overlapsHero && !overlapsExpertise) {
+            // Check for overlap with navbar
+            const overlapsNavbar = (
+                posX < navbarRect.right && 
+                posX + textWidth > navbarRect.left && 
+                posY < navbarRect.bottom && 
+                posY + textHeight > navbarRect.top
+            );
+
+            // Check if position is valid (not overlapping any key element)
+            if (!overlapsHero && !overlapsExpertise && !overlapsNavbar) {
                 validPosition = true;
             }
         }
