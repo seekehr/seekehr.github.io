@@ -24,6 +24,18 @@
     "externalUrl": "https://youtu.be/LUcKv93m5lY?si=S5venFNsLeFufIN-"
   },
   {
+    "id": 9,
+    "title": "ZeqaStores",
+    "description": "ZeqaStores is a modern MERN-based e-commerce store with a sleek UI, built for a customer with the MERN stack in 3 days.",
+    "image": "/assets/zeqa.png",
+    "category": "web",
+    "categoryLabel": "Web Development",
+    "categoryColor": "blue",
+    "technologies": ["HTML", "TailwindCSS", "TypeScript", "ReactJS", "Express", "MySQL"],
+    "projectUrl": "https://youtu.be/SAvNmzm9Q64?si=RFBAfvZb1zeblvbK",
+    "externalUrl": "https://youtu.be/SAvNmzm9Q64?si=RFBAfvZb1zeblvbK"
+  },
+  {
     "id": 3,
     "title": "pfpm",
     "description": "A pathfinding (WIP) plugin for PocketMine-MP, encouraging extensibility using API for developers",
@@ -94,18 +106,6 @@
     "technologies": ["HTML", "TailwindCSS", "JavaScript"],
     "projectUrl": "https://github.com/seekehr/seekehr.github.io",
     "externalUrl": "https://github.com/seekehr/seekehr.github.io"
-  },
-  {
-    "id": 9,
-    "title": "ZeqaStores",
-    "description": "ZeqaStores is a modern MERN-based e-commerce store with a sleek UI, built for a customer with the MERN stack in 3 days.",
-    "image": "/assets/zeqa.png",
-    "category": "web",
-    "categoryLabel": "Web Development",
-    "categoryColor": "blue",
-    "technologies": ["HTML", "TailwindCSS", "TypeScript", "ReactJS", "Express", "MySQL"],
-    "projectUrl": "https://youtu.be/SAvNmzm9Q64?si=RFBAfvZb1zeblvbK",
-    "externalUrl": "https://youtu.be/SAvNmzm9Q64?si=RFBAfvZb1zeblvbK"
   }
 ]
 
