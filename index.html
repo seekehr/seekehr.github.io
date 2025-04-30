@@ -943,8 +943,24 @@
                 posY + textHeight > navbarRect.top
             );
 
-            // Check if position is valid (not overlapping any key element)
-            if (!overlapsHero && !overlapsExpertise && !overlapsNavbar) {
+            // Check for overlap with existing floating texts
+            let overlapsExistingText = false;
+            const existingTexts = document.querySelectorAll('.floating-text');
+            for (const existingText of existingTexts) {
+                const existingRect = existingText.getBoundingClientRect();
+                if (
+                    posX < existingRect.right && 
+                    posX + textWidth > existingRect.left && 
+                    posY < existingRect.bottom && 
+                    posY + textHeight > existingRect.top
+                ) {
+                    overlapsExistingText = true;
+                    break; // No need to check further if overlap is found
+                }
+            }
+
+            // Check if position is valid (not overlapping any key element or existing text)
+            if (!overlapsHero && !overlapsExpertise && !overlapsNavbar && !overlapsExistingText) {
                 validPosition = true;
             }
         }
