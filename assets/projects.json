@@ -98,7 +98,7 @@
   {
     "id": 9,
     "title": "ZeqaStores",
-    "description": "A MERN easy to access store that I made for a client!",
+    "description": "ZeqaStores is a modern MERN-based e-commerce store with a sleek UI, built for a customer with the MERN stack in 3 days.",
     "image": "/assets/zeqa.png",
     "category": "web",
     "categoryLabel": "Web Development",
