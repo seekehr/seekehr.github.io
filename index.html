@@ -310,43 +310,6 @@
             letter-spacing: 0.5px;
         }
 
-        .profile-image-container {
-            position: relative;
-            width: 400px;
-            height: 500px;
-        }
-
-        .profile-image {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            border-radius: 10px;
-            overflow: hidden;
-            z-index: 2;
-        }
-
-        .profile-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-        }
-
-        .profile-image::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(
-                to bottom,
-                rgba(14, 14, 16, 0) 40%,
-                rgba(14, 14, 16, 0.8) 100%
-            );
-            pointer-events: none;
-        }
-
         .bg-glow {
             position: absolute;
             width: 300px;
@@ -359,35 +322,6 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-        }
-
-        .tech-stack {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            display: flex;
-            gap: 10px;
-            z-index: 3;
-        }
-
-        .tech-icon {
-            width: 36px;
-            height: 36px;
-            background: rgba(14, 14, 16, 0.7);
-            backdrop-filter: blur(5px);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            color: white;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s;
-        }
-
-        .tech-icon:hover {
-            transform: translateY(-5px);
-            background: rgba(168, 85, 247, 0.3);
         }
 
         /* Expertise Section Styles */
@@ -444,6 +378,12 @@
             color: #a855f7;
             margin-right: 1rem;
             font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .expertise-details {
+            flex-grow: 1;
+            min-width: 0;
         }
 
         .expertise-name {
@@ -589,19 +529,15 @@
         </div>
         
         <div class="nav-links">
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Projects</a>
-            <a href="#">Skills</a>
-            <a href="#">Contact</a>
+            <a href="projects.html">Projects</a>
+            <a href="clients.html">Clients</a>
         </div>
         
         <div class="flex items-center">
             <div class="social-links mr-6">
                 <a href="https://github.com/seekehr/" target="_blank"><i class="fab fa-github"></i></a>
                 <a href="https://www.fiverr.com/jawadali1272/create-the-backend-of-any-website-for-you-in-php-or-js" target="_blank"><i class="fas fa-code"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="https://discord.gg/YuDZUsG3" target="_blank"><i class="fab fa-discord"></i></a>
             </div>
             <div class="hamburger">
                 <span></span>
@@ -614,8 +550,8 @@
     <!-- Hero Section -->
     <div class="hero-section">
         <div class="hero-content">
-            <span class="greeting">Hello, I'm</span>
-            <h1 class="profession">UI/UX and <br/><span class="name-highlight">Graphic Designer</span></h1>
+            <span class="greeting">Hello, I'm a</span>
+            <h1 class="profession">Frontend and <br/><span class="name-highlight">Backend Developerr</span></h1>
             <p class="hero-description">
                 Passionate about creating beautiful, intuitive and responsive web interfaces.
                 I specialize in turning complex problems into simple, elegant solutions.
@@ -632,20 +568,16 @@
             <!-- Stats Section -->
             <div class="stats-section">
                 <div class="stat">
-                    <div class="stat-value">8+</div>
+                    <div class="stat-value">5+</div>
                     <div class="stat-label">Years</div>
                 </div>
                 <div class="stat">
-                    <div class="stat-value">14</div>
+                    <div class="stat-value">30+</div>
                     <div class="stat-label">Projects</div>
                 </div>
                 <div class="stat">
-                    <div class="stat-value">300+</div>
+                    <div class="stat-value">10+</div>
                     <div class="stat-label">Clients</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-value">7th</div>
-                    <div class="stat-label">Rank</div>
                 </div>
             </div>
         </div>
@@ -658,10 +590,10 @@
                     <div class="expertise-icon">
                         <i class="fab fa-react"></i>
                     </div>
-                    <div>
+                    <div class="expertise-details">
                         <div class="expertise-name">React</div>
                         <div class="expertise-level">
-                            <div class="expertise-progress" style="width: 95%"></div>
+                            <div class="expertise-progress" style="width: 100%"></div>
                         </div>
                     </div>
                 </div>
@@ -669,10 +601,10 @@
                     <div class="expertise-icon">
                         <i class="fab fa-js"></i>
                     </div>
-                    <div>
+                    <div class="expertise-details">
                         <div class="expertise-name">TypeScript</div>
                         <div class="expertise-level">
-                            <div class="expertise-progress" style="width: 90%"></div>
+                            <div class="expertise-progress" style="width: 100%"></div>
                         </div>
                     </div>
                 </div>
@@ -680,10 +612,10 @@
                     <div class="expertise-icon">
                         <i class="fab fa-node-js"></i>
                     </div>
-                    <div>
+                    <div class="expertise-details">
                         <div class="expertise-name">Express</div>
                         <div class="expertise-level">
-                            <div class="expertise-progress" style="width: 88%"></div>
+                            <div class="expertise-progress" style="width: 100%"></div>
                         </div>
                     </div>
                 </div>
@@ -691,10 +623,10 @@
                     <div class="expertise-icon">
                         <i class="fab fa-node"></i>
                     </div>
-                    <div>
+                    <div class="expertise-details">
                         <div class="expertise-name">Node.js</div>
                         <div class="expertise-level">
-                            <div class="expertise-progress" style="width: 92%"></div>
+                            <div class="expertise-progress" style="width: 90%"></div>
                         </div>
                     </div>
                 </div>
@@ -702,10 +634,10 @@
                     <div class="expertise-icon">
                         <i class="fab fa-php"></i>
                     </div>
-                    <div>
+                    <div class="expertise-details">
                         <div class="expertise-name">PHP</div>
                         <div class="expertise-level">
-                            <div class="expertise-progress" style="width: 85%"></div>
+                            <div class="expertise-progress" style="width: 100%"></div>
                         </div>
                     </div>
                 </div>
@@ -713,10 +645,10 @@
                     <div class="expertise-icon">
                         <i class="fab fa-laravel"></i>
                     </div>
-                    <div>
+                    <div class="expertise-details">
                         <div class="expertise-name">Laravel</div>
                         <div class="expertise-level">
-                            <div class="expertise-progress" style="width: 82%"></div>
+                            <div class="expertise-progress" style="width: 80%"></div>
                         </div>
                     </div>
                 </div>
@@ -724,10 +656,10 @@
                     <div class="expertise-icon">
                         <i class="fas fa-database"></i>
                     </div>
-                    <div>
+                    <div class="expertise-details">
                         <div class="expertise-name">MySQL</div>
                         <div class="expertise-level">
-                            <div class="expertise-progress" style="width: 88%"></div>
+                            <div class="expertise-progress" style="width: 100%"></div>
                         </div>
                     </div>
                 </div>
@@ -735,10 +667,32 @@
                     <div class="expertise-icon">
                         <i class="fab fa-html5"></i>
                     </div>
-                    <div>
+                    <div class="expertise-details">
                         <div class="expertise-name">HTML/CSS</div>
                         <div class="expertise-level">
-                            <div class="expertise-progress" style="width: 96%"></div>
+                            <div class="expertise-progress" style="width: 100%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="expertise-item">
+                    <div class="expertise-icon">
+                        <i class="fa-solid fa-cloud"></i>
+                    </div>
+                    <div class="expertise-details">
+                        <div class="expertise-name">TailwindCSS</div>
+                        <div class="expertise-level">
+                            <div class="expertise-progress" style="width: 100%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="expertise-item">
+                    <div class="expertise-icon">
+                        <i class="fab fa-bootstrap"></i>
+                    </div>
+                    <div class="expertise-details">
+                        <div class="expertise-name">Bootstrap</div>
+                        <div class="expertise-level">
+                            <div class="expertise-progress" style="width: 50%"></div>
                         </div>
                     </div>
                 </div>
