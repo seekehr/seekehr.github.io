@@ -12,6 +12,30 @@
     "externalUrl": "https://github.com/seekehr/NotesX"
   },
   {
+    "id": 2,
+    "title": "LoanTracker",
+    "description": "A SaaS-inspired website to track loans, built using React/Tailwind and Express/MySQL/Redis.",
+    "image": "/assets/loanpicture.png",
+    "category": "web",
+    "categoryLabel": "Web Development",
+    "categoryColor": "blue",
+    "technologies": ["TypeScript", "ReactJS", "ExpressJS", "MySQL", "Redis", "TailwindCSS"],
+    "projectUrl": "https://github.com/seekehr/LoanTracker",
+    "externalUrl": "https://youtu.be/LUcKv93m5lY?si=S5venFNsLeFufIN-"
+  },
+  {
+    "id": 3,
+    "title": "pfpm",
+    "description": "A pathfinding (WIP) plugin for PocketMine-MP, encouraging extensibility using API for developers",
+    "image": "/assets/pathfinder.jpg",
+    "category": "plugin",
+    "categoryLabel": "Plugin Development",
+    "categoryColor": "red",
+    "technologies": ["PHP", "PocketMine-MP", "Pathfinding", "Algorithms"],
+    "projectUrl": "https://github.com/seekehr/pfpm",
+    "externalUrl": "https://github.com/seekehr/pfpm"
+  },
+  {
     "id": 5,
     "title": "NotTwitterFront",
     "description": "Frontend of the self-developed social media website that serves as a replacement for/is heavily inspired by Twitter, made using React and Tailwind.",
@@ -36,18 +60,6 @@
     "externalUrl": "https://github.com/seekehr/NotTwitter"
   },
   {
-    "id": 2,
-    "title": "LoanTracker",
-    "description": "A SaaS-inspired website to track loans, built using React/Tailwind and Express/MySQL/Redis.",
-    "image": "/assets/loanpicture.png",
-    "category": "web",
-    "categoryLabel": "Web Development",
-    "categoryColor": "blue",
-    "technologies": ["TypeScript", "ReactJS", "ExpressJS", "MySQL", "Redis", "TailwindCSS"],
-    "projectUrl": "https://github.com/seekehr/LoanTracker",
-    "externalUrl": "https://youtu.be/LUcKv93m5lY?si=S5venFNsLeFufIN-"
-  },
-  {
     "id": 4,
     "title": "PasswordManager",
     "description": "A password manager app inspired by KeePassXC, featuring Argon2 hashing for master passwords and encryption for stored passwords. Supports multiple profiles and secure backup functionality.",
@@ -58,18 +70,6 @@
     "technologies": ["JavaScript", "Node.js", "Argon2", "Encryption"],
     "projectUrl": "https://github.com/seekehr/PasswordManager",
     "externalUrl": "https://github.com/seekehr/PasswordManager"
-  },
-  {
-    "id": 3,
-    "title": "pfpm",
-    "description": "A pathfinding (WIP) plugin for PocketMine-MP, encouraging extensibility using API for developers",
-    "image": "/assets/pathfinder.jpg",
-    "category": "plugin",
-    "categoryLabel": "Plugin Development",
-    "categoryColor": "red",
-    "technologies": ["PHP", "PocketMine-MP", "Pathfinding", "Algorithms"],
-    "projectUrl": "https://github.com/seekehr/pfpm",
-    "externalUrl": "https://github.com/seekehr/pfpm"
   },
   {
     "id": 7,
@@ -94,6 +94,18 @@
     "technologies": ["HTML", "TailwindCSS", "JavaScript"],
     "projectUrl": "https://github.com/seekehr/seekehr.github.io",
     "externalUrl": "https://github.com/seekehr/seekehr.github.io"
+  },
+  {
+    "id": 9,
+    "title": "ZeqaStores",
+    "description": "A MERN easy to access store that I made for a client!",
+    "image": "/assets/zeqa.png",
+    "category": "web",
+    "categoryLabel": "Web Development",
+    "categoryColor": "blue",
+    "technologies": ["HTML", "TailwindCSS", "TypeScript", "ReactJS", "Express", "MySQL"],
+    "projectUrl": "https://youtu.be/SAvNmzm9Q64?si=RFBAfvZb1zeblvbK",
+    "externalUrl": "https://youtu.be/SAvNmzm9Q64?si=RFBAfvZb1zeblvbK"
   }
 ]
 
