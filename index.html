@@ -465,27 +465,36 @@
 
         @media (max-width: 768px) {
             .nav-links {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: #16121e;
+                /* position: absolute; */
+                /* top: 100%; */
+                /* right: 0; */
+                /* max-height: 0; */
+                /* overflow: hidden; */
+                /* transition: max-height 0.3s ease-out, padding 0.3s ease-out; */
+                
+                /* Sidebar Styles */
+                position: fixed;
+                top: 0;
+                left: -100%; /* Start off-screen */
+                height: 100vh;
+                width: 250px; /* Sidebar width */
+                background: #1a1625; /* Darker sidebar background */
                 flex-direction: column;
-                align-items: center;
-                padding: 1rem 0;
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.3s ease-out, padding 0.3s ease-out;
-                z-index: 10;
+                align-items: flex-start; /* Align links to start */
+                padding: 2rem 1rem; /* Sidebar padding */
+                transition: left 0.3s ease-in-out; /* Transition for slide */
+                z-index: 1000; /* Ensure sidebar is on top */
             }
 
-            .nav-links.active {
-                max-height: 300px;
-                padding: 1rem 0;
+            .nav-links.active { 
+                /* max-height: 300px; */
+                /* padding: 1rem 0; */
+                left: 0; /* Slide in */
             }
 
             .hamburger {
                 display: flex;
+                z-index: 1001; /* Ensure hamburger is above overlay */
             }
 
             .profession {
@@ -560,6 +569,25 @@
                 margin-right: 0.25rem;
             }
         }
+
+        /* Sidebar Overlay Styles */
+        .sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+            z-index: 999; /* Below sidebar but above content */
+        }
+
+        .sidebar-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
     </style>
 </head>
 
@@ -577,31 +605,20 @@
 
 <!-- Main Container -->
 <div class="main-container">
-    <!-- Donation Section (Moved outside nav temporarily) -->
-    <!-- <footer class="donation-section">
-        <div class="container mx-auto text-center py-0">
-            <i class="fas fa-coffee text-purple-400 text-2xl mr-3"></i>
-            <span class="text-gray-400">
-                Donate a cup of coffee if you like my work: 
-                <span class="font-mono text-gray-300 break-all">bc1qe4fw9zfpg7l5p3zdxedppucew9k8ranyurhc9l</span>
-            </span>
-        </div>
-    </footer> -->
+    <div id="sidebar-overlay" class="sidebar-overlay"></div>
 
-    <!-- Navbar -->
+    <!-- Donation Section (Moved inside nav) -->
     <nav class="navbar">
-        <!-- Donation Section (Moved inside nav) -->
         <div class="donation-section-nav">
             <div class="container mx-auto text-center py-0">
-                <i class="fas fa-coffee text-purple-400 text-xl mr-2"></i> <!-- Reduced icon size -->
-                <span class="text-gray-400 text-sm"> <!-- Reduced text size -->
+                <i class="fas fa-coffee text-purple-400 text-xl mr-2"></i>
+                <span class="text-gray-400 text-sm">
                     Donate a cup of coffee if you like my work: 
                     <span class="font-mono text-gray-300 break-all">bc1qe4fw9zfpg7l5p3zdxedppucew9k8ranyurhc9l</span>
                 </span>
             </div>
         </div>
         
-        <!-- Original Navbar Content Wrapper -->
         <div class="navbar-main-content">
             <div class="logo">
                 <div class="logo-icon">
@@ -794,8 +811,8 @@
         <a href="https://www.fiverr.com/jawadali1272/create-the-backend-of-any-website-for-you-in-php-or-js" id="fiverr-link" target="_blank"></a>
         <a href="clients.html" id="clients-link"></a>
         <a href="projects.html" id="projects-link"></a>
-        </div>
-        </div>
+    </div>
+</div>
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
@@ -824,13 +841,21 @@
         // Start updating progress every 100ms (faster)
         loadInterval = setInterval(updateProgress, 100);
 
-        // Hamburger Menu Toggle (Moved inside DOMContentLoaded)
+        // Hamburger Menu Toggle
         const hamburgerBtn = document.getElementById('hamburger-btn');
         const mobileNavLinks = document.getElementById('mobile-nav-links');
+        const sidebarOverlay = document.getElementById('sidebar-overlay'); // Get overlay
 
-        if (hamburgerBtn && mobileNavLinks) {
+        if (hamburgerBtn && mobileNavLinks && sidebarOverlay) { // Check overlay too
             hamburgerBtn.addEventListener('click', () => {
                 mobileNavLinks.classList.toggle('active');
+                sidebarOverlay.classList.toggle('active'); // Toggle overlay active class
+            });
+
+            // Add listener to overlay to close sidebar
+            sidebarOverlay.addEventListener('click', () => {
+                mobileNavLinks.classList.remove('active');
+                sidebarOverlay.classList.remove('active');
             });
         }
     });
