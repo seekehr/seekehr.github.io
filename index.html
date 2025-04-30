@@ -91,8 +91,264 @@
             transition: transform 0.15s ease-in-out;
         }
 
+        /* New Styles for the dark design */
+        body {
+            background: #121212;
+            font-family: 'Inter', sans-serif;
+            color: white;
+        }
 
-        /* Rest of CSS remained the same */
+        .main-container {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #121212 0%, #1e1e1e 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 2rem;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-icon {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #9c6dff;
+        }
+
+        .sign-in-btn {
+            background: #5d3fd3;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .sign-in-btn:hover {
+            background: #4a32a8;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(93, 63, 211, 0.4);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 20px;
+        }
+
+        .hamburger span {
+            height: 2px;
+            width: 100%;
+            background-color: white;
+            border-radius: 10px;
+        }
+
+        .hero-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 4rem 0;
+        }
+
+        .hero-content {
+            max-width: 550px;
+        }
+
+        .hero-title {
+            font-size: 5rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            line-height: 1;
+        }
+
+        .hero-description {
+            color: #c4c4c4;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            max-width: 400px;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 9999px;
+            padding: 0.5rem 1rem;
+            margin: 2rem 0;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .search-bar input {
+            background: transparent;
+            border: none;
+            color: white;
+            width: 100%;
+            padding: 0.5rem;
+            outline: none;
+        }
+
+        .search-bar input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .search-icon {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .cta-primary {
+            background: #00a8ff;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .cta-primary:hover {
+            background: #0088cc;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 168, 255, 0.4);
+        }
+
+        .cta-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .cta-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .visual-content {
+            position: relative;
+            width: 500px;
+            height: 400px;
+        }
+
+        .blob {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #5d3fd3, #00a8ff);
+            filter: blur(40px);
+            opacity: 0.5;
+            border-radius: 60% 40% 70% 30% / 60% 30% 70% 40%;
+            animation: blob-animation 15s infinite alternate;
+        }
+
+        .overlay-image {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+        }
+
+        .landing-text {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        @keyframes blob-animation {
+            0% {
+                border-radius: 60% 40% 70% 30% / 60% 30% 70% 40%;
+            }
+            50% {
+                border-radius: 30% 60% 40% 70% / 50% 60% 30% 60%;
+            }
+            100% {
+                border-radius: 50% 50% 30% 70% / 40% 40% 70% 60%;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .hero-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-content {
+                margin-bottom: 3rem;
+            }
+
+            .hero-description {
+                margin: 0 auto 2rem auto;
+            }
+
+            .search-bar {
+                margin: 2rem auto;
+            }
+
+            .cta-buttons {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .visual-content {
+                width: 100%;
+                height: 300px;
+            }
+        }
+
+        /* Preserve original animation styles */
         @keyframes typewriter {
             from { width: 0; }
             to { width: 100%; }
@@ -108,66 +364,12 @@
             letter-spacing: 0.15em;
             animation: typewriter 5s steps(40, end), blink 0.75s step-end infinite;
         }
-        .gradient-bg {
-            background: linear-gradient(to bottom, #e0e0e0, #c0c0c0, #a0a0a0);
-            position: relative;
-            overflow: hidden;
-            height: 100vh;
-        }
-        .center-box {
-            background: white;
-            border: 2px solid #888888;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            z-index: 1;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 300px;
-            height: 250px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .ball {
-            width: 30px;
-            height: 30px;
-            background-color: #ff6347;
-            border-radius: 50%;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            cursor: pointer;
-        }
-        .tooltip {
-            position: absolute;
-            background: black;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 0.9rem;
-            visibility: hidden;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .button {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-        }
 
         /* Floating Text Styles */
         .floating-text {
             position: absolute;
             color: white;
-            font-family: 'Courier New', monospace;
+            font-family: 'Inter', sans-serif;
             font-size: 1.2rem;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
             background-color: rgba(80, 80, 80, 0.7);
@@ -212,35 +414,77 @@
     <div class="progress-percentage" id="percentage-text">0%</div>
 </div>
 
-<section class="gradient-bg">
+<!-- Main Container -->
+<div class="main-container">
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <div class="logo-icon">▶</div>
+            TEMPLATE DSGN
+        </div>
+        
+        <div class="nav-links">
+            <a href="#">ABOUT</a>
+            <a href="#">DOWNLOAD</a>
+            <a href="#">PRICING</a>
+            <a href="#">FEATURES</a>
+            <a href="#">CONTACT</a>
+        </div>
+        
+        <div class="flex items-center">
+            <a href="#" class="sign-in-btn">SIGN IN</a>
+            <div class="hamburger ml-4">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">Welcome.</h1>
+            
+            <!-- Search Bar -->
+            <div class="search-bar">
+                <input type="text" placeholder="Search...">
+                <div class="search-icon">🔍</div>
+            </div>
+            
+            <!-- CTA Buttons -->
+            <div class="cta-buttons">
+                <a href="#" class="cta-primary">FREE TRIAL</a>
+                <a href="#" class="cta-secondary">see more</a>
+            </div>
+        </div>
+        
+        <div class="visual-content">
+            <div class="blob"></div>
+            <div class="overlay-image">
+                <div class="text-right">
+                    <div class="landing-text">Landing page.</div>
+                    <p class="hero-description">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed diam nonummy nibh euismod tincidunt ut laoreet. Ut wisi enim ad minim
+                        veniam, quis nostrud exerci tation ullamcorper suscipit lobortis.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <!-- Floating Text Container -->
     <div id="floating-text-container"></div>
     
-    <!-- Bouncing Ball -->
-    <div class="ball" id="ball"></div>
-    <div class="tooltip" id="tooltip">Click me for a reward</div>
-
-    <!-- Hero Section -->
-    <section class="center-box text-center" id="center-box">
-        <div class="typewriter">
-            <h1 class="text-2xl font-bold text-gray-800">Seeker</h1>
-        </div>
-        <div class="flex justify-center space-x-4">
-            <!-- Github Button -->
-            <a href="https://github.com/seekehr/" target="_blank" class="button flex items-center bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800">
-                <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="Github Logo" class="h-5 w-5 mr-2">
-                Github
-            </a>
-            <!-- Fiverr Button -->
-            <a href="https://www.fiverr.com/jawadali1272/create-the-backend-of-any-website-for-you-in-php-or-js" target="_blank" class="button flex items-center bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600">
-                <img src="/assets/fiverr-icon.svg" alt="Fiverr Logo" class="h-5 w-5 mr-2">
-                Fiverr
-            </a>
-        </div>
-        <a href="clients.html" class="button bg-green-800 text-white px-4 py-2 rounded-lg hover:bg-green-900 mt-6">Clients</a>
-        <a href="projects.html" class="button bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 mt-6">Projects</a>
-    </section>
-</section>
+    <!-- Preserved links from original design (hidden but functional) -->
+    <div class="hidden">
+        <a href="https://github.com/seekehr/" id="github-link" target="_blank"></a>
+        <a href="https://www.fiverr.com/jawadali1272/create-the-backend-of-any-website-for-you-in-php-or-js" id="fiverr-link" target="_blank"></a>
+        <a href="clients.html" id="clients-link"></a>
+        <a href="projects.html" id="projects-link"></a>
+    </div>
+</div>
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
@@ -269,210 +513,12 @@
         // Start updating progress every 100ms (faster)
         loadInterval = setInterval(updateProgress, 100);
     });
-
-    //ball
-    const ball = document.getElementById('ball');
-    const centerBox = document.getElementById('center-box');
-    const tooltip = document.getElementById('tooltip');
-
-    // Change ball color to black
-    ball.style.backgroundColor = '#000000';
-
-    let x = Math.random() * window.innerWidth;
-    let y = Math.random() * window.innerHeight;
-    let dx = (Math.random() - 0.5) * 2;
-    let dy = (Math.random() - 0.5) * 2;
-
-    let speed = 1;
-
-    function createBall() {
-        const newBall = ball.cloneNode(true);
-        document.body.appendChild(newBall);
-        let newX = Math.random() * window.innerWidth;
-        let newY = Math.random() * window.innerHeight;
-        let newDx = (Math.random() - 0.5) * 6;
-        let newDy = (Math.random() - 0.5) * 6;
-
-        // Set ball color to black
-        newBall.style.backgroundColor = '#000000';
-        
-        newBall.addEventListener('click', createBall);
-
-        function animateNewBall() {
-            const ballSize = 30;
-            const box = centerBox.getBoundingClientRect();
-
-            if (newX + ballSize >= window.innerWidth || newX <= 0) newDx = -newDx + (Math.random() - 0.5);
-            if (newY + ballSize >= window.innerHeight || newY <= 0) newDy = -newDy + (Math.random() - 0.5);
-
-            // Collision with center box
-            if (
-                newX + ballSize > box.left && newX < box.right &&
-                newY + ballSize > box.top && newY < box.bottom
-            ) {
-                if (newX + ballSize > box.left && newX < box.left + ballSize) newDx = -Math.abs(newDx) + (Math.random() - 0.5);
-                if (newX < box.right && newX + ballSize > box.right - ballSize) newDx = Math.abs(newDx) + (Math.random() - 0.5);
-                if (newY + ballSize > box.top && newY < box.top + ballSize) newDy = -Math.abs(newDy) + (Math.random() - 0.5);
-                if (newY < box.bottom && newY + ballSize > box.bottom - ballSize) newDy = Math.abs(newDy) + (Math.random() - 0.5);
-            }
-
-            // Collision with floating texts
-            const floatingTexts = document.querySelectorAll('.floating-text');
-            floatingTexts.forEach(text => {
-                const textRect = text.getBoundingClientRect();
-                if (
-                    newX + ballSize > textRect.left && newX < textRect.right &&
-                    newY + ballSize > textRect.top && newY < textRect.bottom
-                ) {
-                    // Determine which side of the text was hit
-                    if (newX + ballSize > textRect.left && newX < textRect.left + ballSize) newDx = -Math.abs(newDx) * 1.1;
-                    if (newX < textRect.right && newX + ballSize > textRect.right - ballSize) newDx = Math.abs(newDx) * 1.1;
-                    if (newY + ballSize > textRect.top && newY < textRect.top + ballSize) newDy = -Math.abs(newDy) * 1.1;
-                    if (newY < textRect.bottom && newY + ballSize > textRect.bottom - ballSize) newDy = Math.abs(newDy) * 1.1;
-                    
-                    // Slightly bounce the text
-                    text.style.transform = `translate(${(Math.random() - 0.5) * 5}px, ${(Math.random() - 0.5) * 5}px)`;
-                    setTimeout(() => {
-                        text.style.transform = 'translate(0, 0)';
-                    }, 300);
-                }
-            });
-
-            // Collision with other balls
-            const balls = document.querySelectorAll('.ball');
-            balls.forEach(otherBall => {
-                if (otherBall === newBall) return; // Skip self
-                
-                const otherRect = otherBall.getBoundingClientRect();
-                const otherX = otherRect.left;
-                const otherY = otherRect.top;
-                
-                // Calculate distance between centers
-                const dx = (newX + ballSize/2) - (otherX + ballSize/2);
-                const dy = (newY + ballSize/2) - (otherY + ballSize/2);
-                const distance = Math.sqrt(dx * dx + dy * dy);
-                
-                // Check if balls are colliding
-                if (distance < ballSize) {
-                    // Simple collision response - reverse directions and add randomness
-                    newDx = dx/distance * Math.abs(newDx) * 1.1;
-                    newDy = dy/distance * Math.abs(newDy) * 1.1;
-                    
-                    // Apply a small visual effect to the other ball
-                    otherBall.style.transform = 'scale(1.1)';
-                    setTimeout(() => {
-                        otherBall.style.transform = 'scale(1)';
-                    }, 100);
-                }
-            });
-
-            newX += newDx * speed;
-            newY += newDy * speed;
-
-            newBall.style.left = `${newX}px`;
-            newBall.style.top = `${newY}px`;
-
-            requestAnimationFrame(animateNewBall);
-        }
-
-        animateNewBall();
-    }
-
-    function animate() {
-        const ballSize = 30;
-        const box = centerBox.getBoundingClientRect();
-
-        if (x + ballSize >= window.innerWidth || x <= 0) dx = -dx + (Math.random() - 0.5);
-        if (y + ballSize >= window.innerHeight || y <= 0) dy = -dy + (Math.random() - 0.5);
-
-        // Collision with center box
-        if (
-            x + ballSize > box.left && x < box.right &&
-            y + ballSize > box.top && y < box.bottom
-        ) {
-            if (x + ballSize > box.left && x < box.left + ballSize) dx = -Math.abs(dx) + (Math.random() - 0.5);
-            if (x < box.right && x + ballSize > box.right - ballSize) dx = Math.abs(dx) + (Math.random() - 0.5);
-            if (y + ballSize > box.top && y < box.top + ballSize) dy = -Math.abs(dy) + (Math.random() - 0.5);
-            if (y < box.bottom && y + ballSize > box.bottom - ballSize) dy = Math.abs(dy) + (Math.random() - 0.5);
-        }
-
-        // Collision with floating texts
-        const floatingTexts = document.querySelectorAll('.floating-text');
-        floatingTexts.forEach(text => {
-            const textRect = text.getBoundingClientRect();
-            if (
-                x + ballSize > textRect.left && x < textRect.right &&
-                y + ballSize > textRect.top && y < textRect.bottom
-            ) {
-                // Determine which side of the text was hit
-                if (x + ballSize > textRect.left && x < textRect.left + ballSize) dx = -Math.abs(dx) * 1.1;
-                if (x < textRect.right && x + ballSize > textRect.right - ballSize) dx = Math.abs(dx) * 1.1;
-                if (y + ballSize > textRect.top && y < textRect.top + ballSize) dy = -Math.abs(dy) * 1.1;
-                if (y < textRect.bottom && y + ballSize > textRect.bottom - ballSize) dy = Math.abs(dy) * 1.1;
-                
-                // Slightly bounce the text
-                text.style.transform = `translate(${(Math.random() - 0.5) * 5}px, ${(Math.random() - 0.5) * 5}px)`;
-                setTimeout(() => {
-                    text.style.transform = 'translate(0, 0)';
-                }, 300);
-            }
-        });
-
-        // Collision with other balls
-        const balls = document.querySelectorAll('.ball');
-        balls.forEach(otherBall => {
-            if (otherBall === ball) return; // Skip the main ball
-            
-            const otherRect = otherBall.getBoundingClientRect();
-            const otherX = otherRect.left;
-            const otherY = otherRect.top;
-            
-            // Calculate distance between centers
-            const distX = (x + ballSize/2) - (otherX + ballSize/2);
-            const distY = (y + ballSize/2) - (otherY + ballSize/2);
-            const distance = Math.sqrt(distX * distX + distY * distY);
-            
-            // Check if balls are colliding
-            if (distance < ballSize) {
-                // Simple collision response - reverse directions with angle
-                dx = distX/distance * Math.abs(dx) * 1.1;
-                dy = distY/distance * Math.abs(dy) * 1.1;
-            }
-        });
-
-        x += dx * speed;
-        y += dy * speed;
-
-        ball.style.left = `${x}px`;
-        ball.style.top = `${y}px`;
-
-        tooltip.style.left = `${x + 20}px`;
-        tooltip.style.top = `${y - 20}px`;
-
-        requestAnimationFrame(animate);
-    }
-
-    ball.addEventListener('mouseenter', () => {
-        tooltip.style.left = `${x + 20}px`;
-        tooltip.style.top = `${y - 20}px`;
-        tooltip.style.visibility = 'visible';
-        tooltip.style.opacity = '1';
-    });
-
-    ball.addEventListener('mouseleave', () => {
-        tooltip.style.visibility = 'hidden';
-        tooltip.style.opacity = '0';
-    });
-
-    ball.addEventListener('click', createBall);
-
+    
     // Floating Text Implementation
     const floatingTexts = [
         "Welcome to my portfolio",
         "Full-stack developer",
-        "PSST... Click on the balls",
         "Creative thinker",
-        "The balls seem funny, right?",
         "JavaScript lover",
         "Building digital experiences",
         "Turning ideas into code",
@@ -486,7 +532,7 @@
         console.log("Creating floating text container");
         floatingTextContainer = document.createElement('div');
         floatingTextContainer.id = 'floating-text-container';
-        document.querySelector('.gradient-bg').appendChild(floatingTextContainer);
+        document.querySelector('.main-container').appendChild(floatingTextContainer);
     }
 
     function createFloatingText() {
@@ -501,7 +547,6 @@
         // Get current dimensions
         const viewportWidth = window.innerWidth;
         const viewportHeight = window.innerHeight;
-        const boxRect = centerBox.getBoundingClientRect();
         
         // Choose random text
         const textContent = floatingTexts[Math.floor(Math.random() * floatingTexts.length)];
@@ -515,7 +560,7 @@
         span.textContent = textContent;
         textElement.appendChild(span);
         
-        // Find position that doesn't overlap with center box
+        // Find position that doesn't overlap with center
         let posX, posY;
         let validPosition = false;
         let attempts = 0;
@@ -530,11 +575,8 @@
             posY = Math.random() * (viewportHeight - textHeight - 40);
             attempts++;
             
-            // Check if position overlaps with center box
-            if (!(posX < boxRect.right && 
-                  posX + textWidth > boxRect.left && 
-                  posY < boxRect.bottom && 
-                  posY + textHeight > boxRect.top)) {
+            // Check if position is valid (simplified)
+            if (posY > 200 && posY < viewportHeight - 100) {
                 validPosition = true;
             }
         }
@@ -602,8 +644,6 @@
             startFloatingTexts();
         }
     }, 2000);
-
-    animate();
 </script>
 </body>
 </html>
