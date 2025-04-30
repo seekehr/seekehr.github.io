@@ -465,50 +465,60 @@
 
         @media (max-width: 768px) {
             .navbar-main-content {
-                padding: 1rem 0.5rem 1rem 0; /* Removed left padding */
+                padding: 1rem 0.5rem 1rem 0; /* Keep left padding 0 */
+                justify-content: flex-start; /* Align items to start */
             }
 
             .nav-links {
-                /* Sidebar Styles */
+                /* Sidebar Styles - KEEP AS IS */
                 position: fixed;
                 top: 0;
-                right: -250px; /* Start off-screen to the right */
+                right: -250px; 
                 height: 100vh;
-                width: 250px; /* Sidebar width */
-                background: #1a1625; /* Darker sidebar background */
+                width: 250px; 
+                background: #1a1625; 
                 flex-direction: column;
-                align-items: flex-start; /* Align links to start */
-                padding: 2rem 1rem; /* Sidebar padding */
-                transition: right 0.3s ease-in-out; /* Transition for slide */
-                z-index: 1000; /* Ensure sidebar is on top */
+                align-items: flex-start; 
+                padding: 2rem 1rem; 
+                transition: right 0.3s ease-in-out; 
+                z-index: 1000; 
             }
 
             .nav-links.active { 
-                right: 0; /* Slide in from right */
+                right: 0; 
+            }
+            
+            .navbar-right-group { /* New group for mobile */
+                display: flex;
+                align-items: center;
+                margin-left: auto; /* Push this whole group right */
             }
 
             .hamburger {
                 display: flex;
-                z-index: 1001; /* Ensure hamburger is above overlay */
-                transition: opacity 0.3s ease-in-out; /* Add transition for fading */
+                z-index: 1001; 
+                transition: opacity 0.3s ease-in-out; 
+                /* margin-left: auto; <- Remove this */ 
             }
 
             .social-links {
-                /* Reposition for mobile next to logo */
-                position: absolute;
-                left: 100px; /* Increased from 85px */
-                top: 50%;
-                transform: translateY(-50%);
-                margin-right: 0; /* Remove desktop margin */
-                /* Ensure visibility if previously hidden */
+                /* Remove absolute positioning */
+                /* position: absolute; */
+                /* left: 100px; */ 
+                /* top: 50%; */
+                /* transform: translateY(-50%); */
+                
+                /* Keep display and gap */
                 display: flex !important; 
-                gap: 0.5rem; /* Reduced gap between icons */
+                gap: 0.5rem; 
+                margin-right: 1rem; /* Add space before hamburger */
+                /* margin-left: 1rem; <- Add margin to space from logo if needed, but handled by group margin now */
             }
 
-            .social-links a { /* Reduce icon size for mobile */
+            .social-links a { 
                 width: 28px;
                 height: 28px;
-                font-size: 0.8rem; /* Adjust icon font size if needed */
+                font-size: 0.8rem; 
             }
 
             .sidebar-overlay.active + .navbar .navbar-main-content .hamburger {
@@ -654,7 +664,8 @@
                 <a href="clients.html">Clients</a>
             </div>
             
-            <div class="flex items-center">
+            <!-- Group for right-side elements -->
+            <div class="navbar-right-group">
                 <div class="social-links mr-6">
                     <a href="https://github.com/seekehr/" target="_blank"><i class="fab fa-github"></i></a>
                     <a href="https://www.fiverr.com/jawadali1272/create-the-backend-of-any-website-for-you-in-php-or-js" target="_blank"><i class="fas fa-briefcase"></i></a>
