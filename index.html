@@ -97,7 +97,13 @@
             background: #0e0e10;
             font-family: 'Inter', 'Segoe UI', sans-serif;
             color: white;
-            overflow: hidden; /* Prevent scrolling */
+        }
+
+        /* Add this media query for desktop */
+        @media (min-width: 769px) {
+            body {
+                overflow: hidden; /* Prevent scrolling on larger screens */
+            }
         }
 
         .main-container {
@@ -458,7 +464,23 @@
 
         @media (max-width: 768px) {
             .nav-links {
-                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #16121e;
+                flex-direction: column;
+                align-items: center;
+                padding: 1rem 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+                z-index: 10;
+            }
+
+            .nav-links.active {
+                max-height: 300px;
+                padding: 1rem 0;
             }
 
             .hamburger {
@@ -589,7 +611,7 @@
                 SEEKER
             </div>
             
-            <div class="nav-links">
+            <div class="nav-links" id="mobile-nav-links">
                 <a href="projects.html">Projects</a>
                 <a href="clients.html">Clients</a>
             </div>
@@ -600,7 +622,7 @@
                     <a href="https://www.fiverr.com/jawadali1272/create-the-backend-of-any-website-for-you-in-php-or-js" target="_blank"><i class="fas fa-briefcase"></i></a>
                     <a href="https://discord.gg/YuDZUsG3" target="_blank"><i class="fab fa-discord"></i></a>
                 </div>
-                <div class="hamburger">
+                <div class="hamburger" id="hamburger-btn">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -959,6 +981,17 @@
             startFloatingTexts();
         }
     }, 2000);
+
+    // Hamburger Menu Toggle
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const mobileNavLinks = document.getElementById('mobile-nav-links');
+
+    if (hamburgerBtn && mobileNavLinks) {
+        hamburgerBtn.addEventListener('click', () => {
+            mobileNavLinks.classList.toggle('active');
+        });
+    }
+
 </script>
 </body>
 </html>
