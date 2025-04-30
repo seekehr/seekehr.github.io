@@ -97,6 +97,7 @@
             background: #0e0e10;
             font-family: 'Inter', 'Segoe UI', sans-serif;
             color: white;
+            overflow: hidden; /* Prevent scrolling */
         }
 
         .main-container {
@@ -104,13 +105,20 @@
             background: linear-gradient(135deg, #0e0e10 0%, #16121e 100%);
             position: relative;
             overflow: hidden;
-            padding: 2rem;
+            padding: 0 2rem 2rem 2rem;
         }
 
         .navbar {
             display: flex;
+            flex-direction: column;
+            padding: 0;
+        }
+
+        .navbar-main-content {
+            display: flex;
             justify-content: space-between;
             align-items: center;
+            width: 100%;
             padding: 1rem 0;
         }
 
@@ -126,6 +134,13 @@
             width: 30px;
             height: 30px;
             margin-right: 10px;
+            color: #a855f7;
+        }
+
+        .logo-icon svg {
+            display: block;
+            width: 100%;
+            height: 100%;
         }
 
         .nav-links {
@@ -499,18 +514,28 @@
             50% { border-color: #a855f7; }
         }
 
-        /* Donation Section Styles */
-        .donation-section {
-            background-color: #111113; /* Slightly darker than body */
+        /* Integrated Donation Section Styles */
+        .donation-section-nav {
+            background-color: #111113;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            width: 100%;
+            padding: 0.25rem 0;
         }
 
-        .donation-section span {
+        .donation-section-nav span,
+        .donation-section-nav i {
             vertical-align: middle;
         }
 
-        .donation-section i {
-            vertical-align: middle;
+        /* Adjust donation bar for small screens */
+        @media (max-width: 480px) {
+            .donation-section-nav span {
+                font-size: 0.75rem; /* Slightly smaller text */
+            }
+            .donation-section-nav i {
+                font-size: 1rem; /* Slightly smaller icon */
+                margin-right: 0.25rem;
+            }
         }
     </style>
 </head>
@@ -529,45 +554,57 @@
 
 <!-- Main Container -->
 <div class="main-container">
-    <!-- Donation Section -->
-    <footer class="donation-section">
-        <div class="container mx-auto text-center py-3">
+    <!-- Donation Section (Moved outside nav temporarily) -->
+    <!-- <footer class="donation-section">
+        <div class="container mx-auto text-center py-0">
             <i class="fas fa-coffee text-purple-400 text-2xl mr-3"></i>
             <span class="text-gray-400">
                 Donate a cup of coffee if you like my work: 
                 <span class="font-mono text-gray-300 break-all">bc1qe4fw9zfpg7l5p3zdxedppucew9k8ranyurhc9l</span>
             </span>
         </div>
-    </footer>
+    </footer> -->
 
     <!-- Navbar -->
     <nav class="navbar">
-        <div class="logo">
-            <div class="logo-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#a855f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M2 17L12 22L22 17" stroke="#a855f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M2 12L12 17L22 12" stroke="#a855f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
+        <!-- Donation Section (Moved inside nav) -->
+        <div class="donation-section-nav">
+            <div class="container mx-auto text-center py-0">
+                <i class="fas fa-coffee text-purple-400 text-xl mr-2"></i> <!-- Reduced icon size -->
+                <span class="text-gray-400 text-sm"> <!-- Reduced text size -->
+                    Donate a cup of coffee if you like my work: 
+                    <span class="font-mono text-gray-300 break-all">bc1qe4fw9zfpg7l5p3zdxedppucew9k8ranyurhc9l</span>
+                </span>
             </div>
-            SEEKER
         </div>
         
-        <div class="nav-links">
-            <a href="projects.html">Projects</a>
-            <a href="clients.html">Clients</a>
-        </div>
-        
-        <div class="flex items-center">
-            <div class="social-links mr-6">
-                <a href="https://github.com/seekehr/" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://www.fiverr.com/jawadali1272/create-the-backend-of-any-website-for-you-in-php-or-js" target="_blank"><i class="fas fa-code"></i></a>
-                <a href="https://discord.gg/YuDZUsG3" target="_blank"><i class="fab fa-discord"></i></a>
+        <!-- Original Navbar Content Wrapper -->
+        <div class="navbar-main-content">
+            <div class="logo">
+                <div class="logo-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.429 9.75L12 12.75l5.571-3M6.429 12.75L12 15.75l5.571-3M6.429 15.75L12 18.75l5.571-3" />
+                    </svg>
+                </div>
+                SEEKER
             </div>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+            
+            <div class="nav-links">
+                <a href="projects.html">Projects</a>
+                <a href="clients.html">Clients</a>
+            </div>
+            
+            <div class="flex items-center">
+                <div class="social-links mr-6">
+                    <a href="https://github.com/seekehr/" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.fiverr.com/jawadali1272/create-the-backend-of-any-website-for-you-in-php-or-js" target="_blank"><i class="fas fa-briefcase"></i></a>
+                    <a href="https://discord.gg/YuDZUsG3" target="_blank"><i class="fab fa-discord"></i></a>
+                </div>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
         </div>
     </nav>
@@ -576,7 +613,7 @@
     <div class="hero-section">
         <div class="hero-content">
             <span class="greeting">Hello, I'm a</span>
-            <h1 class="profession">Frontend and <br/><span class="name-highlight">Backend Developerr</span></h1>
+            <h1 class="profession">Frontend and <br/><span class="name-highlight">Backend Developer</span></h1>
             <p class="hero-description">
                 Passionate about creating beautiful, intuitive and responsive web interfaces.
                 I specialize in turning complex problems into simple, elegant solutions.
@@ -734,8 +771,8 @@
         <a href="https://www.fiverr.com/jawadali1272/create-the-backend-of-any-website-for-you-in-php-or-js" id="fiverr-link" target="_blank"></a>
         <a href="clients.html" id="clients-link"></a>
         <a href="projects.html" id="projects-link"></a>
-    </div>
-</div>
+        </div>
+        </div>
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
@@ -764,7 +801,7 @@
         // Start updating progress every 100ms (faster)
         loadInterval = setInterval(updateProgress, 100);
     });
-    
+
     // Floating Text Implementation
     const floatingTexts = [
         "Welcome to my portfolio",
