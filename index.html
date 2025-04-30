@@ -486,6 +486,13 @@
             .hamburger {
                 display: flex;
                 z-index: 1001; /* Ensure hamburger is above overlay */
+                transition: opacity 0.3s ease-in-out; /* Add transition for fading */
+            }
+
+            .sidebar-overlay.active + .navbar .navbar-main-content .hamburger {
+                /* Use adjacent sibling selector to target hamburger when overlay is active */
+                opacity: 0;
+                pointer-events: none;
             }
 
             .profession {
