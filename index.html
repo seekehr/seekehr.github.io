@@ -126,6 +126,7 @@
             align-items: center;
             width: 100%;
             padding: 1rem 0;
+            position: relative;
         }
 
         .logo {
@@ -433,7 +434,7 @@
 
         @media (max-width: 1024px) {
             .hero-section {
-                flex-direction: column-reverse;
+                flex-direction: column;
                 text-align: center;
                 padding: 2rem 0;
             }
@@ -822,6 +823,16 @@
 
         // Start updating progress every 100ms (faster)
         loadInterval = setInterval(updateProgress, 100);
+
+        // Hamburger Menu Toggle (Moved inside DOMContentLoaded)
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileNavLinks = document.getElementById('mobile-nav-links');
+
+        if (hamburgerBtn && mobileNavLinks) {
+            hamburgerBtn.addEventListener('click', () => {
+                mobileNavLinks.classList.toggle('active');
+            });
+        }
     });
 
     // Floating Text Implementation
@@ -981,16 +992,6 @@
             startFloatingTexts();
         }
     }, 2000);
-
-    // Hamburger Menu Toggle
-    const hamburgerBtn = document.getElementById('hamburger-btn');
-    const mobileNavLinks = document.getElementById('mobile-nav-links');
-
-    if (hamburgerBtn && mobileNavLinks) {
-        hamburgerBtn.addEventListener('click', () => {
-            mobileNavLinks.classList.toggle('active');
-        });
-    }
 
 </script>
 </body>
