@@ -492,12 +492,19 @@
             .social-links {
                 /* Reposition for mobile next to logo */
                 position: absolute;
-                left: 65px; /* Adjust as needed (logo width + gap) */
+                left: 85px; /* Increased from 65px */
                 top: 50%;
                 transform: translateY(-50%);
                 margin-right: 0; /* Remove desktop margin */
                 /* Ensure visibility if previously hidden */
                 display: flex !important; 
+                gap: 0.5rem; /* Reduced gap between icons */
+            }
+
+            .social-links a { /* Reduce icon size for mobile */
+                width: 28px;
+                height: 28px;
+                font-size: 0.8rem; /* Adjust icon font size if needed */
             }
 
             .sidebar-overlay.active + .navbar .navbar-main-content .hamburger {
