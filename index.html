@@ -489,6 +489,17 @@
                 transition: opacity 0.3s ease-in-out; /* Add transition for fading */
             }
 
+            .social-links {
+                /* Reposition for mobile next to logo */
+                position: absolute;
+                left: 65px; /* Adjust as needed (logo width + gap) */
+                top: 50%;
+                transform: translateY(-50%);
+                margin-right: 0; /* Remove desktop margin */
+                /* Ensure visibility if previously hidden */
+                display: flex !important; 
+            }
+
             .sidebar-overlay.active + .navbar .navbar-main-content .hamburger {
                 /* Use adjacent sibling selector to target hamburger when overlay is active */
                 opacity: 0;
@@ -637,6 +648,7 @@
                     <a href="https://github.com/seekehr/" target="_blank"><i class="fab fa-github"></i></a>
                     <a href="https://www.fiverr.com/jawadali1272/create-the-backend-of-any-website-for-you-in-php-or-js" target="_blank"><i class="fas fa-briefcase"></i></a>
                     <a href="https://discord.gg/YuDZUsG3" target="_blank"><i class="fab fa-discord"></i></a>
+                    <a href="/assets/resume.pdf" download="resume.pdf"><i class="fas fa-file-download"></i></a>
                 </div>
                 <div class="hamburger" id="hamburger-btn">
                     <span></span>
