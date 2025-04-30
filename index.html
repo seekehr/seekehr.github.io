@@ -823,6 +823,9 @@
         document.querySelector('.main-container').appendChild(floatingTextContainer);
     }
 
+    const heroContent = document.querySelector('.hero-content');
+    const expertiseContainer = document.querySelector('.expertise-container');
+
     function createFloatingText() {
         console.log("Creating floating text");
         
@@ -832,9 +835,11 @@
             return;
         }
         
-        // Get current dimensions
+        // Get current dimensions and element bounds
         const viewportWidth = window.innerWidth;
         const viewportHeight = window.innerHeight;
+        const heroRect = heroContent.getBoundingClientRect();
+        const expertiseRect = expertiseContainer.getBoundingClientRect();
         
         // Choose random text
         const textContent = floatingTexts[Math.floor(Math.random() * floatingTexts.length)];
@@ -848,27 +853,49 @@
         span.textContent = textContent;
         textElement.appendChild(span);
         
-        // Find position that doesn't overlap with center
+        // Find position that doesn't overlap with important elements
         let posX, posY;
         let validPosition = false;
         let attempts = 0;
         
         // Get text dimensions (approximate)
-        const textWidth = textContent.length * 12; // Approximate width based on character count
+        const textWidth = textContent.length * 12; // Approximate width
         const textHeight = 40; // Approximate height
         
         while (!validPosition && attempts < 50) {
-            // Generate random position within viewport
-            posX = Math.random() * (viewportWidth - textWidth - 40);
-            posY = Math.random() * (viewportHeight - textHeight - 40);
+            // Generate random position within viewport, leaving some margin
+            posX = Math.random() * (viewportWidth - textWidth - 40) + 20;
+            posY = Math.random() * (viewportHeight - textHeight - 40) + 20;
             attempts++;
             
-            // Check if position is valid (simplified)
-            if (posY > 200 && posY < viewportHeight - 100) {
+            // Check for overlap with hero content
+            const overlapsHero = (
+                posX < heroRect.right && 
+                posX + textWidth > heroRect.left && 
+                posY < heroRect.bottom && 
+                posY + textHeight > heroRect.top
+            );
+            
+            // Check for overlap with expertise container
+            const overlapsExpertise = (
+                posX < expertiseRect.right && 
+                posX + textWidth > expertiseRect.left && 
+                posY < expertiseRect.bottom && 
+                posY + textHeight > expertiseRect.top
+            );
+
+            // Check if position is valid (not overlapping)
+            if (!overlapsHero && !overlapsExpertise) {
                 validPosition = true;
             }
         }
         
+        // If we couldn't find a valid position after 50 attempts, don't create the text
+        if (!validPosition) {
+            console.log("Could not find a valid position for floating text after 50 attempts.");
+            return; 
+        }
+
         console.log("Positioning text at:", posX, posY);
         
         // Position the element
