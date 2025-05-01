@@ -245,6 +245,14 @@
             font-weight: 700;
         }
 
+        .name-highlight-yellow {
+            background: linear-gradient(to right, #e1cc3a, #e1cc3a);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+        }
+
         .profession {
             font-size: 2.75rem;
             font-weight: 800;
@@ -680,7 +688,11 @@
     <div class="hero-section">
         <div class="hero-content">
             <span class="greeting">Hello, I'm a</span>
-            <h1 class="profession">Frontend and <br/><span class="name-highlight">Backend Developer</span></h1>
+            <h1 class="profession">
+                Frontend and <br/><span class="name-highlight">Backend Developer</span>
+                <br><span class="profession">And</span> <span class="name-highlight-yellow">Crypto Enthusiast</span>
+            </h1>
+
             <p class="hero-description">
                 Passionate about creating beautiful, intuitive and responsive web interfaces.
                 I specialize in turning complex problems into simple, elegant solutions.
