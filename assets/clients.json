@@ -27,5 +27,14 @@
     "categoryLabel": "Corporate",
     "services": ["PHP", "MySQL", "Game Server", "CLI"],
     "websiteUrl": "https://discord.gg/odin-1041616706327552000"
+  },
+  {
+    "name": "Nice",
+    "testimonial": "A customer from the PMMP discord.",
+    "image": "/assets/nice.png",
+    "category": "corporate",
+    "categoryLabel": "Corporate",
+    "services": ["PHP", "MySQL", "Game Server", "CLI"],
+    "websiteUrl": "https://discord.com/invite/bmSAZBG"
   }
 ]
