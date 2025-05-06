@@ -32,9 +32,27 @@
     "name": "Nice",
     "testimonial": "A customer from the PMMP discord.",
     "image": "/assets/nice.png",
-    "category": "corporate",
-    "categoryLabel": "Corporate",
+    "category": "individual",
+    "categoryLabel": "Individual",
     "services": ["PHP", "MySQL", "Game Server", "CLI"],
     "websiteUrl": "https://discord.com/invite/bmSAZBG"
+  },
+  {
+    "name": "Zeqerr",
+    "testimonial": "A customer from the crypto discord.",
+    "image": "/assets/zeqer.png",
+    "category": "individual",
+    "categoryLabel": "Individual",
+    "services": ["Go", "Telegram", "Crypto"],
+    "websiteUrl": "https://discord.gg/9fPMWtMDx2"
+  },
+  {
+    "name": "Tomer",
+    "testimonial": "A customer from the Programmer's discord.",
+    "image": "/assets/tomer.png",
+    "category": "individual",
+    "categoryLabel": "Individual",
+    "services": ["JavaScript", "Node.js"],
+    "websiteUrl": "https://discord.gg/9fPMWtMDx2"
   }
 ]
