@@ -48,7 +48,19 @@
     "externalUrl": "https://github.com/seekehr/pfpm"
   },
   {
-    "id": 5,
+    "id": 11,
+    "title": "Moosik",
+    "description": "A music downloading and sharing website that was eventually scrapped to avoid legal issues.",
+    "image": "/assets/moosik.png",
+    "category": "web",
+    "categoryLabel": "Web Development",
+    "categoryColor": "blue",
+    "technologies": ["ReactJS", "TailwindCSS", "TypeScript", "ExpressJS", "MySQL"],
+    "projectUrl": "https://github.com/seekehr/moosik",
+    "externalUrl": "https://github.com/seekehr/moosik"
+  },
+  {
+    "id": 10,
     "title": "NotTwitterFront",
     "description": "Frontend of the self-developed social media website that serves as a replacement for/is heavily inspired by Twitter, made using React and Tailwind.",
     "image": "/assets/nottwitter.png",
