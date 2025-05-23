@@ -1,5 +1,29 @@
 [
   {
+    "id": 12,
+    "title": "DevSpoofGO",
+    "description": "A 5900+ LOC project written in Golang (injector) and C++ (dll) that allows you to inject programs with an in-memory override DLL.",
+    "image": "/assets/devspoofgo.png",
+    "category": "systems",
+    "categoryLabel": "Systems Development",
+    "technologies": ["Golang", "C++", "WinAPI", "Registry", "WMI"],
+    "categoryColor": "gray",
+    "projectUrl": "https://github.com/seekehr/DevSpoofGO",
+    "externalUrl": "https://github.com/seekehr/DevSpoofGO"
+  },
+  {
+    "id": 13,
+    "title": "DevSpoofGOTest",
+    "description": "A 1500+ LOC project written in Golang that allows you to test registry/WMI/WinAPI values.",
+    "image": "/assets/devspoofgotest.png",
+    "category": "systems",
+    "categoryLabel": "Systems Development",
+    "categoryColor": "gray",
+    "technologies": ["Golang", "WinAPI", "Registry", "WMI"],
+    "projectUrl": "https://github.com/seekehr/DevSpoofGOTest",
+    "externalUrl": "https://github.com/seekehr/DevSpoofGOTest"
+  },
+  {
     "id": 1,
     "title": "NotesX",
     "description": "A fully responsive self-hosted note-taking website with an elegant design and convenient note-writing and managing.",
