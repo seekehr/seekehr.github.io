@@ -146,7 +146,7 @@
   {
     "id": 14,
     "title": "RedditVideoMakerBot-Updated",
-    "description": "Updated a really cool project to automatically generate reddit videos. Added comment support, text customization, etc etc.",
+    "description": "Updated a really cool project to automatically generate reddit videos. Fixed bugs, added comment support, text customization, keyword searching, swear filter, etc etc.",
     "image": "/assets/redditvideomakerbotupdated.png",
     "category": "cli",
     "categoryLabel": "CLI Development",
