@@ -29,6 +29,24 @@
     "websiteUrl": "https://discord.gg/odin-1041616706327552000"
   },
   {
+    "name": "Tobias",
+    "testimonial": "Working on a dating app for them using React Native/Echo (TS/Go).",
+    "image": "/assets/tobias.png",
+    "category": "individual",
+    "categoryLabel": "Individual",
+    "services": ["React Native", "Expo", "Golang", "Echo"],
+    "websiteUrl": "https://discord.gg/5hG7xzJy"
+  },
+  {
+    "name": "notsoblind",
+    "testimonial": "Worked on a crypto memecoin website for them using NextJS/React.",
+    "image": "/assets/notsoblind.png",
+    "category": "individual",
+    "categoryLabel": "Individual",
+    "services": ["React", "NextJS", "html2canvas", "Tailwind"],
+    "websiteUrl": "https://discord.gg/5hG7xzJy"
+  },
+  {
     "name": "Nice",
     "testimonial": "A customer from the PMMP discord.",
     "image": "/assets/nice.png",
