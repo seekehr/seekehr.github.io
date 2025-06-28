@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="light">
+<html lang="en">
 <head>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-2EBZ3X83SW"></script>
@@ -14,230 +14,508 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects Showcase - Seeker's Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script>
         tailwind.config = {
-            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
                         primary: {
-                            DEFAULT: '#3b82f6',
-                            50: '#eff6ff',
-                            100: '#dbeafe',
-                            200: '#bfdbfe',
-                            300: '#93c5fd',
-                            400: '#60a5fa',
-                            500: '#3b82f6',
-                            600: '#2563eb',
-                            700: '#1d4ed8',
-                            800: '#1e40af',
-                            900: '#1e3a8a',
-                            950: '#172554',
+                            DEFAULT: '#a855f7',
+                            50: '#faf5ff',
+                            100: '#f3e8ff',
+                            200: '#e9d5ff',
+                            300: '#d8b4fe',
+                            400: '#c084fc',
+                            500: '#a855f7',
+                            600: '#9333ea',
+                            700: '#7e22ce',
+                            800: '#6b21a8',
+                            900: '#581c87',
+                            950: '#3b0764',
                         },
                     }
                 }
             }
         }
-
-
     </script>
     <style>
+        /* Loading Screen */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #151515;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            z-index: 9999;
+        }
+
+        .loading-screen.hidden {
+            display: none;
+        }
+
+        .progress-text {
+            font-family: 'Courier New', monospace;
+            font-size: 1.2rem;
+            color: white;
+            letter-spacing: 2px;
+            font-weight: bold;
+            text-align: center;
+            width: 100%;
+        }
+
+        .progress-percentage {
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+            color: white;
+            letter-spacing: 2px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .cup-container {
+            position: relative;
+            width: 120px;
+            height: 160px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cup {
+            position: relative;
+            width: 100px;
+            height: 120px;
+            background-color: transparent;
+            border: 4px solid white;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .cup::after {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 55px;
+            border: 4px solid white;
+            border-left: none;
+            border-radius: 0 15px 15px 0;
+            right: -30px;
+            top: 30px;
+        }
+
+        .water {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #a855f7;
+            transform-origin: bottom;
+            transform: scaleY(0);
+            transition: transform 0.15s ease-in-out;
+        }
+        
+        /* General Body and Main Container */
+        body {
+            background: #0e0e10;
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        .main-container {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0e0e10 0%, #16121e 100%);
+            position: relative;
+            overflow-x: hidden;
+            padding: 0;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+        }
+
+        .navbar-main-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 1rem 1rem;
+            position: relative;
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: white;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+            color: #a855f7;
+        }
+        
+        .logo-icon svg {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            margin-left: 3rem;
+        }
+
+        .nav-links a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #a855f7;
+        }
+        
+        .nav-links a.active {
+            color: #a855f7;
+            font-weight: bold;
+        }
+        
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #a855f7;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-links a {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: #a855f7;
+            transform: translateY(-3px);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            height: 2px;
+            width: 100%;
+            background-color: white;
+            border-radius: 10px;
+        }
+
+        /* Sidebar Overlay */
+        .sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+            z-index: 999;
+        }
+        .sidebar-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Project specific styles */
         .project-card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: #1f1f23;
+            border: 1px solid #2d2d3a;
         }
         .project-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+        }
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ccc;
+            transition: all 0.3s;
         }
         .filter-btn.active {
-            background-color: #3b82f6;
+            background-color: #a855f7;
             color: white;
+            border-color: #a855f7;
         }
-        /* Theme toggle animation */
-        .theme-toggle {
-            transition: transform 0.5s ease;
+        .filter-btn:hover:not(.active) {
+            background: rgba(255, 255, 255, 0.2);
         }
-        .theme-toggle:hover {
-            transform: rotate(45deg);
+        
+        /* Hero section styles */
+        .hero-section {
+            padding: 6rem 1rem 4rem;
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-        /* Dark mode styles */
-        .dark {
-            --tw-text-opacity: 1;
-            color: rgb(229 231 235 / var(--tw-text-opacity));
+        .hero-title {
+            font-size: 2.75rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
         }
-        .dark body {
-            --tw-bg-opacity: 1;
-            background-color: rgb(17 24 39 / var(--tw-bg-opacity));
+        .hero-title .highlight {
+            background: linear-gradient(to right, #a855f7, #d43afb);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
-        .dark .bg-white {
-            --tw-bg-opacity: 1;
-            background-color: rgb(31 41 55 / var(--tw-bg-opacity));
+        .hero-subtitle {
+            color: #aaa;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
         }
-        .dark .text-gray-800 {
-            --tw-text-opacity: 1;
-            color: rgb(229 231 235 / var(--tw-text-opacity));
-        }
-        .dark .bg-gray-50 {
-            --tw-bg-opacity: 1;
-            background-color: rgb(17 24 39 / var(--tw-bg-opacity));
-        }
-        .dark .text-gray-600 {
-            --tw-text-opacity: 1;
-            color: rgb(209 213 219 / var(--tw-text-opacity));
-        }
-        .dark .project-card {
-            --tw-bg-opacity: 1;
-            background-color: rgb(31 41 55 / var(--tw-bg-opacity));
-            --tw-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
-            box-shadow: var(--tw-shadow);
-        }
-        .dark .bg-gray-100 {
-            --tw-bg-opacity: 1;
-            background-color: rgb(55 65 81 / var(--tw-bg-opacity));
-        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .main-container {
+                padding: 0 1rem 2rem 1rem;
+            }
+            .navbar-main-content {
+                padding: 1rem 0;
+            }
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -250px; 
+                height: 100vh;
+                width: 250px; 
+                background: #1a1625; 
+                flex-direction: column;
+                align-items: flex-start; 
+                padding: 4rem 1.5rem; 
+                transition: right 0.3s ease-in-out; 
+                z-index: 1000; 
+            }
+            .nav-links.active { right: 0; }
+            .navbar-right-group {
+                display: flex;
+                align-items: center;
+                margin-left: auto;
+            }
+            .hamburger { display: flex; z-index: 1001; }
+            .social-links {
+                display: none !important; 
+            }
+            .navbar-right-group .social-links {
+                 display: flex !important;
+                 margin-right: 1rem;
+            }
+            .nav-links .social-links {
+                 display: none;
+            }
 
+            .hero-title { font-size: 2.25rem; }
+            .hero-subtitle { font-size: 1rem; }
+        }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
-<!-- Top Navbar with Theme Toggle -->
-<nav class="bg-white dark:bg-gray-800 shadow-sm fixed top-0 left-0 right-0 z-50">
-    <div class="container mx-auto px-4 py-2 flex justify-between items-center">
-        <div class="flex items-center space-x-4">
-            <!-- Theme Toggle Button -->
-            <button id="theme-toggle" class="theme-toggle p-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:focus:ring-gray-700">
-                <!-- Sun Icon (shown in light mode) -->
-                <svg id="sun-icon" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
-                </svg>
-                <!-- Moon Icon (shown in dark mode) -->
-                <svg id="moon-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-                </svg>
-            </button>
+<body>
+<!-- Loading Screen -->
+<div class="loading-screen" id="loading-screen">
+    <div class="progress-text" id="progress-text">LOADING PROJECTS...</div>
+    <div class="cup-container">
+        <div class="cup">
+            <div class="water" id="water-level"></div>
         </div>
-        <div class="flex items-center space-x-4">
-            <!-- Navigation Links -->
-            <a href="index.html" class="text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
-                Home
+    </div>
+    <div class="progress-percentage" id="percentage-text">0%</div>
+</div>
+
+<!-- Main Container -->
+<div class="main-container">
+    <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-main-content">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.429 9.75L12 12.75l5.571-3M6.429 12.75L12 15.75l5.571-3M6.429 15.75L12 18.75l5.571-3" />
+                    </svg>
+                </div>
+                SEEKER
             </a>
-            <a href="projects.html" class="text-primary-600 dark:text-primary-400 font-medium">
-                Projects
-            </a>
-            <a href="clients.html" class="text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
-                Clients
-            </a>
-        </div>
-    </div>
-</nav>
-
-<!-- Spacer to prevent content from being hidden under the fixed navbar -->
-<div class="h-16"></div>
-
-<!-- Hero Section -->
-<section class="bg-gradient-to-r from-primary-700 to-primary-900 text-white py-20">
-    <div class="container mx-auto px-4 text-center">
-        <h1 class="text-4xl md:text-5xl font-bold mb-4">My Portfolio</h1>
-        <p class="text-xl max-w-2xl mx-auto mb-8">Showcasing my best work across web development, design, and more.</p>
-        <a href="#projects" class="bg-white text-primary-700 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors inline-block">View Projects</a>
-    </div>
-</section>
-
-<!-- Projects Section -->
-<section id="projects" class="py-16 bg-gray-50 dark:bg-gray-900">
-    <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-12">Featured Projects</h2>
-
-        <!-- Filter Buttons -->
-        <div class="flex flex-wrap justify-center gap-2 mb-10">
-            <button class="filter-btn active px-4 py-2 rounded-full border border-gray-300 text-sm font-medium" data-filter="all">All</button>
-            <button class="filter-btn px-4 py-2 rounded-full border border-gray-300 text-sm font-medium" data-filter="web">Web Development</button>
-            <button class="filter-btn px-4 py-2 rounded-full border border-gray-300 text-sm font-medium" data-filter="plugin">Plugin Development</button>
-            <button class="filter-btn px-4 py-2 rounded-full border border-gray-300 text-sm font-medium" data-filter="cli">CLI Development</button>
-            <button class="filter-btn px-4 py-2 rounded-full border border-gray-300 text-sm font-medium" data-filter="systems">Systems Development</button>
-        </div>
-
-        <!-- Projects Grid - Will be populated from JSON -->
-        <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Projects will be loaded here dynamically -->
-        </div>
-    </div>
-</section>
-
-<!-- Call to Action -->
-<section class="bg-primary-800 text-white py-16">
-    <div class="container mx-auto px-4 text-center">
-        <h2 class="text-3xl font-bold mb-4">Interested in working together?</h2>
-        <p class="text-xl max-w-2xl mx-auto mb-8">I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision.</p>
-        <a href="https://www.fiverr.com/jawadali1272/" class="bg-white text-primary-800 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors inline-block">Get In Touch</a>
-    </div>
-</section>
-
-<!-- Footer -->
-<footer class="bg-gray-900 text-white py-12">
-    <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div class="md:col-span-2">
-                <h3 class="text-xl font-bold mb-4">Seeker's Projects</h3>
-                <p class="text-gray-400 mb-4">Showcasing my best work and projects across various technologies and design disciplines.</p>
-                <div class="flex space-x-4">
-                    <!-- Social icons -->
-                    <a href="https://github.com/seekehr/" class="text-gray-400 hover:text-white transition-colors">
-                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
-                        </svg>
-                    </a>
-                    <!-- More social icons... -->
+            
+            <div class="nav-links" id="mobile-nav-links">
+                <a href="index.html">Home</a>
+                <a href="projects.html" class="active">Projects</a>
+                <a href="clients.html">Clients</a>
+                <a href="https://seekehr.github.io/blog">Blog</a>
+                <a href="assets/resume.pdf" download="resume.pdf">Resume</a>
+            </div>
+            
+            <div class="navbar-right-group">
+                <div class="social-links mr-6">
+                    <a href="https://github.com/seekehr/" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.fiverr.com/jawadali1272/create-the-backend-of_any-website-for-you-in-php-or-js" target="_blank"><i class="fas fa-briefcase"></i></a>
+                    <a href="https://discord.gg/2UE2D9uZr5" target="_blank"><i class="fab fa-discord"></i></a>
+                    <a href="/assets/resume.pdf" download="resume.pdf"><i class="fas fa-file-download"></i></a>
+                </div>
+                <div class="hamburger" id="hamburger-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
             </div>
-            <!-- Footer sections... -->
         </div>
-        <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-            <p>&copy; 2025 Seeker. All rights reserved.</p>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <h1 class="hero-title">My <span class="highlight">Projects</span></h1>
+        <p class="hero-subtitle">Showcasing my best work across web development, design, and more.</p>
+        <a href="#projects" class="mt-6 bg-primary-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-primary-700 transition-colors inline-block">View Projects</a>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-16">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12 text-white">Featured Projects</h2>
+
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap justify-center gap-2 mb-10">
+                <button class="filter-btn active px-4 py-2 rounded-full border border-gray-700 text-sm font-medium" data-filter="all">All</button>
+                <button class="filter-btn px-4 py-2 rounded-full border border-gray-700 text-sm font-medium" data-filter="web">Web Development</button>
+                <button class="filter-btn px-4 py-2 rounded-full border border-gray-700 text-sm font-medium" data-filter="plugin">Plugin Development</button>
+                <button class="filter-btn px-4 py-2 rounded-full border border-gray-700 text-sm font-medium" data-filter="cli">CLI Development</button>
+                <button class="filter-btn px-4 py-2 rounded-full border border-gray-700 text-sm font-medium" data-filter="systems">Systems Development</button>
+            </div>
+
+            <!-- Projects Grid - Will be populated from JSON -->
+            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Projects will be loaded here dynamically -->
+            </div>
         </div>
-    </div>
-</footer>
+    </section>
 
+    <!-- Call to Action -->
+    <section class="bg-gradient-to-r from-primary-700 to-primary-900 text-white py-16">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-4">Interested in working together?</h2>
+            <p class="text-xl max-w-2xl mx-auto mb-8">I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision.</p>
+            <a href="https://www.fiverr.com/jawadali1272/" class="bg-white text-primary-800 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors inline-block">Get In Touch</a>
+        </div>
+    </section>
 
-<!-- JavaScript for filtering projects, theme toggle, and loading projects from JSON -->
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <h3 class="text-xl font-bold mb-4">Seeker's Projects</h3>
+                    <p class="text-gray-400 mb-4">Showcasing my best work and projects across various technologies and design disciplines.</p>
+                    <div class="flex space-x-4">
+                        <!-- Social icons -->
+                        <a href="https://github.com/seekehr/" class="text-gray-400 hover:text-white transition-colors">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                        <!-- More social icons... -->
+                    </div>
+                </div>
+                <!-- Footer sections... -->
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Seeker. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</div> <!-- End Main Container -->
+
+<!-- JavaScript for filtering projects, loading screen, and loading projects from JSON -->
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Theme toggle functionality
-        const themeToggleBtn = document.getElementById('theme-toggle');
-        const sunIcon = document.getElementById('sun-icon');
-        const moonIcon = document.getElementById('moon-icon');
+        // --- Loading Screen Logic ---
+        const waterLevel = document.getElementById("water-level");
+        const percentageText = document.getElementById("percentage-text");
+        const loadingScreen = document.getElementById("loading-screen");
+        let progress = 0;
+        let loadInterval;
 
-        // Check for saved theme preference or use preferred color scheme
-        if (localStorage.getItem('color-theme') === 'dark' ||
-            (!localStorage.getItem('color-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            // Add dark class to html element
-            document.documentElement.classList.add('dark');
-            // Show moon icon, hide sun icon
-            sunIcon.classList.add('hidden');
-            moonIcon.classList.remove('hidden');
-        } else {
-            // Remove dark class from html element
-            document.documentElement.classList.remove('dark');
-            // Show sun icon, hide moon icon
-            sunIcon.classList.remove('hidden');
-            moonIcon.classList.add('hidden');
-        }
-
-        // Toggle theme on button click
-        themeToggleBtn.addEventListener('click', function() {
-            // Toggle dark class on html element
-            document.documentElement.classList.toggle('dark');
-
-            // Toggle icons
-            sunIcon.classList.toggle('hidden');
-            moonIcon.classList.toggle('hidden');
-
-            // Update localStorage
-            if (document.documentElement.classList.contains('dark')) {
-                localStorage.setItem('color-theme', 'dark');
-            } else {
-                localStorage.setItem('color-theme', 'light');
+        function updateProgress() {
+            progress += Math.floor(Math.random() * 6) + 10;
+            if (progress > 100) progress = 100;
+            waterLevel.style.transform = `scaleY(${progress / 100})`;
+            percentageText.textContent = `${progress}%`;
+            if (progress >= 100) {
+                clearInterval(loadInterval);
+                setTimeout(() => {
+                    loadingScreen.classList.add('hidden');
+                }, 300);
             }
-        });
+        }
+        loadInterval = setInterval(updateProgress, 100);
+        
+        // --- Hamburger Menu Logic ---
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileNavLinks = document.getElementById('mobile-nav-links');
+        const sidebarOverlay = document.getElementById('sidebar-overlay');
+
+        if (hamburgerBtn && mobileNavLinks && sidebarOverlay) {
+            hamburgerBtn.addEventListener('click', () => {
+                mobileNavLinks.classList.toggle('active');
+                sidebarOverlay.classList.toggle('active');
+            });
+            sidebarOverlay.addEventListener('click', () => {
+                mobileNavLinks.classList.remove('active');
+                sidebarOverlay.classList.remove('active');
+            });
+        }
 
         // Load projects from JSON file
         fetch('/assets/projects.json')
@@ -274,26 +552,26 @@
         // Function to create a project card element
         function createProjectCard(project) {
             const card = document.createElement('div');
-            card.className = 'project-card bg-white rounded-lg overflow-hidden shadow-md';
+            card.className = 'project-card rounded-lg overflow-hidden shadow-md';
             card.setAttribute('data-category', project.category);
 
             // Create technologies HTML
             const technologiesHTML = project.technologies.map(tech =>
-                `<span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">${tech}</span>`
+                `<span class="bg-gray-800 text-gray-200 text-xs px-2 py-1 rounded">${tech}</span>`
             ).join('');
 
             card.innerHTML = `
                 <img src="${project.image}" alt="${project.title}" class="w-full h-48 object-cover">
                 <div class="p-6">
-                    <span class="text-xs font-semibold bg-${project.categoryColor}-100 text-${project.categoryColor}-800 py-1 px-2 rounded-full">${project.categoryLabel}</span>
-                    <h3 class="text-xl font-bold mt-2">${project.title}</h3>
-                    <p class="text-gray-600 mt-2">${project.description}</p>
+                    <span class="text-xs font-semibold bg-${project.categoryColor}-900 text-${project.categoryColor}-300 py-1 px-2 rounded-full">${project.categoryLabel}</span>
+                    <h3 class="text-xl font-bold mt-2 text-white">${project.title}</h3>
+                    <p class="text-gray-400 mt-2">${project.description}</p>
                     <div class="mt-4 flex flex-wrap gap-2">
                         ${technologiesHTML}
                     </div>
                     <div class="mt-6 flex justify-between items-center">
-                        <a href="${project.projectUrl}" class="text-primary-600 hover:text-primary-800 font-medium">View Project</a>
-                        <a href="${project.externalUrl}" class="text-gray-500 hover:text-gray-700">
+                        <a href="${project.projectUrl}" class="text-primary-400 hover:text-primary-300 font-medium">View Project</a>
+                        <a href="${project.externalUrl}" class="text-gray-500 hover:text-gray-300">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                             </svg>
@@ -356,7 +634,6 @@
             });
         });
     });
-
 </script>
 </body>
 </html>
