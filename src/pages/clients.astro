@@ -1,0 +1,17 @@
+---
+import IndexLayout from '../layouts/IndexLayout.astro';
+import LoadingScreen from '../components/LoadingScreen.astro';
+import Navbar from '../components/Navbar.astro';
+import HeroSectionClients from '../components/HeroSectionClients.astro';
+import DiscordVouches from '../components/DiscordVouches.astro';
+---
+
+<IndexLayout>
+    <LoadingScreen progressText="LOADING CLIENTS..." />
+    <div class="main-container">
+        <div id="sidebar-overlay" class="sidebar-overlay"></div>
+        <Navbar />
+        <HeroSectionClients />
+        <DiscordVouches />
+    </div>
+</IndexLayout>

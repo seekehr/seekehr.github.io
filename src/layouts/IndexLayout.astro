@@ -1,0 +1,231 @@
+---
+
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WGCLC6L2PZ"></script>
+    <script is:inline>
+        // @ts-nocheck
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            window.dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-WGCLC6L2PZ');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seeker's Portfolio - Full Stack & Crypto App Developer</title>
+    <!-- Meta for SEO -->
+    <meta name="description" content="Seeker's Portfolio - FullStack Web and Systems Developer with expertise in PHP, JavaScript (React, Next.js, Express), Crypto App Development, and more. Seeker is a full stack developer with expertise in PHP, JavaScript (React, Next.js, Express), Crypto App Development, and more.">
+    <meta name="keywords" content="full stack developer, crypto app development, PHP, React, Next.js, Express, JavaScript, WordPress, Laravel, developer portfolio">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style is:global>
+        body {
+            background: #0e0e10;
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            color: white;
+        }
+        .main-container {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0e0e10 0%, #16121e 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 0 2rem 2rem 2rem;
+        }
+        .bg-glow {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: #a855f7;
+            filter: blur(120px);
+            opacity: 0.2;
+            border-radius: 100%;
+            z-index: 1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+            z-index: 999;
+        }
+        .sidebar-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+    <slot />
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const waterLevel = document.getElementById("water-level");
+            const percentageText = document.getElementById("percentage-text");
+            const loadingScreen = document.getElementById("loading-screen");
+            let progress = 0;
+            let loadInterval: any;
+
+            function updateProgress() {
+                progress += Math.floor(Math.random() * 6) + 10;
+                if (progress > 100) progress = 100;
+
+                if (waterLevel) waterLevel.style.transform = `scaleY(${progress / 100})`;
+                if (percentageText) percentageText.textContent = `${progress}%`;
+
+                if (progress >= 100) {
+                    clearInterval(loadInterval);
+                    if (loadingScreen) loadingScreen.classList.add('hidden');
+                }
+            }
+
+            loadInterval = setInterval(updateProgress, 100);
+
+            const hamburgerBtn = document.getElementById('hamburger-btn');
+            const mobileNavLinks = document.getElementById('mobile-nav-links');
+            const sidebarOverlay = document.getElementById('sidebar-overlay');
+
+            if (hamburgerBtn && mobileNavLinks && sidebarOverlay) {
+                hamburgerBtn.addEventListener('click', () => {
+                    mobileNavLinks.classList.toggle('active');
+                    sidebarOverlay.classList.toggle('active');
+                });
+
+                sidebarOverlay.addEventListener('click', () => {
+                    mobileNavLinks.classList.remove('active');
+                    sidebarOverlay.classList.remove('active');
+                });
+            }
+        });
+
+        const floatingTexts = [
+            "FREE PALESTINE",
+            "Golang Developer",
+            "React Developer",
+            "MONERO GANG",
+            "Telegram >>",
+            "Echo >>>",
+            "Hey wsp",
+            "I LOVE GO <3",
+            "Any suggestions for this one :sob:?"
+        ];
+
+        let floatingTextContainer = document.getElementById('floating-text-container');
+        if (!floatingTextContainer) {
+            floatingTextContainer = document.createElement('div');
+            floatingTextContainer.id = 'floating-text-container';
+            const mainContainer = document.querySelector('.main-container');
+            if (mainContainer) {
+                mainContainer.appendChild(floatingTextContainer);
+            }
+        }
+
+        const heroContent = document.querySelector('.hero-content');
+        const expertiseContainer = document.querySelector('.expertise-container');
+        const navbarElement = document.querySelector('.navbar');
+
+        function createFloatingText() {
+            if (!heroContent || !expertiseContainer || !navbarElement) return;
+            if (document.querySelectorAll('.floating-text').length >= 3) {
+                return;
+            }
+            
+            const viewportWidth = window.innerWidth;
+            const viewportHeight = window.innerHeight;
+            const heroRect = heroContent.getBoundingClientRect();
+            const expertiseRect = expertiseContainer.getBoundingClientRect();
+            const navbarRect = navbarElement.getBoundingClientRect();
+            
+            const textContent = floatingTexts[Math.floor(Math.random() * floatingTexts.length)];
+            
+            const textElement = document.createElement('div');
+            textElement.className = 'floating-text';
+            
+            const span = document.createElement('span');
+            span.textContent = textContent;
+            textElement.appendChild(span);
+            
+            let posX, posY;
+            let validPosition = false;
+            let attempts = 0;
+            
+            const textWidth = textContent.length * 12;
+            const textHeight = 40;
+            
+            while (!validPosition && attempts < 50) {
+                posX = Math.random() * (viewportWidth - textWidth - 40) + 20;
+                posY = Math.random() * (viewportHeight - textHeight - 40) + 20;
+                attempts++;
+                
+                const overlapsHero = (posX < heroRect.right && posX + textWidth > heroRect.left && posY < heroRect.bottom && posY + textHeight > heroRect.top);
+                const overlapsExpertise = (posX < expertiseRect.right && posX + textWidth > expertiseRect.left && posY < expertiseRect.bottom && posY + textHeight > expertiseRect.top);
+                const overlapsNavbar = (posX < navbarRect.right && posX + textWidth > navbarRect.left && posY < navbarRect.bottom && posY + textHeight > navbarRect.top);
+                let overlapsExistingText = false;
+                const existingTexts = document.querySelectorAll('.floating-text');
+                for (const existingText of existingTexts) {
+                    const existingRect = existingText.getBoundingClientRect();
+                    if (posX < existingRect.right && posX + textWidth > existingRect.left && posY < existingRect.bottom && posY + textHeight > existingRect.top) {
+                        overlapsExistingText = true;
+                        break;
+                    }
+                }
+                if (!overlapsHero && !overlapsExpertise && !overlapsNavbar && !overlapsExistingText) {
+                    validPosition = true;
+                }
+            }
+            
+            if (!validPosition) return; 
+
+            textElement.style.left = `${posX}px`;
+            textElement.style.top = `${posY}px`;
+            
+            if (floatingTextContainer) floatingTextContainer.appendChild(textElement);
+            
+            setTimeout(() => {
+                textElement.style.opacity = '1';
+            }, 100);
+            
+            setTimeout(() => {
+                textElement.style.opacity = '0';
+                setTimeout(() => {
+                    textElement.remove();
+                }, 500);
+            }, 6000);
+        }
+
+        function startFloatingTexts() {
+            createFloatingText();
+            setInterval(createFloatingText, 3000);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            if (document.querySelectorAll('.floating-text').length === 0) {
+                startFloatingTexts();
+            }
+        });
+
+        window.addEventListener('load', function() {
+            if (document.querySelectorAll('.floating-text').length === 0) {
+                setTimeout(startFloatingTexts, 500);
+            }
+        });
+
+        setTimeout(() => {
+            if (document.querySelectorAll('.floating-text').length === 0) {
+                startFloatingTexts();
+            }
+        }, 2000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+---
+import IndexLayout from '../layouts/IndexLayout.astro';
+import LoadingScreen from '../components/LoadingScreen.astro';
+import Navbar from '../components/Navbar.astro';
+import HeroSectionProjects from '../components/HeroSectionProjects.astro';
+import ProjectsGrid from '../components/ProjectsGrid.astro';
+import CallToAction from '../components/CallToAction.astro';
+import Footer from '../components/Footer.astro';
+---
+<script src="https://cdn.tailwindcss.com"></script>
+<IndexLayout>
+    <LoadingScreen progressText="LOADING PROJECTS..." />
+    <div class="main-container">
+        <div id="sidebar-overlay" class="sidebar-overlay"></div>
+        <Navbar />
+        <HeroSectionProjects />
+        <ProjectsGrid />
+        <CallToAction />
+        <Footer />
+    </div>
+</IndexLayout>
+
+<style>
+    .main-container {
+        padding: 0;
+    }
+</style>
+<style is:global>
+    .project-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        background: #1f1f23;
+        border: 1px solid #2d2d3a;
+    }
+    .project-card:hover {
+        transform: translateY(-5px) scale(1.03);
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+    }
+    .filter-btn {
+        background: rgba(255, 255, 255, 0.1);
+        color: #ccc;
+        transition: all 0.3s;
+    }
+    .filter-btn.active {
+        background-color: #a855f7;
+        color: white;
+        border-color: #a855f7;
+    }
+    .filter-btn:hover:not(.active) {
+        background: rgba(255, 255, 255, 0.2);
+    }
+</style>

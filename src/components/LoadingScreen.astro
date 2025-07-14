@@ -1,0 +1,100 @@
+---
+const { progressText = "LOADING..." } = Astro.props;
+---
+<!-- Loading Screen -->
+<div class="loading-screen" id="loading-screen">
+    <div class="progress-text" id="progress-text">{progressText}</div>
+    <div class="cup-container">
+        <div class="cup">
+            <div class="water" id="water-level"></div>
+        </div>
+    </div>
+    <div class="progress-percentage" id="percentage-text">0%</div>
+</div>
+
+<style>
+    /* Loading Screen */
+    .loading-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #151515;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        z-index: 9999;
+    }
+
+    .loading-screen.hidden {
+        display: none;
+    }
+
+    .progress-text {
+        font-family: 'Courier New', monospace;
+        font-size: 1.2rem;
+        color: white;
+        letter-spacing: 2px;
+        font-weight: bold;
+        text-align: center;
+        width: 100%;
+    }
+
+    .progress-percentage {
+        font-family: 'Courier New', monospace;
+        font-size: 1rem;
+        color: white;
+        letter-spacing: 2px;
+        text-align: center;
+        width: 100%;
+    }
+
+    /* Cup container */
+    .cup-container {
+        position: relative;
+        width: 120px;
+        height: 160px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Cup shape */
+    .cup {
+        position: relative;
+        width: 100px;
+        height: 120px;
+        background-color: transparent;
+        border: 4px solid white;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+
+    /* Cup handle */
+    .cup::after {
+        content: '';
+        position: absolute;
+        width: 30px;
+        height: 55px;
+        border: 4px solid white;
+        border-left: none;
+        border-radius: 0 15px 15px 0;
+        right: -30px;
+        top: 30px;
+    }
+
+    /* Water in the cup */
+    .water {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #8A2BE2;
+        transform-origin: bottom;
+        transform: scaleY(0);
+        transition: transform 0.15s ease-in-out;
+    }
+</style>

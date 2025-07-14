@@ -1,0 +1,197 @@
+---
+import Expertise from './Expertise.astro';
+---
+<div class="hero-section">
+    <div class="hero-content">
+        <span class="greeting">Hello, I'm a</span>
+        <h1 class="profession">
+            Full-stack Web and <br/><span class="name-highlight">Systems Developer</span>
+            <br><span class="profession">And</span> <span class="name-highlight-yellow">Crypto Enthusiast</span>
+        </h1>
+
+        <p class="hero-description">
+            Passionate about creating beautiful, intuitive and responsive web interfaces.
+            I specialize in turning complex problems into simple, elegant solutions.
+        </p>
+        
+        <!-- CTA Buttons -->
+        <div class="cta-buttons">
+            <a href="/projects" class="cta-primary">
+                My Projects <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="/clients" class="cta-secondary">See Clients</a>
+        </div>
+        
+        <!-- Stats Section -->
+        <div class="stats-section">
+            <div class="stat">
+                <div class="stat-value">5+</div>
+                <div class="stat-label">Years</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">30+</div>
+                <div class="stat-label">Projects</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">10+</div>
+                <div class="stat-label">Clients</div>
+            </div>
+        </div>
+        
+        <!-- BlogPage and Reach Out Buttons - Horizontally aligned -->
+        <div class="mt-6 flex gap-4">
+            <a href="https://seekehr.github.io/blog" class="cta-secondary bg-gray-700 hover:bg-gray-600">
+                <i class="fas fa-blog mr-2"></i> BlogPage
+            </a>
+            <a href="https://discord.gg/2UE2D9uZr5" target="_blank" class="cta-primary bg-indigo-600 hover:bg-indigo-700">
+                <i class="fab fa-discord mr-2"></i> Reach Out
+            </a>
+        </div>
+    </div>
+    <slot />
+</div>
+<style>
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4rem 0;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero-content {
+    max-width: 520px;
+}
+
+.greeting {
+    color: #a855f7;
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.name-highlight {
+    background: linear-gradient(to right, #a855f7, #d43afb);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 700;
+}
+
+.name-highlight-yellow {
+    background: linear-gradient(to right, #e1cc3a, #e1cc3a);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 700;
+}
+
+.profession {
+    font-size: 2.75rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.hero-description {
+    color: #aaa;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.cta-primary {
+    background: #a855f7;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.375rem;
+    font-weight: 500;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
+
+.cta-primary:hover {
+    background: #9333ea;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(168, 85, 247, 0.4);
+}
+
+.cta-primary i {
+    margin-left: 0.5rem;
+}
+
+.cta-secondary {
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.375rem;
+    font-weight: 500;
+    transition: all 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-decoration: none;
+}
+
+.cta-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.stats-section {
+    display: flex;
+    margin-top: 3rem;
+    gap: 2.5rem;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.25rem;
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: #aaa;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+@media (max-width: 1024px) {
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 0;
+    }
+
+    .hero-content {
+        margin-top: 3rem;
+        max-width: 100%;
+    }
+
+    .stats-section {
+        justify-content: center;
+    }
+
+    .cta-buttons {
+        justify-content: center;
+    }
+}
+@media (max-width: 768px) {
+    .profession {
+        font-size: 2.25rem;
+    }
+}
+</style>

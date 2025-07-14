@@ -1,23 +1,14 @@
 {
-  "name": "seekehr.github.io",
-  "version": "1.0.0",
-  "description": "Portfolio website hosted on Github Pages.",
-  "main": "index.js",
+  "name": "astro",
+  "type": "module",
+  "version": "0.0.1",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/seekehr/seekehr.github.io.git"
-  },
-  "author": "Seekehr",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/seekehr/seekehr.github.io/issues"
-  },
-  "homepage": "https://github.com/seekehr/seekehr.github.io#readme",
   "dependencies": {
-    "@tailwindcss/cli": "^4.0.9",
-    "tailwindcss": "^4.0.9"
+    "astro": "^5.11.0"
   }
 }

@@ -1,0 +1,258 @@
+---
+const { pathname } = Astro.url;
+---
+<nav class="navbar">
+    <div class="donation-section-nav">
+        <div class="container mx-auto text-center py-0">
+            <i class="fas fa-coffee text-purple-400 text-xl mr-2"></i>
+            <span class="text-gray-400 text-sm">
+                Donate a cup of coffee if you like my work: 
+                <span class="font-mono text-gray-300 break-all">bc1qe4fw9zfpg7l5p3zdxedppucew9k8ranyurhc9l</span>
+            </span>
+        </div>
+    </div>
+    
+    <div class="navbar-main-content">
+        <a href="/" class="logo">
+            <div class="logo-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6.429 9.75L12 12.75l5.571-3M6.429 12.75L12 15.75l5.571-3M6.429 15.75L12 18.75l5.571-3" />
+                </svg>
+            </div>
+            SEEKER
+        </a>
+        
+        <div class="nav-links" id="mobile-nav-links">
+            <a href="/" class:list={[{ active: pathname === '/' }]}>Home</a>
+            <a href="/projects" class:list={[{ active: pathname === '/projects' }]}>Projects</a>
+            <a href="/clients" class:list={[{ active: pathname === '/clients' }]}>Clients</a>
+            <a href="https://seekehr.github.io/blog">Blog</a>
+            <a href="/resume.pdf" download="resume.pdf">Resume</a>
+        </div>
+        
+        <div class="navbar-right-group">
+            <div class="social-links mr-6">
+                <a href="https://github.com/seekehr/" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.fiverr.com/jawadali1272/create-the-backend-of-any-website-for-you-in-php-or-js" target="_blank"><i class="fas fa-briefcase"></i></a>
+                <a href="https://discord.gg/2UE2D9uZr5" target="_blank"><i class="fab fa-discord"></i></a>
+                <a href="/resume.pdf" download="resume.pdf"><i class="fas fa-file-download"></i></a>
+            </div>
+            <div class="hamburger" id="hamburger-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<style>
+    .navbar {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .navbar-main-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 1rem 0;
+        position: relative;
+    }
+
+    .logo {
+        font-weight: bold;
+        font-size: 1.2rem;
+        color: white;
+        display: flex;
+        align-items: center;
+    }
+
+    .logo-icon {
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+        color: #a855f7;
+    }
+
+    .logo-icon svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 2rem;
+    }
+
+    .nav-links a {
+        color: #ccc;
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: color 0.3s;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        position: relative;
+    }
+
+    .nav-links a:hover {
+        color: #a855f7;
+    }
+
+    .nav-links a.active {
+        color: #a855f7;
+        font-weight: bold;
+    }
+    
+    .nav-links a.active::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        bottom: -4px;
+        left: 0;
+        background-color: #a855f7;
+    }
+
+    .nav-links a::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -4px;
+        left: 0;
+        background-color: #a855f7;
+        transition: width 0.3s;
+    }
+
+    .nav-links a:hover::after {
+        width: 100%;
+    }
+
+    .social-links {
+        display: flex;
+        gap: 1rem;
+    }
+    
+    .social-links a {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        transition: all 0.3s;
+    }
+    
+    .social-links a:hover {
+        background: #a855f7;
+        transform: translateY(-3px);
+    }
+
+    .hamburger {
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 20px;
+    }
+
+    .hamburger span {
+        height: 2px;
+        width: 100%;
+        background-color: white;
+        border-radius: 10px;
+    }
+
+    .donation-section-nav {
+        background-color: #111113;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        width: 100%;
+        padding: 0.25rem 0;
+    }
+
+    .donation-section-nav span,
+    .donation-section-nav i {
+        vertical-align: middle;
+    }
+
+    @media (max-width: 768px) {
+        .navbar-main-content {
+            padding: 1rem 0.5rem 1rem 0; /* Keep left padding 0 */
+            justify-content: flex-start; /* Align items to start */
+        }
+
+        .nav-links {
+            /* Sidebar Styles - KEEP AS IS */
+            position: fixed;
+            top: 0;
+            right: -250px; 
+            height: 100vh;
+            width: 250px; 
+            background: #1a1625; 
+            flex-direction: column;
+            align-items: flex-start; 
+            padding: 2rem 1rem; 
+            transition: right 0.3s ease-in-out; 
+            z-index: 1000; 
+        }
+
+        .nav-links.active { 
+            right: 0; 
+        }
+        
+        .navbar-right-group { /* New group for mobile */
+            display: flex;
+            align-items: center;
+            margin-left: auto; /* Push this whole group right */
+        }
+
+        .hamburger {
+            display: flex;
+            z-index: 1001; 
+            transition: opacity 0.3s ease-in-out; 
+            /* margin-left: auto; <- Remove this */ 
+        }
+
+        .social-links {
+            /* Remove absolute positioning */
+            /* position: absolute; */
+            /* left: 100px; */ 
+            /* top: 50%; */
+            /* transform: translateY(-50%); */
+            
+            /* Keep display and gap */
+            display: flex !important; 
+            gap: 0.5rem; 
+            margin-right: 1rem; /* Add space before hamburger */
+            /* margin-left: 1rem; <- Add margin to space from logo if needed, but handled by group margin now */
+        }
+
+        .social-links a { 
+            width: 28px;
+            height: 28px;
+            font-size: 0.8rem; 
+        }
+
+        .sidebar-overlay.active + .navbar .navbar-main-content .hamburger {
+            /* Use adjacent sibling selector to target hamburger when overlay is active */
+            opacity: 0;
+            pointer-events: none;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .donation-section-nav span {
+            font-size: 0.75rem; /* Slightly smaller text */
+        }
+        .donation-section-nav i {
+            font-size: 1rem; /* Slightly smaller icon */
+            margin-right: 0.25rem;
+        }
+    }
+</style>

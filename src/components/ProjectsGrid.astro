@@ -1,0 +1,121 @@
+---
+---
+<section id="projects" class="py-16">
+    <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-12 text-white">Featured Projects</h2>
+
+        <!-- Filter Buttons -->
+        <div class="flex flex-wrap justify-center gap-2 mb-10">
+            <button class="filter-btn active px-4 py-2 rounded-full border border-gray-700 text-sm font-medium" data-filter="all">All</button>
+            <button class="filter-btn px-4 py-2 rounded-full border border-gray-700 text-sm font-medium" data-filter="web">Web Development</button>
+            <button class="filter-btn px-4 py-2 rounded-full border border-gray-700 text-sm font-medium" data-filter="plugin">Plugin Development</button>
+            <button class="filter-btn px-4 py-2 rounded-full border border-gray-700 text-sm font-medium" data-filter="cli">CLI Development</button>
+            <button class="filter-btn px-4 py-2 rounded-full border border-gray-700 text-sm font-medium" data-filter="systems">Systems Development</button>
+        </div>
+
+        <!-- Projects Grid - Will be populated from JSON -->
+        <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Projects will be loaded here dynamically -->
+        </div>
+    </div>
+</section>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        interface Project {
+            image: string;
+            title: string;
+            category: string;
+            categoryColor: string;
+            categoryLabel: string;
+            description: string;
+            technologies: string[];
+            projectUrl: string;
+            externalUrl: string;
+        }
+
+        fetch('/projects.json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then((projects: Project[]) => {
+                const projectsGrid = document.getElementById('projects-grid');
+                if (!projectsGrid) return;
+                
+                projectsGrid.innerHTML = '';
+
+                projects.forEach(project => {
+                    const projectCard = createProjectCard(project);
+                    projectsGrid.appendChild(projectCard);
+                });
+                
+                initializeFiltering();
+            })
+            .catch(error => {
+                console.error('Error loading projects:', error);
+                const projectsGrid = document.getElementById('projects-grid');
+                if(projectsGrid) {
+                    projectsGrid.innerHTML = `
+                        <div class="col-span-full text-center py-8">
+                            <p class="text-red-500">Failed to load projects. Please try again later.</p>
+                        </div>
+                    `;
+                }
+            });
+
+        function createProjectCard(project: Project): HTMLDivElement {
+            const card = document.createElement('div');
+            card.className = 'project-card rounded-lg overflow-hidden shadow-md';
+            card.setAttribute('data-category', project.category);
+
+            const technologiesHTML = project.technologies.map((tech: string) =>
+                `<span class="bg-gray-800 text-gray-200 text-xs px-2 py-1 rounded">${tech}</span>`
+            ).join('');
+
+            card.innerHTML = `
+                <img src="${project.image}" alt="${project.title}" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <span class="text-xs font-semibold bg-${project.categoryColor}-900 text-${project.categoryColor}-300 py-1 px-2 rounded-full">${project.categoryLabel}</span>
+                    <h3 class="text-xl font-bold mt-2 text-white">${project.title}</h3>
+                    <p class="text-gray-400 mt-2">${project.description}</p>
+                    <div class="mt-4 flex flex-wrap gap-2">
+                        ${technologiesHTML}
+                    </div>
+                    <div class="mt-6 flex justify-between items-center">
+                        <a href="${project.projectUrl}" class="text-primary-400 hover:text-primary-300 font-medium">View Project</a>
+                        <a href="${project.externalUrl}" class="text-gray-500 hover:text-gray-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            `;
+            return card;
+        }
+
+        function initializeFiltering() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const projectCards = document.querySelectorAll('.project-card') as NodeListOf<HTMLElement>;
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function(this: HTMLButtonElement) {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    const filterValue = this.getAttribute('data-filter');
+
+                    projectCards.forEach(card => {
+                        const cardCategory = card.getAttribute('data-category');
+                        if (filterValue === 'all' || filterValue === cardCategory) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        }
+    });
+</script> 
