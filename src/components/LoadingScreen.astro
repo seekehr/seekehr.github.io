@@ -1,7 +1,6 @@
 ---
 const { progressText = "LOADING..." } = Astro.props;
 ---
-<!-- Loading Screen -->
 <div class="loading-screen" id="loading-screen">
     <div class="progress-text" id="progress-text">{progressText}</div>
     <div class="cup-container">
@@ -13,7 +12,6 @@ const { progressText = "LOADING..." } = Astro.props;
 </div>
 
 <style>
-    /* Loading Screen */
     .loading-screen {
         position: fixed;
         top: 0;
@@ -52,7 +50,6 @@ const { progressText = "LOADING..." } = Astro.props;
         width: 100%;
     }
 
-    /* Cup container */
     .cup-container {
         position: relative;
         width: 120px;
@@ -62,7 +59,6 @@ const { progressText = "LOADING..." } = Astro.props;
         align-items: center;
     }
 
-    /* Cup shape */
     .cup {
         position: relative;
         width: 100px;
@@ -73,7 +69,6 @@ const { progressText = "LOADING..." } = Astro.props;
         overflow: hidden;
     }
 
-    /* Cup handle */
     .cup::after {
         content: '';
         position: absolute;
@@ -86,7 +81,6 @@ const { progressText = "LOADING..." } = Astro.props;
         top: 30px;
     }
 
-    /* Water in the cup */
     .water {
         position: absolute;
         bottom: 0;

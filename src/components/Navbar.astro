@@ -15,9 +15,7 @@ const { pathname } = Astro.url;
     <div class="navbar-main-content">
         <a href="/" class="logo">
             <div class="logo-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6.429 9.75L12 12.75l5.571-3M6.429 12.75L12 15.75l5.571-3M6.429 15.75L12 18.75l5.571-3" />
-                </svg>
+                <img src="/icon.jpg" alt="Seeker's personal logo" />
             </div>
             SEEKER
         </a>
@@ -74,16 +72,22 @@ const { pathname } = Astro.url;
         width: 30px;
         height: 30px;
         margin-right: 10px;
-        color: #a855f7;
+        border-radius: 50%;
+        border: 2px solid white;
+        overflow: hidden;
     }
 
-    .logo-icon svg {
+    .logo-icon img {
         display: block;
         width: 100%;
         height: 100%;
+        object-fit: cover;
     }
 
     .nav-links {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
         display: flex;
         gap: 2rem;
     }
@@ -183,12 +187,11 @@ const { pathname } = Astro.url;
 
     @media (max-width: 768px) {
         .navbar-main-content {
-            padding: 1rem 0.5rem 1rem 0; /* Keep left padding 0 */
-            justify-content: flex-start; /* Align items to start */
+            padding: 1rem 0.5rem 1rem 0; 
+            justify-content: flex-start; 
         }
 
         .nav-links {
-            /* Sidebar Styles - KEEP AS IS */
             position: fixed;
             top: 0;
             right: -250px; 
@@ -200,37 +203,30 @@ const { pathname } = Astro.url;
             padding: 2rem 1rem; 
             transition: right 0.3s ease-in-out; 
             z-index: 1000; 
+            left: auto;
+            transform: none;
         }
 
         .nav-links.active { 
             right: 0; 
         }
         
-        .navbar-right-group { /* New group for mobile */
+        .navbar-right-group { 
             display: flex;
             align-items: center;
-            margin-left: auto; /* Push this whole group right */
+            margin-left: auto; 
         }
 
         .hamburger {
             display: flex;
             z-index: 1001; 
             transition: opacity 0.3s ease-in-out; 
-            /* margin-left: auto; <- Remove this */ 
         }
 
         .social-links {
-            /* Remove absolute positioning */
-            /* position: absolute; */
-            /* left: 100px; */ 
-            /* top: 50%; */
-            /* transform: translateY(-50%); */
-            
-            /* Keep display and gap */
             display: flex !important; 
             gap: 0.5rem; 
-            margin-right: 1rem; /* Add space before hamburger */
-            /* margin-left: 1rem; <- Add margin to space from logo if needed, but handled by group margin now */
+            margin-right: 1rem; 
         }
 
         .social-links a { 
@@ -240,7 +236,6 @@ const { pathname } = Astro.url;
         }
 
         .sidebar-overlay.active + .navbar .navbar-main-content .hamburger {
-            /* Use adjacent sibling selector to target hamburger when overlay is active */
             opacity: 0;
             pointer-events: none;
         }
@@ -248,10 +243,10 @@ const { pathname } = Astro.url;
     
     @media (max-width: 480px) {
         .donation-section-nav span {
-            font-size: 0.75rem; /* Slightly smaller text */
+            font-size: 0.75rem; 
         }
         .donation-section-nav i {
-            font-size: 1rem; /* Slightly smaller icon */
+            font-size: 1rem; 
             margin-right: 0.25rem;
         }
     }
