@@ -1,5 +1,16 @@
 [
   {
+    "id": 16,
+    "title": "Hyflip Mod/Website/Server",
+    "description": "Paid Bazaar/auction house flipper for Hypixel Skyblock, optimised to reduce server load and minimise flipping delay. Paired with a powerful mod written in Kotlin, and a (private) backend written in Golang.",
+    "image": "/bzs.png",
+    "category": "web",
+    "categoryLabel": "Web|Mod Development",
+    "technologies": ["React", "NextJS", "Golang", "Kotlin"],
+    "categoryColor": "red",
+    "projectUrl": "https://hyflip-website.vercel.app/"
+  },
+  {
     "id": 12,
     "title": "DevSpoofGO",
     "description": "A 5900+ LOC project written in Golang (injector) and C++ (dll) that allows you to inject programs with an in-memory override DLL.",
