@@ -41,7 +41,7 @@
     "category": "web",
     "categoryLabel": "Web Development",
     "categoryColor": "blue",
-    "technologies": ["HTML", "CSS", "JavaScript", “React", NextJS"],
+    "technologies": ["HTML", "CSS", "JavaScript", "React", "NextJS"],
     "projectUrl": "https://crypfolio.pages.dev/",
     "externalUrl": "https://crypfolio.pages.dev/"
   },
