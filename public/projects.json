@@ -1,4 +1,4 @@
-[
+﻿[
   {
     "id": 1,
     "title": "Web4Crypto",
@@ -32,6 +32,18 @@
     "technologies": ["React"],
     "categoryColor": "yellow",
     "projectUrl": "https://psychmusic.pages.dev/"
+  },
+  {
+    "id": 100,
+    "title": "Crypfolio",
+    "description": "https://crypfolio.pages.dev/; A SaaS to keep track of your crypto portfolio.",
+    "image": "/cryptfolio.png",
+    "category": "web",
+    "categoryLabel": "Web Development",
+    "categoryColor": "blue",
+    "technologies": ["HTML", "CSS", "JavaScript", “React", NextJS"],
+    "projectUrl": "https://crypfolio.pages.dev/",
+    "externalUrl": "https://crypfolio.pages.dev/"
   },
   {
     "id": 16,
