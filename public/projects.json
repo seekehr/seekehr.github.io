@@ -20,7 +20,8 @@
     "categoryLabel": "Web|App Development",
     "technologies": ["React", "Wails", "Golang"],
     "categoryColor": "yellow",
-    "projectUrl": "https://seekernotesweb.pages.dev/"
+    "projectUrl": "https://seekernotesweb.pages.dev/",
+    "externalUrl": "https://seekernotesweb.pages.dev/"
   },
   {
     "id": 41,
@@ -31,7 +32,8 @@
     "categoryLabel": "Web Development",
     "technologies": ["React"],
     "categoryColor": "yellow",
-    "projectUrl": "https://psychmusic.pages.dev/"
+    "projectUrl": "https://psychmusic.pages.dev/",
+    "externalUrl": "https://psychmusic.pages.dev/"
   },
   {
     "id": 52,
@@ -54,7 +56,8 @@
     "categoryLabel": "Web|Mod Development",
     "technologies": ["React", "NextJS", "Golang", "Kotlin"],
     "categoryColor": "red",
-    "projectUrl": "https://hyflip-website.vercel.app/"
+    "projectUrl": "https://hyflip-website.vercel.app/",
+    "externalUrl": "https://hyflip-website.vercel.app/"
   },
   {
     "id": 12,
