@@ -11,6 +11,14 @@ export function ProjectsScreen() {
     getProjects().then((data) => {
       setProjects(data)
       setIsLoading(false)
+      
+      // Preload all project images
+      data.forEach((project) => {
+        if (project.image) {
+          const img = new Image()
+          img.src = project.image
+        }
+      })
     })
   }, [])
 

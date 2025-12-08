@@ -3,11 +3,22 @@
 import { useState, useEffect } from "react"
 import { LoadingScreen } from "@/components/loading-screen"
 import { PhoneFrame } from "@/components/phone-frame"
+import { getProjects } from "@/lib/projects"
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
+    // Preload project images early
+    getProjects().then((projects) => {
+      projects.forEach((project) => {
+        if (project.image) {
+          const img = new Image()
+          img.src = project.image
+        }
+      })
+    })
+
     const timer = setTimeout(() => {
       setIsLoading(false)
     }, 2500)
