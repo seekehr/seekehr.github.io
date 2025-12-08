@@ -7,6 +7,7 @@ import { getProjects } from "@/lib/projects"
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true)
+  const [showHint, setShowHint] = useState(false)
 
   useEffect(() => {
     // Preload project images early
@@ -42,6 +43,50 @@ export default function Home() {
 
       {/* Content */}
       <div className="relative z-10">{isLoading ? <LoadingScreen /> : <PhoneFrame />}</div>
+
+      {/* Help Icon */}
+      <div className="fixed top-4 right-4 z-[99999]">
+        <button
+          onMouseEnter={() => {
+            if (window.matchMedia("(hover: hover)").matches) {
+              setShowHint(true)
+            }
+          }}
+          onMouseLeave={() => {
+            if (window.matchMedia("(hover: hover)").matches) {
+              setShowHint(false)
+            }
+          }}
+          onClick={() => {
+            if (!window.matchMedia("(hover: hover)").matches) {
+              setShowHint(!showHint)
+            }
+          }}
+          className="w-10 h-10 rounded-full bg-zinc-700 hover:bg-zinc-600 active:bg-zinc-500 flex items-center justify-center shadow-lg transition-colors"
+          aria-label="Help"
+        >
+          <span className="text-white text-lg font-bold">?</span>
+        </button>
+
+        {/* Hint Popover */}
+        {showHint && (
+          <div
+            className="absolute top-0 right-full mr-3 p-4 rounded-2xl backdrop-filter backdrop-blur-xl bg-black/50 border border-zinc-800/50 shadow-xl min-w-[200px] pointer-events-auto"
+            onMouseEnter={() => {
+              if (window.matchMedia("(hover: hover)").matches) {
+                setShowHint(true)
+              }
+            }}
+            onMouseLeave={() => {
+              if (window.matchMedia("(hover: hover)").matches) {
+                setShowHint(false)
+              }
+            }}
+          >
+            <p className="text-sm text-white font-medium">Hint: Double tap to view on mobile</p>
+          </div>
+        )}
+      </div>
     </main>
   )
 }
