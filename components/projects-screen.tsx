@@ -49,22 +49,24 @@ export function ProjectsScreen() {
 
   const handleMouseEnter = (projectId: number, event: React.MouseEvent<HTMLDivElement>) => {
     if (window.matchMedia("(hover: hover)").matches) {
-      // Desktop: position at cursor position over the icon
-      setPopoverPosition({
-        top: event.clientY,
-        left: event.clientX
-      })
+      // Desktop: position at the icon location relative to phone screen
+      const rect = event.currentTarget.getBoundingClientRect()
+      const screenContainer = event.currentTarget.closest('[data-phone-screen]')
+      const screenRect = screenContainer?.getBoundingClientRect()
+      
+      if (screenRect) {
+        setPopoverPosition({
+          top: (rect.top - screenRect.top) + (rect.height / 2),
+          left: (rect.right - screenRect.left) + 8
+        })
+      } else {
+        setPopoverPosition({
+          top: rect.top + (rect.height / 2),
+          left: rect.right + 8
+        })
+      }
+      setPopoverOnRight(true)
       setHoveredProject(projectId)
-    }
-  }
-
-  const handleMouseMove = (projectId: number, event: React.MouseEvent<HTMLDivElement>) => {
-    if (window.matchMedia("(hover: hover)").matches && hoveredProject === projectId) {
-      // Desktop: follow cursor as it moves over the icon
-      setPopoverPosition({
-        top: event.clientY,
-        left: event.clientX
-      })
     }
   }
 
@@ -121,13 +123,15 @@ export function ProjectsScreen() {
         // Get the container to calculate column width
         const container = targetElement.closest('.fade-in') || targetElement.parentElement
         const containerRect = container?.getBoundingClientRect()
+        const screenContainer = targetElement.closest('[data-phone-screen]')
+        const screenRect = screenContainer?.getBoundingClientRect()
         const containerWidth = containerRect?.width || window.innerWidth
         const columnWidth = containerWidth / 4 // 4-column grid
         const iconLeftRelative = rect.left - (containerRect?.left || 0)
         const isFirstColumn = iconLeftRelative < columnWidth
         const isSecondColumn = iconLeftRelative >= columnWidth && iconLeftRelative < (columnWidth * 2)
-        const isLeftColumn = isFirstColumn || isSecondColumn
         
+        // Mobile: use viewport coordinates for fixed positioning
         if (isFirstColumn) {
           // Position to the right of icon for first column
           setPopoverPosition({
@@ -184,7 +188,6 @@ export function ProjectsScreen() {
               key={project.id}
               data-project-item
               onMouseEnter={(e) => handleMouseEnter(project.id, e)}
-              onMouseMove={(e) => handleMouseMove(project.id, e)}
               onMouseLeave={handleMouseLeave}
               onClick={(e) => handleClick(project, e)}
               className="flex flex-col items-center group cursor-pointer"
@@ -208,7 +211,7 @@ export function ProjectsScreen() {
         </div>
       </div>
 
-      {/* Description Popover - rendered outside container to avoid overflow clipping */}
+      {/* Description Popover - rendered outside to appear above phone frame */}
       {project && activeProject && typeof document !== 'undefined' && (
         <div
           data-project-popover
@@ -219,7 +222,7 @@ export function ProjectsScreen() {
             top: `${popoverPosition.top}px`,
             left: `${popoverPosition.left}px`,
             transform: window.matchMedia("(hover: hover)").matches 
-              ? "translate(10px, 10px)" 
+              ? "translateY(-50%)" 
               : popoverOnRight 
                 ? "translateY(-50%)" 
                 : "translate(-100%, -50%)",

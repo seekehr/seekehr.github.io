@@ -90,7 +90,7 @@ export function PhoneFrame() {
           </div>
 
           {/* Screen content */}
-          <div className="h-[calc(100%-24px)] flex flex-col pt-4 pb-24 px-4 overflow-hidden">
+          <div data-phone-screen className="h-[calc(100%-24px)] flex flex-col pt-4 pb-24 px-4 overflow-visible relative">
             {/* Skills Widget */}
             <SkillsWidget />
 
