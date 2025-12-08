@@ -1,5 +1,17 @@
 ﻿[
   {
+    "id": 102,
+    "title": "VapeReviews",
+    "description": "A website for reviewing vapes, written using React and NextJS with Supabase.",
+    "image": "/vapereviews.png",
+    "category": "web",
+    "categoryLabel": "Web Development",
+    "technologies": ["React", "TailwindCSS", "NextJS", "Supabase"],
+    "categoryColor": "blue",
+    "projectUrl": "https://vapereviews.org/",
+    "externalUrl": "https://vapereviews.org/"
+  },
+  {
     "id": 1,
     "title": "Web4Crypto",
     "description": "https://www.web4crypto.net/; A startup made exclusively by me to promote my crypto-related developer services.",
