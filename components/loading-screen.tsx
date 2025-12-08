@@ -22,7 +22,7 @@ export function LoadingScreen() {
     <div className="fixed inset-0 bg-black flex flex-col items-center justify-center z-50">
       {/* Logo */}
       <div className="mb-12">
-        <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-zinc-700 to-zinc-900 flex items-center justify-center shadow-2xl">
+        <div className="w-20 h-20 rounded-2xl bg-purple-600 flex items-center justify-center shadow-2xl">
           <span className="text-4xl font-light text-white">S</span>
         </div>
       </div>
