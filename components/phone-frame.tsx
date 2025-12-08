@@ -39,9 +39,16 @@ export function PhoneFrame() {
   return (
     <div className="fade-in">
       {/* Phone body */}
-      <div className="relative w-[320px] md:w-[375px] bg-gradient-to-b from-zinc-800 via-zinc-900 to-black rounded-[50px] p-2 shadow-2xl">
-        {/* Glossy bezel highlight */}
-        <div className="absolute inset-0 rounded-[50px] bg-gradient-to-br from-zinc-600/30 via-transparent to-transparent pointer-events-none" />
+      <div className="relative w-[320px] md:w-[375px] rounded-[50px] p-2 shadow-2xl" style={{
+        background: "linear-gradient(135deg, #1f2937 0%, #111827 25%, #030712 50%, #111827 75%, #1f2937 100%)",
+        boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.8), inset 0 2px 4px rgba(255, 255, 255, 0.1), inset 0 -2px 4px rgba(0, 0, 0, 0.5)"
+      }}>
+        {/* Glossy bezel highlight - top */}
+        <div className="absolute inset-0 rounded-[50px] bg-gradient-to-br from-white/20 via-white/5 to-transparent pointer-events-none" />
+        {/* Glossy bezel highlight - bottom shadow */}
+        <div className="absolute inset-0 rounded-[50px] bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+        {/* Inner bezel ring */}
+        <div className="absolute inset-[8px] rounded-[42px] border border-zinc-800/50 pointer-events-none" />
 
         {/* Speaker grille */}
         <div className="absolute top-4 left-1/2 -translate-x-1/2 w-16 h-1.5 bg-zinc-900 rounded-full" />
@@ -53,9 +60,10 @@ export function PhoneFrame() {
 
         {/* Screen */}
         <div
-          className="relative w-full h-[580px] md:h-[667px] rounded-[8px] overflow-hidden"
+          className="relative w-full h-[580px] md:h-[667px] rounded-[44px] overflow-hidden"
           style={{
-            background: "linear-gradient(180deg, #5b9bd5 0%, #87ceeb 30%, #b8d4e8 70%, #d4e5f7 100%)",
+            background: "linear-gradient(180deg, #1e1b4b 0%, #312e81 30%, #1e293b 70%, #0f172a 100%)",
+            boxShadow: "inset 0 0 0 1px rgba(0, 0, 0, 0.3), inset 0 1px 2px rgba(0, 0, 0, 0.2)"
           }}
         >
           {/* Status bar */}
