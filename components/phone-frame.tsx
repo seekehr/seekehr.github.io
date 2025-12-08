@@ -30,7 +30,7 @@ export function PhoneFrame() {
 
   const handleNavClick = (screen: Screen) => {
     if (screen === "clients") {
-      window.open("https://discord.com", "_blank")
+      window.open("https://discord.gg/vXyexjM54x", "_blank")
       return
     }
     setCurrentScreen(screen)

@@ -1,0 +1,74 @@
+[
+  {
+    "name": "LunarProxy",
+    "description": "I developed a custom proxy solution for a client, enabling them to bypass IP-based restrictions and ensure stable, secure connections for their services. The project involved reverse-engineering private APIs and implementing a robust proxy system.",
+    "image": "/lunarproxy.png",
+    "iconUrl": "/lunarlogo.png",
+    "technologies": ["Reverse Engineering", "Proxy Development", "Network Protocols"],
+    "testimonial": "The proxy solution you developed has been a game-changer for our operations. We can now maintain stable connections without worrying about IP blocks. Your expertise in reverse engineering and network protocols is truly impressive.",
+    "projectUrl": ""
+  },
+  {
+    "name": "Prim",
+    "description": "I developed a custom Minecraft plugin for a client that introduced new gameplay mechanics and features. The project involved creating a complex system for managing player data, implementing custom events, and ensuring compatibility with other plugins.",
+    "image": "/prim.png",
+    "iconUrl": "/primavatar.png",
+    "technologies": ["Java", "Spigot API", "MySQL", "Plugin Development"],
+    "testimonial": "The plugin you created for our server has exceeded all our expectations. It's stable, feature-rich, and has significantly improved the player experience. Your attention to detail and commitment to quality are second to none.",
+    "projectUrl": ""
+  },
+  {
+    "name": "Sulfurium",
+    "description": "I provided backend development services for a client's web application, focusing on creating a scalable and efficient infrastructure. The project involved designing and implementing a RESTful API, managing databases, and ensuring data security.",
+    "image": "/sulfurium.png",
+    "iconUrl": "",
+    "technologies": ["Node.js", "Express", "MongoDB", "RESTful APIs"],
+    "testimonial": "Your backend development skills have been invaluable to our project. The API you built is fast, reliable, and secure, and your ability to work with our existing codebase has been a huge help. We couldn't have done it without you.",
+    "projectUrl": "https://sulfurium.net"
+  },
+  {
+    "name": "Tobias",
+    "description": "I developed a custom Discord bot for a client's server, providing a range of features to enhance community engagement. The project involved integrating with third-party APIs, creating custom commands, and ensuring the bot was user-friendly and reliable.",
+    "image": "/tobias.png",
+    "iconUrl": "",
+    "technologies": ["Python", "Discord.js", "API Integration", "Bot Development"],
+    "testimonial": "The Discord bot you created has been a fantastic addition to our server. It's packed with useful features and has been a great tool for engaging our community. Your creativity and technical skills are top-notch.",
+    "projectUrl": ""
+  },
+  {
+    "name": "NotSoBlind",
+    "description": "I developed a custom screen reader application for a client, designed to assist visually impaired users in navigating digital content. The project involved creating a text-to-speech engine, implementing keyboard shortcuts, and ensuring compatibility with various applications.",
+    "image": "/notsoblind.png",
+    "iconUrl": "",
+    "technologies": ["Python", "Accessibility", "Text-to-Speech", "UI Automation"],
+    "testimonial": "The screen reader you developed has made a huge difference in my ability to access digital content. It's intuitive, reliable, and has given me a new level of independence. Your work is truly life-changing.",
+    "projectUrl": "https://github.com/NotSoBlind"
+  },
+  {
+    "name": "Nice",
+    "description": "I developed a CLI tool that enabled a fellow developer to communicate with his non-verbal brother. I was in charge of the backend logic, which involved serializing and transmitting data to an Arduino device.",
+    "image": "/nice.png",
+    "iconUrl": "",
+    "technologies": ["Go", "Arduino", "Serial Communication"],
+    "testimonial": "The CLI tool you developed has been a blessing for my family. It has allowed my brother to communicate with us in ways we never thought possible. Your expertise in hardware integration and backend development is truly remarkable.",
+    "projectUrl": ""
+  },
+  {
+    "name": "Zeqer",
+    "description": "I developed a custom plugin for a client's Minecraft server, which involved creating a unique gameplay experience with custom items, abilities, and bosses. The project required a deep understanding of game mechanics and player behavior.",
+    "image": "/zeqer.png",
+    "iconUrl": "",
+    "technologies": ["Java", "Spigot API", "Game Design", "Plugin Development"],
+    "testimonial": "The plugin you created has transformed our server into a truly unique experience. The custom content is engaging, well-balanced, and has been a huge hit with our players. Your passion for game design is evident in every detail.",
+    "projectUrl": ""
+  },
+  {
+    "name": "Tomer",
+    "description": "I developed an automated system for a client that streamlined their workflow and reduced manual labor. The project involved creating a series of scripts that automated data entry, file processing, and report generation.",
+    "image": "/tomer.png",
+    "iconUrl": "",
+    "technologies": ["Python", "Automation", "Data Processing", "Scripting"],
+    "testimonial": "The automation system you built has been a game-changer for our business. It has saved us countless hours of manual work and allowed us to focus on more important tasks. Your problem-solving skills and attention to detail are exceptional.",
+    "projectUrl": ""
+  }
+]

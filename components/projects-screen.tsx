@@ -1,8 +1,34 @@
 "use client"
 
-import { projects } from "@/lib/projects"
+import { useState, useEffect } from "react"
+import { getProjects, type Project } from "@/lib/projects"
 
 export function ProjectsScreen() {
+  const [projects, setProjects] = useState<Project[]>([])
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    getProjects().then((data) => {
+      setProjects(data)
+      setIsLoading(false)
+    })
+  }, [])
+
+  if (isLoading) {
+    return (
+      <div className="fade-in">
+        <div className="grid grid-cols-4 gap-4">
+          {[...Array(8)].map((_, i) => (
+            <div key={i} className="flex flex-col items-center">
+              <div className="w-14 h-14 bg-zinc-700/50 rounded-2xl animate-pulse" />
+              <div className="mt-1 h-3 w-12 bg-zinc-700/50 rounded animate-pulse" />
+            </div>
+          ))}
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="fade-in">
       <div className="grid grid-cols-4 gap-4">
