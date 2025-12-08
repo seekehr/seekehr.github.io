@@ -59,7 +59,7 @@ export function PhoneFrame() {
           }}
         >
           {/* Status bar */}
-          <div className="h-6 bg-black/30 glass-effect flex items-center justify-between px-4 text-white text-xs font-medium">
+          <div className="h-6 bg-black/40 glass-effect flex items-center justify-between px-4 text-white text-xs font-semibold drop-shadow-md">
             <span>{currentTime}</span>
             <div className="flex items-center gap-1.5">
               {/* Signal bars */}
@@ -68,9 +68,9 @@ export function PhoneFrame() {
                 <div className="w-1 h-1.5 bg-white rounded-sm" />
                 <div className="w-1 h-2 bg-white rounded-sm" />
                 <div className="w-1 h-2.5 bg-white rounded-sm" />
-                <div className="w-1 h-3 bg-white/40 rounded-sm" />
+                <div className="w-1 h-3 bg-white/60 rounded-sm" />
               </div>
-              <span className="text-[10px] ml-1">3G</span>
+              <span className="text-xs ml-1 font-semibold">3G</span>
               {/* Battery */}
               <div className="flex items-center gap-0.5 ml-1">
                 <div className="w-5 h-2.5 border border-white rounded-sm p-px">
@@ -95,13 +95,6 @@ export function PhoneFrame() {
 
           {/* Bottom dock */}
           <BottomNav currentScreen={currentScreen} onNavigate={handleNavClick} />
-        </div>
-
-        {/* Home button */}
-        <div className="absolute -bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2">
-          <div className="w-12 h-12 rounded-full bg-gradient-to-b from-zinc-700 to-zinc-900 border-2 border-zinc-600 shadow-lg flex items-center justify-center">
-            <div className="w-5 h-5 rounded-md border-2 border-zinc-500" />
-          </div>
         </div>
       </div>
 

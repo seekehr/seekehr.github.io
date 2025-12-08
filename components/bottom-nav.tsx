@@ -32,7 +32,7 @@ export function BottomNav({ currentScreen, onNavigate }: BottomNavProps) {
               >
                 <Icon className="w-6 h-6 text-white drop-shadow-sm" />
               </div>
-              <span className="text-[10px] text-white/80 font-medium">{label}</span>
+              <span className="text-xs text-white font-semibold drop-shadow-md">{label}</span>
             </button>
           ))}
         </div>

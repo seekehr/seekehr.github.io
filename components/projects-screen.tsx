@@ -51,7 +51,7 @@ export function ProjectsScreen() {
                 <span className="text-xl font-semibold text-zinc-700">{project.title.charAt(0)}</span>
               )}
             </div>
-            <span className="mt-1 text-[10px] text-white/90 text-center font-medium drop-shadow-sm truncate w-full px-1">
+            <span className="mt-1 text-xs text-white font-semibold text-center drop-shadow-md truncate w-full px-1">
               {project.title}
             </span>
           </a>

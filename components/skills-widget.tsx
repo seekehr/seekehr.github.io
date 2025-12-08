@@ -9,16 +9,16 @@ export function SkillsWidget() {
 
   return (
     <div className="widget p-4">
-      <div className="text-xs font-semibold text-white/90 mb-3 flex items-center gap-2">
+      <div className="text-sm font-semibold text-white mb-3 flex items-center gap-2 drop-shadow-md">
         <span className="w-2 h-2 bg-green-400 rounded-full" />
         Skills
       </div>
       <div className="space-y-3">
         {skills.map((skill) => (
           <div key={skill.name} className="space-y-1">
-            <div className="flex justify-between text-xs">
-              <span className="text-white/90 font-medium">{skill.name}</span>
-              <span className="text-white/60">MAX</span>
+            <div className="flex justify-between text-sm">
+              <span className="text-white font-semibold drop-shadow-md">{skill.name}</span>
+              <span className="text-white font-medium drop-shadow-md">MAX</span>
             </div>
             <div className="h-2 bg-black/20 rounded-full overflow-hidden">
               <div
