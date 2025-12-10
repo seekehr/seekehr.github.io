@@ -3,7 +3,7 @@
     "id": 103,
     "title": "PolyMarket Bot",
     "description": "A Go-based Polymarket CLOB trading engine with real-time market feed processing, EIP-712–derived API credentials, HMAC-L2 authentication, and latency-tuned automated order execution. ",
-    "image": "/polymarket-bot.png",
+    "image": "/polymarket-bot.jpeg",
     "category": "systems",
     "categoryLabel": "Web Development",
     "technologies": ["Go", "Polymarket", "CLOB", "Trading", "Automation"],
