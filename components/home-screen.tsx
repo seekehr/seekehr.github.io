@@ -13,7 +13,7 @@ export function HomeScreen() {
       {/* Stats row */}
       <div className="grid grid-cols-2 gap-3">
         <div className="p-3 text-center rounded-2xl backdrop-filter backdrop-blur-xl bg-black/50 border border-zinc-800/50 shadow-xl">
-          <div className="text-2xl font-bold text-white">19+</div>
+          <div className="text-2xl font-bold text-white">20+</div>
           <div className="text-xs text-white font-medium">Projects</div>
         </div>
         <div className="p-3 text-center rounded-2xl backdrop-filter backdrop-blur-xl bg-black/50 border border-zinc-800/50 shadow-xl">
