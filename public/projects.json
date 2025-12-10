@@ -1,5 +1,17 @@
 ﻿[
   {
+    "id": 103,
+    "title": "PolyMarket Bot",
+    "description": "A Go-based Polymarket CLOB trading engine with real-time market feed processing, EIP-712–derived API credentials, HMAC-L2 authentication, and latency-tuned automated order execution. ",
+    "image": "/polymarket-bot.png",
+    "category": "systems",
+    "categoryLabel": "Web Development",
+    "technologies": ["Go", "Polymarket", "CLOB", "Trading", "Automation"],
+    "categoryColor": "gray",
+    "projectUrl": "https://github.com/seekehr/polymarket-bot",
+    "externalUrl": "https://github.com/seekehr/polymarket-bot"
+  },
+  {
     "id": 102,
     "title": "VapeReviews",
     "description": "A website for reviewing vapes, written using React and NextJS with Supabase.",
