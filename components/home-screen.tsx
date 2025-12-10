@@ -27,7 +27,7 @@ export function HomeScreen() {
         <h3 className="text-sm font-semibold text-white mb-2">About</h3>
         <p className="text-sm text-white font-medium leading-relaxed">
           Full-stack developer specializing in Golang, React, and Next.js. Building everything from web apps to
-          systems-level tools.
+          systems-level tools. Crypto lover.
         </p>
       </div>
 
