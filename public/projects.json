@@ -36,6 +36,18 @@
     "externalUrl": "https://cryptox-heatmap.pages.dev/"
   },
   {
+    "id": 105,
+    "title": "Upwork Client Finder",
+    "description": "A Chrome/Firefox extension that highlights clients on Upwork that follow your settings and requirements.",
+    "image": "/upwork-client-finder.png",
+    "category": "web",
+    "categoryLabel": "Web Development",
+    "technologies": ["React", "TailwindCSS", "Chrome Extension", "Firefox Extension", "Scraping"],
+    "categoryColor": "blue",
+    "projectUrl": "https://youtu.be/64Wyo5IYcV0",
+    "externalUrl": "https://youtu.be/64Wyo5IYcV0"
+  },
+  {
     "id": 1,
     "title": "Web4Crypto",
     "description": "https://www.web4crypto.net/; A startup made exclusively by me to promote my crypto-related developer services.",
