@@ -12,6 +12,18 @@
     "externalUrl": "https://github.com/seekehr/polymarket-bot"
   },
   {
+    "id": 106,
+    "title": "Upwork Job Analyzer",
+    "description": "A browser extension that automatically analyzes Upwork job listings in real-time using a weighted scoring system to help freelancers quickly identify which jobs are worth applying to based on factors like competition level, client quality, and payment verification..",
+    "image": "/upworkanalyzer.jpeg",
+    "category": "web",
+    "categoryLabel": "Web Development",
+    "technologies": ["Typescript", "Chrome Extension", "Firefox Extension", "Scraping"],
+    "categoryColor": "blue",
+    "projectUrl": "https://github.com/seekehr/upwork-job-analyzer",
+    "externalUrl": "https://github.com/seekehr/upwork-job-analyzer"
+  },
+  {
     "id": 102,
     "title": "VapeReviews",
     "description": "A website for reviewing vapes, written using React and NextJS with Supabase.",
