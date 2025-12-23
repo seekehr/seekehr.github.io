@@ -48,18 +48,6 @@
     "externalUrl": "https://cryptox-heatmap.pages.dev/"
   },
   {
-    "id": 105,
-    "title": "Upwork Client Finder",
-    "description": "A Chrome/Firefox extension that highlights clients on Upwork that follow your settings and requirements.",
-    "image": "/upwork-client-finder.png",
-    "category": "web",
-    "categoryLabel": "Web Development",
-    "technologies": ["React", "TailwindCSS", "Chrome Extension", "Firefox Extension", "Scraping"],
-    "categoryColor": "blue",
-    "projectUrl": "https://youtu.be/64Wyo5IYcV0",
-    "externalUrl": "https://youtu.be/64Wyo5IYcV0"
-  },
-  {
     "id": 107,
     "title": "RevenueTrackX",
     "description": "A website for tracking your revenue, written using React and NextJS.",
