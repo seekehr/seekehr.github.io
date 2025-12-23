@@ -60,6 +60,18 @@
     "externalUrl": "https://youtu.be/64Wyo5IYcV0"
   },
   {
+    "id": 107,
+    "title": "RevenueTrackX",
+    "description": "A website for tracking your revenue, written using React and NextJS.",
+    "image": "/revenuetrackx.png",
+    "category": "web",
+    "categoryLabel": "Web Development",
+    "technologies": ["HTML", "CSS", "JavaScript", "React", "NextJS"],
+    "categoryColor": "blue",
+    "projectUrl": "https://revenue-trackx.pages.dev/",
+    "externalUrl": "https://revenue-trackx.pages.dev/"
+  },
+  {
     "id": 1,
     "title": "Web4Crypto",
     "description": "https://www.web4crypto.net/; A startup made exclusively by me to promote my crypto-related developer services.",
