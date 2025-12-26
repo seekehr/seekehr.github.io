@@ -20,8 +20,8 @@
     "categoryLabel": "Web Development",
     "technologies": ["Typescript", "Chrome Extension", "Firefox Extension", "Scraping"],
     "categoryColor": "blue",
-    "projectUrl": "https://github.com/seekehr/upwork-job-analyzer",
-    "externalUrl": "https://github.com/seekehr/upwork-job-analyzer"
+    "projectUrl": "https://addons.mozilla.org/en-US/firefox/addon/upwork-job-analyzer/",
+    "externalUrl": "https://addons.mozilla.org/en-US/firefox/addon/upwork-job-analyzer/"
   },
   {
     "id": 102,
