@@ -24,6 +24,18 @@
     "externalUrl": "https://addons.mozilla.org/en-US/firefox/addon/upwork-job-analyzer/"
   },
   {
+    "id": 108,
+    "title": "Casheee",
+    "description": "An ecommerce store for selling casheee products.",
+    "image": "/casheee.png",
+    "category": "web",
+    "categoryLabel": "Web Development",
+    "technologies": ["React", "TailwindCSS", "NextJS", "Supabase"],
+    "categoryColor": "blue",
+    "projectUrl": "https://github.com/seekehr/casheee/settings",
+    "externalUrl": "https://github.com/seekehr/casheee/settings"
+  },
+  {
     "id": 102,
     "title": "VapeReviews",
     "description": "A website for reviewing vapes, written using React and NextJS with Supabase.",
