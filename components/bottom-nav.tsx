@@ -1,6 +1,6 @@
 "use client"
 
-import { Home, FolderOpen, Users } from "lucide-react"
+import { Home, FolderOpen, Users, Mail } from "lucide-react"
 import type { Screen } from "@/components/phone-frame"
 
 interface BottomNavProps {
@@ -13,6 +13,7 @@ export function BottomNav({ currentScreen, onNavigate }: BottomNavProps) {
     { id: "home" as Screen, icon: Home, label: "Home", gradient: "from-blue-400 to-blue-600" },
     { id: "projects" as Screen, icon: FolderOpen, label: "Projects", gradient: "from-orange-400 to-orange-600" },
     { id: "clients" as Screen, icon: Users, label: "Clients", gradient: "from-green-400 to-green-600" },
+    { id: "contact" as Screen, icon: Mail, label: "Contact", gradient: "from-purple-400 to-purple-600" },
   ]
 
   return (

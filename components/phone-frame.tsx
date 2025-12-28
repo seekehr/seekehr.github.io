@@ -4,9 +4,10 @@ import { useState, useEffect } from "react"
 import { SkillsWidget } from "@/components/skills-widget"
 import { HomeScreen } from "@/components/home-screen"
 import { ProjectsScreen } from "@/components/projects-screen"
+import { ContactScreen } from "@/components/contact-screen"
 import { BottomNav } from "@/components/bottom-nav"
 
-export type Screen = "home" | "projects" | "clients"
+export type Screen = "home" | "projects" | "clients" | "contact"
 
 export function PhoneFrame() {
   const [currentScreen, setCurrentScreen] = useState<Screen>("home")
@@ -98,6 +99,7 @@ export function PhoneFrame() {
             <div className="flex-1 overflow-y-auto mt-4 scrollbar-hide">
               {currentScreen === "home" && <HomeScreen />}
               {currentScreen === "projects" && <ProjectsScreen />}
+              {currentScreen === "contact" && <ContactScreen />}
             </div>
           </div>
 
