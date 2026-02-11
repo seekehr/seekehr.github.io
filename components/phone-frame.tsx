@@ -79,7 +79,7 @@ export function PhoneFrame() {
                 <div className="w-1 h-2.5 bg-white rounded-sm" />
                 <div className="w-1 h-3 bg-white/60 rounded-sm" />
               </div>
-              <span className="text-xs ml-1 font-semibold">3G</span>
+              <span className="text-xs ml-1 font-semibold">4G</span>
               {/* Battery */}
               <div className="flex items-center gap-0.5 ml-1">
                 <div className="w-5 h-2.5 border border-white rounded-sm p-px">

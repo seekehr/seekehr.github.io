@@ -67,7 +67,7 @@ export function ContactScreen() {
       <Dialog open={showGmailDialog} onOpenChange={setShowGmailDialog}>
         <DialogContent className="bg-zinc-900/95 border-zinc-700 text-white">
           <DialogHeader>
-            <DialogTitle className="text-white">GMail</DialogTitle>
+            <DialogTitle className="text-white">Gmail</DialogTitle>
           </DialogHeader>
           <div className="py-4">
             <p className="text-white font-medium">grouchyseeker@gmail.com</p>
