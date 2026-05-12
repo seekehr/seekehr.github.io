@@ -12,6 +12,18 @@
     "externalUrl": "https://github.com/seekehr/polymarket-bot"
   },
   {
+    "id": 110,
+    "title": "DiscordFreelanceX",
+    "description": "A self-bot for Discord with a GUI that automatically notifies you about new job postings in specified servers, and lets you automatically advertise there.",
+    "image": "/discordfreelancex.png",
+    "category": "systems",
+    "categoryLabel": "Web Development",
+    "technologies": ["Go", "Discord", "GUI", "Automation", "Bot"],
+    "categoryColor": "gray",
+    "projectUrl": "https://github.com/seekehr/DiscordFreelanceX/tree/main",
+    "externalUrl": "https://github.com/seekehr/DiscordFreelanceX/tree/main"
+  },
+  {
     "id": 106,
     "title": "Upwork Job Analyzer",
     "description": "A browser extension that automatically analyzes Upwork job listings in real-time using a weighted scoring system to help freelancers quickly identify which jobs are worth applying to based on factors like competition level, client quality, and payment verification.",
