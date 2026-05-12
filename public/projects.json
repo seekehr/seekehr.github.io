@@ -24,6 +24,30 @@
     "externalUrl": "https://github.com/seekehr/DiscordFreelanceX/tree/main"
   },
   {
+    "id": 111,
+    "title": "SeekerVelocity",
+    "description": "An UNDETECTABLE velocity mod for forge 1.8.9 that has customisable spread, chance, HV, and VV.",
+    "image": "/velo.png",
+    "category": "mod",
+    "categoryLabel": "Mod Development",
+    "technologies": ["Java", "Forge", "Velocity"],
+    "categoryColor": "red",
+    "projectUrl": "https://github.com/seekehr/VelocityMod-1.8.9",
+    "externalUrl": "https://github.com/seekehr/VelocityMod-1.8.9"
+  },
+  {
+    "id": 112,
+    "title": "AutoClicker",
+    "description": "An UNDETECTABLE autoclicker mod for forge 1.8.9 that autoclicks while holding lmb/rmb and has tools (e.g pickaxe) support.",
+    "image": "/ac.png",
+    "category": "mod",
+    "categoryLabel": "Mod Development",
+    "technologies": ["Java", "Forge"],
+    "categoryColor": "red",
+    "projectUrl": "https://github.com/seekehr/AC-Mod-1.8.9",
+    "externalUrl": "https://github.com/seekehr/AC-Mod-1.8.9"
+  },
+  {
     "id": 106,
     "title": "Upwork Job Analyzer",
     "description": "A browser extension that automatically analyzes Upwork job listings in real-time using a weighted scoring system to help freelancers quickly identify which jobs are worth applying to based on factors like competition level, client quality, and payment verification.",
