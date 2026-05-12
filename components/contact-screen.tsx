@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
-import { Mail } from "lucide-react"
+import { FileDown, Mail } from "lucide-react"
 
 function DiscordLogo({ className }: { className?: string }) {
   return (
@@ -60,6 +60,20 @@ export function ContactScreen() {
               Gmail
             </span>
           </div>
+
+          {/* Resume */}
+          <a
+            href="/resume.pdf"
+            download="resume.pdf"
+            className="flex flex-col items-center group cursor-pointer"
+          >
+            <div className="w-14 h-14 app-icon bg-gradient-to-br from-slate-600 to-slate-800 flex items-center justify-center overflow-hidden transition-transform group-active:scale-90">
+              <FileDown className="w-8 h-8 text-white drop-shadow-sm" />
+            </div>
+            <span className="mt-1 text-xs text-white font-semibold text-center drop-shadow-md truncate w-full px-1">
+              Resume
+            </span>
+          </a>
         </div>
       </div>
 
