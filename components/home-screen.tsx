@@ -7,7 +7,7 @@ export function HomeScreen() {
           <span className="text-2xl font-semibold text-white">S</span>
         </div>
         <h1 className="text-lg font-semibold text-white">Seeker</h1>
-        <p className="text-sm text-white font-medium">Full-Stack Developer</p>
+        <p className="text-sm text-white font-medium">AI Automation and Backend Systems Engineer</p>
       </div>
 
       {/* Stats row */}
@@ -26,8 +26,7 @@ export function HomeScreen() {
       <div className="p-4 rounded-2xl backdrop-filter backdrop-blur-xl bg-black/50 border border-zinc-800/50 shadow-xl">
         <h3 className="text-sm font-semibold text-white mb-2">About</h3>
         <p className="text-sm text-white font-medium leading-relaxed">
-          Full-stack developer specializing in Golang, React, and Next.js. Building everything from web apps to
-          systems-level tools. Crypto lover.
+        Backend Systems Engineer specializing in AI automation, real-time infrastructure, and high-performance web applications.
         </p>
       </div>
 

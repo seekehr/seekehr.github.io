@@ -11,7 +11,7 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "Seeker | Developer Portfolio",
   description:
-    "Full-stack developer specializing in Golang, React, and Next.js. Building web apps to systems-level tools. Crypto lover.",
+    "Backend Systems Engineer specializing in AI automation, real-time infrastructure, and high-performance web applications.",
   icons: {
     icon: [
       {
