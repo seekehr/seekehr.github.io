@@ -1,11 +1,23 @@
 ﻿[
   {
+    "id": 116,
+    "title": "Reversio",
+    "description": "An AI-powered reverse engineering platform built with Go and Ghidra that transforms Windows executables into searchable semantic knowledge.",
+    "image": "/reversio.png",
+    "category": "ai",
+    "categoryLabel": "AI Development",
+    "technologies": ["Go", "C++", "Ghidra", "AI", "Reverse Engineering"],
+    "categoryColor": "gray",
+    "projectUrl": "https://github.com/seekehr/Reversio/tree/main",
+    "externalUrl": "https://github.com/seekehr/Reversio/tree/main"
+  },
+  {
     "id": 103,
     "title": "PolyMarket Bot",
     "description": "A Go-based Polymarket CLOB trading engine with real-time market feed processing, EIP-712–derived API credentials, HMAC-L2 authentication, and latency-tuned automated order execution. ",
     "image": "/polymarket-bot.png",
     "category": "systems",
-    "categoryLabel": "Web Development",
+    "categoryLabel": "AI Development",
     "technologies": ["Go", "Polymarket", "CLOB", "Trading", "Automation"],
     "categoryColor": "gray",
     "projectUrl": "https://github.com/seekehr/polymarket-bot",
