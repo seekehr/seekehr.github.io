@@ -2,26 +2,26 @@
   {
     "id": 116,
     "title": "Reversio",
-    "description": "An AI-powered reverse engineering platform built with Go and Ghidra that transforms Windows executables into searchable semantic knowledge.",
+    "description": "A job scrapper for Upwork, powered by AI models and RAG.",
     "image": "/reversio.png",
     "category": "ai",
     "categoryLabel": "AI Development",
-    "technologies": ["Go", "C++", "Ghidra", "AI", "Reverse Engineering"],
+    "technologies": ["Go", "C++", "Ghidra", "AI", "Reverse Engineering", "RAG"],
     "categoryColor": "gray",
     "projectUrl": "https://github.com/seekehr/Reversio/tree/main",
     "externalUrl": "https://github.com/seekehr/Reversio/tree/main"
   },
   {
-    "id": 103,
-    "title": "PolyMarket Bot",
-    "description": "A Go-based Polymarket CLOB trading engine with real-time market feed processing, EIP-712–derived API credentials, HMAC-L2 authentication, and latency-tuned automated order execution. ",
-    "image": "/polymarket-bot.png",
-    "category": "systems",
+    "id": 118,
+    "title": "Upwork Job Scrapper AI",
+    "description": "A browser extension that automatically analyzes Upwork job listings in real-time using a weighted scoring system to help freelancers quickly identify which jobs are worth applying to based on factors like competition level, client quality, and payment verification.",
+    "image": "/upworkjobscrapperai.png",
+    "category": "ai",
     "categoryLabel": "AI Development",
-    "technologies": ["Go", "Polymarket", "CLOB", "Trading", "Automation"],
+    "technologies": ["Python", "RAG", "AI", "Scraping"],
     "categoryColor": "gray",
-    "projectUrl": "https://github.com/seekehr/polymarket-bot",
-    "externalUrl": "https://github.com/seekehr/polymarket-bot"
+    "projectUrl": "https://github.com/seekehr/UpworkJobScrapperAI",
+    "externalUrl": "https://github.com/seekehr/UpworkJobScrapperAI/"
   },
   {
     "id": 113,
@@ -34,6 +34,18 @@
     "categoryColor": "blue",
     "projectUrl": "https://github.com/seekehr/shiabox",
     "externalUrl": "https://github.com/seekehr/shiabox"
+  },
+  {
+    "id": 103,
+    "title": "PolyMarket Bot",
+    "description": "A Go-based Polymarket CLOB trading engine with real-time market feed processing, EIP-712–derived API credentials, HMAC-L2 authentication, and latency-tuned automated order execution. ",
+    "image": "/polymarket-bot.png",
+    "category": "systems",
+    "categoryLabel": "AI Development",
+    "technologies": ["Go", "Polymarket", "CLOB", "Trading", "Automation"],
+    "categoryColor": "gray",
+    "projectUrl": "https://github.com/seekehr/polymarket-bot",
+    "externalUrl": "https://github.com/seekehr/polymarket-bot"
   },
   {
     "id": 110,
