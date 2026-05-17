@@ -36,6 +36,18 @@
     "externalUrl": "https://github.com/seekehr/shiabox"
   },
   {
+    "id": 1169,
+    "title": "XScrapper-AI",
+    "description": "Production-ready X.com (Twitter) lead scraper with AI filtering and Discord notifications.",
+    "image": "/xscrapperai.png",
+    "category": "ai",
+    "categoryLabel": "AI Development",
+    "technologies": ["Python", "RAG", "AI", "Scraping"],
+    "categoryColor": "gray",
+    "projectUrl": "https://github.com/seekehr/XScrapper-AI",
+    "externalUrl": "https://github.com/seekehr/XScrapper-AI"
+  },
+  {
     "id": 103,
     "title": "PolyMarket Bot",
     "description": "A Go-based Polymarket CLOB trading engine with real-time market feed processing, EIP-712–derived API credentials, HMAC-L2 authentication, and latency-tuned automated order execution. ",
