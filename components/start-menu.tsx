@@ -111,10 +111,13 @@ export function StartMenu({ isOpen, onClose, items }: StartMenuProps) {
       ref={ref}
       className="absolute bottom-10 left-0 z-[200] w-[260px] flex flex-col overflow-hidden shadow-2xl"
       style={{
-        background: "linear-gradient(160deg, #211840 0%, #1a1230 100%)",
-        border: "1px solid rgba(255,255,255,0.1)",
+        background: "rgba(12, 6, 24, 0.55)",
+        backdropFilter: "blur(48px) saturate(200%) brightness(1.08)",
+        WebkitBackdropFilter: "blur(48px) saturate(200%) brightness(1.08)",
+        border: "1px solid rgba(255,255,255,0.12)",
         borderBottom: "none",
         borderRadius: "0 8px 0 0",
+        boxShadow: "4px -4px 40px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.08)",
       }}
     >
       {/* Header */}

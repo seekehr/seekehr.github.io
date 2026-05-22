@@ -1,10 +1,14 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
-import { X, Minus, Square, Mail, FileDown } from "lucide-react"
+import { useState } from "react"
+import { Mail, FileDown } from "lucide-react"
+import { WindowFrame } from "./window-frame"
 
 interface ContactWindowProps {
   onClose: () => void
+  onMinimize: () => void
+  zIndex?: number
+  onFocus?: () => void
 }
 
 function DiscordLogo({ className }: { className?: string }) {
@@ -18,107 +22,66 @@ function DiscordLogo({ className }: { className?: string }) {
   )
 }
 
-export function ContactWindow({ onClose }: ContactWindowProps) {
+export function ContactWindow({ onClose, onMinimize, zIndex, onFocus }: ContactWindowProps) {
   const [showEmail, setShowEmail] = useState(false)
-  const [position, setPosition] = useState({ x: 320, y: 110 })
-  const isDragging = useRef(false)
-  const dragOffset = useRef({ x: 0, y: 0 })
-
-  useEffect(() => {
-    const onMove = (e: MouseEvent) => {
-      if (!isDragging.current) return
-      setPosition({
-        x: Math.max(0, e.clientX - dragOffset.current.x),
-        y: Math.max(0, e.clientY - dragOffset.current.y),
-      })
-    }
-    const onUp = () => { isDragging.current = false }
-    window.addEventListener("mousemove", onMove)
-    window.addEventListener("mouseup", onUp)
-    return () => { window.removeEventListener("mousemove", onMove); window.removeEventListener("mouseup", onUp) }
-  }, [])
-
-  const startDrag = (e: React.MouseEvent) => {
-    isDragging.current = true
-    dragOffset.current = { x: e.clientX - position.x, y: e.clientY - position.y }
-  }
 
   return (
-    <div
-      className="absolute z-50 flex flex-col bg-[#1a1728] border border-white/10 shadow-2xl overflow-hidden"
-      style={{ left: position.x, top: position.y, width: 360 }}
+    <WindowFrame
+      title="Contact"
+      initialPos={{ x: 320, y: 110 }}
+      initialSize={{ w: 360, h: 270 }}
+      minW={300}
+      minH={220}
+      onClose={onClose}
+      onMinimize={onMinimize}
+      zIndex={zIndex}
+      onFocus={onFocus}
     >
-      {/* Title bar */}
-      <div
-        className="h-8 bg-[#110f1e] flex items-center justify-between px-3 cursor-grab active:cursor-grabbing shrink-0 select-none"
-        onMouseDown={startDrag}
-      >
-        <span className="text-white/90 text-sm pointer-events-none">Contact</span>
-        <div className="flex items-center pointer-events-auto">
-          <button className="w-8 h-7 flex items-center justify-center hover:bg-white/10 text-white/40 hover:text-white/80 transition-colors">
-            <Minus className="w-3.5 h-3.5" />
-          </button>
-          <button className="w-8 h-7 flex items-center justify-center hover:bg-white/10 text-white/40 hover:text-white/80 transition-colors">
-            <Square className="w-3 h-3" />
-          </button>
-          <button
-            onClick={onClose}
-            className="w-8 h-7 flex items-center justify-center hover:bg-red-600 text-white/40 hover:text-white transition-colors"
-          >
-            <X className="w-3.5 h-3.5" />
-          </button>
-        </div>
-      </div>
-
-      {/* Content */}
       <div className="p-4 space-y-2.5">
-        <p className="text-xs text-white/40 pb-1 select-none">Get in touch through any of these channels:</p>
+        <p className="text-xs text-white/35 pb-1 select-none">Get in touch through any of these channels:</p>
 
-        {/* Discord */}
         <button
           onClick={() => window.open("https://discord.gg/bHEjbQdEcx", "_blank")}
-          className="w-full flex items-center gap-3 p-3 bg-indigo-600/15 border border-indigo-600/25 rounded hover:bg-indigo-600/25 transition-colors text-left"
+          className="w-full flex items-center gap-3 p-3 bg-indigo-600/12 border border-indigo-600/20 rounded hover:bg-indigo-600/22 transition-colors text-left"
         >
           <div className="w-10 h-10 bg-indigo-600 rounded flex items-center justify-center shrink-0">
             <DiscordLogo className="w-5 h-5 text-white" />
           </div>
           <div>
             <div className="text-white text-sm font-medium">Discord</div>
-            <div className="text-white/40 text-xs">Join my server</div>
+            <div className="text-white/35 text-xs">Join my server</div>
           </div>
         </button>
 
-        {/* Gmail */}
         <button
           onClick={() => setShowEmail(!showEmail)}
-          className="w-full flex items-center gap-3 p-3 bg-red-600/15 border border-red-600/25 rounded hover:bg-red-600/25 transition-colors text-left"
+          className="w-full flex items-center gap-3 p-3 bg-red-600/12 border border-red-600/20 rounded hover:bg-red-600/22 transition-colors text-left"
         >
           <div className="w-10 h-10 bg-red-600 rounded flex items-center justify-center shrink-0">
             <Mail className="w-5 h-5 text-white" />
           </div>
           <div className="flex-1 min-w-0">
             <div className="text-white text-sm font-medium">Gmail</div>
-            <div className="text-white/40 text-xs truncate">
+            <div className="text-white/35 text-xs truncate">
               {showEmail ? "grouchyseeker@gmail.com" : "Click to reveal email"}
             </div>
           </div>
         </button>
 
-        {/* Resume */}
         <a
           href="/resume.pdf"
           download
-          className="w-full flex items-center gap-3 p-3 bg-slate-600/15 border border-slate-600/25 rounded hover:bg-slate-600/25 transition-colors"
+          className="w-full flex items-center gap-3 p-3 bg-slate-600/12 border border-slate-600/20 rounded hover:bg-slate-600/22 transition-colors"
         >
           <div className="w-10 h-10 bg-slate-600 rounded flex items-center justify-center shrink-0">
             <FileDown className="w-5 h-5 text-white" />
           </div>
           <div>
             <div className="text-white text-sm font-medium">Resume</div>
-            <div className="text-white/40 text-xs">Download PDF</div>
+            <div className="text-white/35 text-xs">Download PDF</div>
           </div>
         </a>
       </div>
-    </div>
+    </WindowFrame>
   )
 }

@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef } from "react"
+import { useRef, useState } from "react"
 
 interface DesktopIconProps {
   id: string
@@ -9,6 +9,7 @@ interface DesktopIconProps {
   selected: boolean
   onSelect: () => void
   onOpen: () => void
+  onFocus?: () => void
 }
 
 /* ─── Windows 7-style SVG icon artwork ─── */
@@ -139,6 +140,7 @@ const iconComponents: Record<string, () => JSX.Element> = {
 }
 
 export function DesktopIcon({ id, label, iconType, selected, onSelect, onOpen }: DesktopIconProps) {
+  const [hovered, setHovered] = useState(false)
   const clickTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   const handleClick = (e: React.MouseEvent) => {
@@ -158,9 +160,23 @@ export function DesktopIcon({ id, label, iconType, selected, onSelect, onOpen }:
   return (
     <div
       data-desktop-icon
-      className="flex flex-col items-center gap-1 cursor-default w-[82px]"
+      className="relative flex flex-col items-center gap-1 cursor-default w-[82px] rounded"
       onClick={handleClick}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
     >
+      {/* Liquid glass hover / select background */}
+      {(hovered || selected) && (
+        <div
+          className="absolute inset-0 rounded pointer-events-none"
+          style={{
+            background: selected ? "rgba(30,80,180,0.22)" : "rgba(255,255,255,0.07)",
+            backdropFilter: "blur(12px) saturate(160%)",
+            WebkitBackdropFilter: "blur(12px) saturate(160%)",
+            border: selected ? "1px solid rgba(100,160,255,0.3)" : "1px solid rgba(255,255,255,0.1)",
+          }}
+        />
+      )}
       {/* Icon artwork — no background box, sits on wallpaper */}
       <div
         className={`w-[60px] h-[56px] relative flex items-center justify-center transition-all ${
@@ -171,14 +187,12 @@ export function DesktopIcon({ id, label, iconType, selected, onSelect, onOpen }:
         <ShortcutArrow />
       </div>
 
-      {/* Windows 7-style label */}
+      {/* Label */}
       <div
-        className={`text-[11.5px] text-white text-center leading-tight px-1 py-[2px] max-w-full w-full ${
-          selected ? "bg-[#1a4fa0]/75 ring-1 ring-blue-400/60" : "bg-black/40"
-        }`}
+        className="relative text-[11.5px] text-white text-center leading-tight px-1 py-[2px] max-w-full w-full"
         style={{
           fontFamily: '"Segoe UI", Tahoma, Geneva, sans-serif',
-          textShadow: "0 1px 2px rgba(0,0,0,1)",
+          textShadow: "0 1px 3px rgba(0,0,0,1)",
           borderRadius: "1px",
           wordBreak: "break-word",
           hyphens: "none",
