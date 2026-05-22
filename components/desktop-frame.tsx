@@ -143,7 +143,7 @@ export function DesktopFrame() {
 
       {/* Open windows */}
       {windows.about    && !windows.about.minimized    && <AboutWindow    onClose={() => closeWin("about")}    onMinimize={() => minimizeWin("about")}    zIndex={windows.about.zIndex}    onFocus={() => focusWin("about")} />}
-      {windows.projects && !windows.projects.minimized && <ExplorerWindow onClose={() => closeWin("projects")} onMinimize={() => minimizeWin("projects")} zIndex={windows.projects.zIndex} onFocus={() => focusWin("projects")} />}
+      {windows.projects && !windows.projects.minimized && <ExplorerWindow onClose={() => closeWin("projects")} onMinimize={() => minimizeWin("projects")} zIndex={windows.projects.zIndex} onFocus={() => focusWin("projects")} onOpenApp={handleOpenApp} />}
       {windows.contact  && !windows.contact.minimized  && <ContactWindow  onClose={() => closeWin("contact")}  onMinimize={() => minimizeWin("contact")}  zIndex={windows.contact.zIndex}  onFocus={() => focusWin("contact")} />}
 
       {/* Start menu */}

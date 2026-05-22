@@ -10,14 +10,18 @@ interface ExplorerWindowProps {
   onMinimize: () => void
   zIndex?: number
   onFocus?: () => void
+  onOpenApp?: (app: string) => void
 }
 
-function SidebarItem({ icon, label, active }: { icon: string; label: string; active?: boolean }) {
+function SidebarItem({ icon, label, active, onClick }: { icon: string; label: string; active?: boolean; onClick?: () => void }) {
   return (
     <div
-      className={`flex items-center gap-2 px-2 py-1 rounded text-xs cursor-default select-none ${
-        active ? "bg-blue-700/40 text-white/95" : "text-white/50 hover:bg-white/8 hover:text-white/70"
+      className={`flex items-center gap-2 px-2 py-1 rounded text-xs select-none ${
+        active
+          ? "bg-blue-700/40 text-white/95 cursor-default"
+          : "text-white/50 hover:bg-white/8 hover:text-white/70 cursor-pointer"
       }`}
+      onClick={onClick}
     >
       <span className="shrink-0">{icon}</span>
       <span className="truncate">{label}</span>
@@ -25,7 +29,7 @@ function SidebarItem({ icon, label, active }: { icon: string; label: string; act
   )
 }
 
-export function ExplorerWindow({ onClose, onMinimize, zIndex, onFocus }: ExplorerWindowProps) {
+export function ExplorerWindow({ onClose, onMinimize, zIndex, onFocus, onOpenApp }: ExplorerWindowProps) {
   const [projects, setProjects] = useState<Project[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
@@ -82,9 +86,9 @@ export function ExplorerWindow({ onClose, onMinimize, zIndex, onFocus }: Explore
             Quick Access
           </div>
           <SidebarItem icon="📁" label="Projects" active />
-          <SidebarItem icon="👤" label="About Me" />
-          <SidebarItem icon="✉️" label="Contact" />
-          <SidebarItem icon="💬" label="Discord" />
+          <SidebarItem icon="👤" label="About Me" onClick={() => onOpenApp?.("about")} />
+          <SidebarItem icon="✉️" label="Contact"  onClick={() => onOpenApp?.("contact")} />
+          <SidebarItem icon="💬" label="Discord"  onClick={() => window.open("https://discord.gg/vXyexjM54x", "_blank")} />
 
           {selectedProject && (
             <div className="mt-4 space-y-1.5">
