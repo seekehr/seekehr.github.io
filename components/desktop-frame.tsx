@@ -6,6 +6,7 @@ import { DesktopIcon } from "./desktop-icon"
 import { ExplorerWindow } from "./explorer-window"
 import { AboutWindow } from "./about-window"
 import { ContactWindow } from "./contact-window"
+import { StartMenu } from "./start-menu"
 
 type WindowType = "projects" | "about" | "contact" | null
 
@@ -63,6 +64,7 @@ export function DesktopFrame() {
   const [currentTime, setCurrentTime] = useState("")
   const [openWindow, setOpenWindow] = useState<WindowType>(null)
   const [selectedIcon, setSelectedIcon] = useState<string | null>(null)
+  const [startMenuOpen, setStartMenuOpen] = useState(false)
   const wallpaperPolygons = useWallpaperPolygons()
 
   useEffect(() => {
@@ -87,6 +89,14 @@ export function DesktopFrame() {
       setSelectedIcon(null)
     }
   }
+
+  const startMenuItems = [
+    { id: "about",   label: "About Me", iconType: "user"   as const, onOpen: () => setOpenWindow("about") },
+    { id: "projects",label: "Projects", iconType: "folder" as const, onOpen: () => setOpenWindow("projects") },
+    { id: "contact", label: "Contact",  iconType: "mail"   as const, onOpen: () => setOpenWindow("contact") },
+    { id: "clients", label: "Clients",  iconType: "users"  as const, onOpen: () => window.open("https://discord.gg/vXyexjM54x", "_blank") },
+    { id: "resume",  label: "Resume",   iconType: "resume" as const, onOpen: () => window.open("/resume.pdf") },
+  ]
 
   return (
     <div className="fixed inset-0 overflow-hidden select-none" onClick={handleDesktopClick}>
@@ -113,8 +123,8 @@ export function DesktopFrame() {
         />
       </div>
 
-      {/* Desktop icons — left side, 2-column grid */}
-      <div className="absolute top-4 left-4 grid grid-cols-2 gap-x-2 gap-y-5">
+      {/* Desktop icons — left side, single column */}
+      <div className="absolute top-4 left-6 flex flex-col gap-1">
         <DesktopIcon
           id="about"
           label="About Me"
@@ -162,11 +172,23 @@ export function DesktopFrame() {
       {openWindow === "projects" && <ExplorerWindow onClose={() => setOpenWindow(null)} />}
       {openWindow === "contact" && <ContactWindow onClose={() => setOpenWindow(null)} />}
 
+      {/* Start menu */}
+      <StartMenu
+        isOpen={startMenuOpen}
+        onClose={() => setStartMenuOpen(false)}
+        items={startMenuItems}
+      />
+
       {/* Taskbar */}
       <div className="absolute bottom-0 left-0 right-0 h-10 bg-black/70 backdrop-blur-sm border-t border-white/[0.08] flex items-center justify-between px-3 z-[100]">
         <div className="flex items-center gap-1.5">
           {/* π start button */}
-          <button className="h-8 px-2.5 flex items-center justify-center text-white font-bold text-xl hover:bg-white/10 rounded transition-colors">
+          <button
+            onClick={(e) => { e.stopPropagation(); setStartMenuOpen(o => !o) }}
+            className={`h-8 px-2.5 flex items-center justify-center text-white font-bold text-xl rounded transition-colors ${
+              startMenuOpen ? "bg-white/20" : "hover:bg-white/10"
+            }`}
+          >
             π
           </button>
           {/* Search */}
