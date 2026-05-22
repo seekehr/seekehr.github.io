@@ -360,6 +360,18 @@
     "externalUrl": "https://github.com/seekehr/seekehr.github.io"
   },
   {
+    "id": 1130,
+    "title": "Autoblock-1.8.9",
+    "description": "An autoblock mod for forge 1.8.9 that automatically blocks players that are on your ignore list.",
+    "image": "/velo.png",
+    "category": "mod",
+    "categoryLabel": "Mod Development",
+    "categoryColor": "red",
+    "technologies": ["Java", "Forge"],
+    "projectUrl": "https://github.com/seekehr/AutoblockMod-1.8.9",
+    "externalUrl": "https://github.com/seekehr/AutoblockMod-1.8.9"
+  },
+  {
     "id": 14,
     "title": "RedditVideoMakerBot-Updated",
     "description": "Updated a really cool project to automatically generate reddit videos. Fixed bugs, added comment support, text customization, keyword searching, swear filter, etc etc.",

@@ -28,6 +28,10 @@ yarn-error.log*
 
 # Vercel
 .vercel
+.claude/
+.idea/
+.vscode/
+.cursor/
 
 # TypeScript
 *.tsbuildinfo
