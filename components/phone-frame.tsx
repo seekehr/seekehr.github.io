@@ -9,7 +9,7 @@ import { BottomNav } from "@/components/bottom-nav"
 
 export type Screen = "home" | "projects" | "clients" | "contact"
 
-export function PhoneFrame() {
+export function PhoneFrame({ fullscreen = false }: { fullscreen?: boolean }) {
   const [currentScreen, setCurrentScreen] = useState<Screen>("home")
   const [currentTime, setCurrentTime] = useState("")
 
@@ -35,6 +35,60 @@ export function PhoneFrame() {
       return
     }
     setCurrentScreen(screen)
+  }
+
+  const statusBar = (
+    <div className="h-6 bg-black/40 glass-effect flex items-center justify-between px-4 text-white text-xs font-semibold drop-shadow-md">
+      <span>{currentTime}</span>
+      <div className="flex items-center gap-1.5">
+        {/* Signal bars */}
+        <div className="flex items-end gap-0.5 h-3">
+          <div className="w-1 h-1 bg-white rounded-sm" />
+          <div className="w-1 h-1.5 bg-white rounded-sm" />
+          <div className="w-1 h-2 bg-white rounded-sm" />
+          <div className="w-1 h-2.5 bg-white rounded-sm" />
+          <div className="w-1 h-3 bg-white/60 rounded-sm" />
+        </div>
+        <span className="text-xs ml-1 font-semibold">4G</span>
+        {/* Battery */}
+        <div className="flex items-center gap-0.5 ml-1">
+          <div className="w-5 h-2.5 border border-white rounded-sm p-px">
+            <div className="w-3/4 h-full bg-white rounded-sm" />
+          </div>
+          <div className="w-0.5 h-1 bg-white rounded-r-sm" />
+        </div>
+      </div>
+    </div>
+  )
+
+  const screenContent = (
+    <>
+      {statusBar}
+      <div data-phone-screen className="h-[calc(100%-24px)] flex flex-col pt-4 pb-24 px-4 overflow-visible relative">
+        <SkillsWidget />
+        <div className="flex-1 overflow-y-auto mt-4 scrollbar-hide">
+          {currentScreen === "home" && <HomeScreen />}
+          {currentScreen === "projects" && <ProjectsScreen />}
+          {currentScreen === "contact" && <ContactScreen />}
+        </div>
+      </div>
+      <BottomNav currentScreen={currentScreen} onNavigate={handleNavClick} />
+    </>
+  )
+
+  if (fullscreen) {
+    return (
+      <div
+        className="fixed inset-0 fade-in"
+        style={{
+          background: "linear-gradient(180deg, #1e1b4b 0%, #312e81 30%, #1e293b 70%, #0f172a 100%)",
+          paddingTop: "env(safe-area-inset-top)",
+          paddingBottom: "env(safe-area-inset-bottom)",
+        }}
+      >
+        {screenContent}
+      </div>
+    )
   }
 
   return (
@@ -67,44 +121,7 @@ export function PhoneFrame() {
             boxShadow: "inset 0 0 0 1px rgba(0, 0, 0, 0.3), inset 0 1px 2px rgba(0, 0, 0, 0.2)"
           }}
         >
-          {/* Status bar */}
-          <div className="h-6 bg-black/40 glass-effect flex items-center justify-between px-4 text-white text-xs font-semibold drop-shadow-md">
-            <span>{currentTime}</span>
-            <div className="flex items-center gap-1.5">
-              {/* Signal bars */}
-              <div className="flex items-end gap-0.5 h-3">
-                <div className="w-1 h-1 bg-white rounded-sm" />
-                <div className="w-1 h-1.5 bg-white rounded-sm" />
-                <div className="w-1 h-2 bg-white rounded-sm" />
-                <div className="w-1 h-2.5 bg-white rounded-sm" />
-                <div className="w-1 h-3 bg-white/60 rounded-sm" />
-              </div>
-              <span className="text-xs ml-1 font-semibold">4G</span>
-              {/* Battery */}
-              <div className="flex items-center gap-0.5 ml-1">
-                <div className="w-5 h-2.5 border border-white rounded-sm p-px">
-                  <div className="w-3/4 h-full bg-white rounded-sm" />
-                </div>
-                <div className="w-0.5 h-1 bg-white rounded-r-sm" />
-              </div>
-            </div>
-          </div>
-
-          {/* Screen content */}
-          <div data-phone-screen className="h-[calc(100%-24px)] flex flex-col pt-4 pb-24 px-4 overflow-visible relative">
-            {/* Skills Widget */}
-            <SkillsWidget />
-
-            {/* Main content area */}
-            <div className="flex-1 overflow-y-auto mt-4 scrollbar-hide">
-              {currentScreen === "home" && <HomeScreen />}
-              {currentScreen === "projects" && <ProjectsScreen />}
-              {currentScreen === "contact" && <ContactScreen />}
-            </div>
-          </div>
-
-          {/* Bottom dock */}
-          <BottomNav currentScreen={currentScreen} onNavigate={handleNavClick} />
+          {screenContent}
         </div>
       </div>
 

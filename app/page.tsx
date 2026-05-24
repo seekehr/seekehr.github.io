@@ -3,10 +3,13 @@
 import { useState, useEffect } from "react"
 import { LoadingScreen } from "@/components/loading-screen"
 import { DesktopFrame } from "@/components/desktop-frame"
+import { PhoneFrame } from "@/components/phone-frame"
+import { useIsMobile } from "@/hooks/use-mobile"
 import { getProjects } from "@/lib/projects"
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true)
+  const isMobile = useIsMobile()
 
   useEffect(() => {
     getProjects().then((projects) => {
@@ -24,5 +27,6 @@ export default function Home() {
     return () => clearTimeout(timer)
   }, [])
 
-  return isLoading ? <LoadingScreen /> : <DesktopFrame />
+  if (isLoading) return <LoadingScreen />
+  return isMobile ? <PhoneFrame fullscreen /> : <DesktopFrame />
 }

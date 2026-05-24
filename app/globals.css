@@ -133,6 +133,11 @@
   }
   body {
     @apply bg-background text-foreground;
+    -webkit-tap-highlight-color: transparent;
+    overscroll-behavior: none;
+  }
+  button, a, .cursor-pointer {
+    touch-action: manipulation;
   }
 }
 
