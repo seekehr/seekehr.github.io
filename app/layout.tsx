@@ -1,45 +1,33 @@
-import type React from "react"
-import type { Metadata, Viewport } from "next"
-import { Geist, Geist_Mono } from "next/font/google"
-import { Analytics } from "@vercel/analytics/next"
-import Script from "next/script"
-import "./globals.css"
-
-const _geist = Geist({ subsets: ["latin"] })
-const _geistMono = Geist_Mono({ subsets: ["latin"] })
+import type React from "react";
+import type { Metadata, Viewport } from "next";
+import { Analytics } from "@vercel/analytics/next";
+import Script from "next/script";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Seeker | Developer Portfolio",
   description:
     "Backend Systems Engineer specializing in AI automation, real-time infrastructure, and high-performance web applications.",
   icons: {
-    icon: [
-      {
-        url: "/favicon.svg",
-        type: "image/svg+xml",
-      },
-    ],
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
     apple: "/favicon.svg",
   },
-}
+};
 
 export const viewport: Viewport = {
-  themeColor: "#9333ea",
+  themeColor: "#000000",
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,
   viewportFit: "cover",
-}
+};
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`font-sans antialiased`}>
-        {/* Google tag (gtag.js) */}
+      <body>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-WGCLC6L2PZ"
           strategy="afterInteractive"
@@ -56,5 +44,5 @@ export default function RootLayout({
         <Analytics />
       </body>
     </html>
-  )
+  );
 }
