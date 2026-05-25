@@ -2,7 +2,7 @@
   {
     "id": 116,
     "title": "Reversio",
-    "description": "A job scrapper for Upwork, powered by AI models and RAG.",
+    "description": "An AI-powered reverse engineering tool that can automatically reverse engineer code and extract information from it.",
     "image": "/reversio.png",
     "category": "ai",
     "categoryLabel": "AI Development",
@@ -73,7 +73,7 @@
     "projectUrl": "https://github.com/seekehr/DiscordFreelanceX/tree/main",
     "externalUrl": "https://github.com/seekehr/DiscordFreelanceX/tree/main"
   },
-  
+
   {
     "id": 1169,
     "title": "XScrapper-AI",
