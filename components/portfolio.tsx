@@ -302,14 +302,6 @@ function Contact() {
             grouchyseeker@gmail.com
           </a>
           <a
-            href="https://www.upwork.com/freelancers/~01ea23218950344c91"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="pcont-link"
-          >
-            upwork.com/freelancers/seekehr
-          </a>
-          <a
             href="https://discord.gg/bHEjbQdEcx"
             target="_blank"
             rel="noopener noreferrer"
@@ -332,9 +324,6 @@ function Footer() {
       <div className="pfooter-links">
         <a href="https://github.com/seekehr" target="_blank" rel="noopener noreferrer">
           GitHub
-        </a>
-        <a href="https://www.upwork.com/freelancers/~01ea23218950344c91" target="_blank" rel="noopener noreferrer">
-          Upwork
         </a>
         <a href="https://discord.gg/bHEjbQdEcx" target="_blank" rel="noopener noreferrer">
           Discord
