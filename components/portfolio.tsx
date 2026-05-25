@@ -244,7 +244,7 @@ function About() {
               <span className="pstat-l">Projects</span>
             </div>
             <div className="pstat">
-              <span className="pstat-n">30+</span>
+              <span className="pstat-n">40+</span>
               <span className="pstat-l">Clients</span>
             </div>
             <div className="pstat">
