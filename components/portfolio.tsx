@@ -229,22 +229,18 @@ function About() {
           className={`pabout-txt${txt.inView ? " pabout-txt--in" : ""}`}
         >
           <p>
-            I&apos;m a backend systems engineer who specialises in AI automation
-            and real-time infrastructure. I build things that have to work at scale:
-            trading engines, AI pipelines, high-throughput APIs, and tools that
-            automate the tedious.
+              I’m a backend systems engineer focused on AI-powered data systems and automation. I build web scrapers, smart extraction pipelines, RAG systems, research and monitoring tools, lead intelligence systems, and the backend infrastructure that powers them.
           </p>
           <p>
-            From CLOB trading bots to LLM-powered scrapers, I focus on writing
-            systems that are fast, reliable, and maintainable at scale.
+              From messy PDFs and dynamic websites to real-time data and searchable knowledge bases, I focus on turning unstructured information into reliable, structured systems that are fast, maintainable, and built to scale.
           </p>
           <div className="pstats">
             <div className="pstat">
-              <span className="pstat-n">30+</span>
+              <span className="pstat-n">20+</span>
               <span className="pstat-l">Projects</span>
             </div>
             <div className="pstat">
-              <span className="pstat-n">40+</span>
+              <span className="pstat-n">10+</span>
               <span className="pstat-l">Clients</span>
             </div>
             <div className="pstat">

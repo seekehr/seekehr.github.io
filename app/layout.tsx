@@ -7,7 +7,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Seeker | Developer Portfolio",
   description:
-    "Backend Systems Engineer specializing in AI automation, real-time infrastructure, and high-performance web applications.",
+    "Backend systems engineer focused on AI-powered data systems and automation. I build web scrapers, smart extraction pipelines, RAG systems, research and monitoring tools, lead intelligence systems, and the backend infrastructure that powers them.",
   icons: {
     icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
     apple: "/favicon.svg",
