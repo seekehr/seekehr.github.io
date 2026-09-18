@@ -2,7 +2,7 @@
   {
     "id": 116,
     "title": "Reversio",
-    "description": "A job scrapper for Upwork, powered by AI models and RAG.",
+    "description": "A job scraper for Upwork, powered by AI models and RAG.",
     "image": "/reversio.png",
     "category": "ai",
     "categoryLabel": "AI Development",
