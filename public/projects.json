@@ -70,5 +70,210 @@
     "categoryColor": "gray",
     "projectUrl": "https://github.com/seekehr/Scrape-Quizlet-Flashcards/tree/main",
     "externalUrl": "https://github.com/seekehr/Scrape-Quizlet-Flashcards/tree/main"
+  },
+  {
+    "id": 119,
+    "title": "GetAIMade",
+    "description": "Get your AI made - a website!",
+    "category": "web",
+    "categoryLabel": "Web Development",
+    "technologies": ["TypeScript", "Web"],
+    "categoryColor": "gray",
+    "projectUrl": "https://github.com/seekehr/GetAIMade",
+    "externalUrl": "https://github.com/seekehr/GetAIMade"
+  },
+  {
+    "id": 120,
+    "title": "ScheduleWith",
+    "description": "An Expo-developed iOS exclusive streak-based app that handles daily schedules, and grants you XP and cool animations upon completing your tasks.",
+    "category": "web",
+    "categoryLabel": "App Development",
+    "technologies": ["TypeScript", "Expo", "iOS"],
+    "categoryColor": "gray",
+    "projectUrl": "https://github.com/seekehr/ScheduleWith",
+    "externalUrl": "https://github.com/seekehr/ScheduleWith"
+  },
+  {
+    "id": 121,
+    "title": "AC-Mod-1.8.9",
+    "description": "Minecraft 1.8.9 mod.",
+    "category": "mod",
+    "categoryLabel": "Mod",
+    "technologies": ["Java", "Forge", "Minecraft"],
+    "categoryColor": "gray",
+    "projectUrl": "https://github.com/seekehr/AC-Mod-1.8.9",
+    "externalUrl": "https://github.com/seekehr/AC-Mod-1.8.9"
+  },
+  {
+    "id": 122,
+    "title": "AutoblockMod-1.8.9",
+    "description": "Autoblock mod for Minecraft 1.8.9. Command /ab help.",
+    "category": "mod",
+    "categoryLabel": "Mod",
+    "technologies": ["Java", "Forge", "Minecraft"],
+    "categoryColor": "gray",
+    "projectUrl": "https://github.com/seekehr/AutoblockMod-1.8.9",
+    "externalUrl": "https://github.com/seekehr/AutoblockMod-1.8.9"
+  },
+  {
+    "id": 123,
+    "title": "ExitLoader",
+    "description": "Private project written in Go.",
+    "category": "systems",
+    "categoryLabel": "Systems",
+    "technologies": ["Go"],
+    "categoryColor": "gray"
+  },
+  {
+    "id": 124,
+    "title": "XScrapper-AI",
+    "description": "Scrape X posts using keywords, and use AI to generate leads.",
+    "category": "ai",
+    "categoryLabel": "AI Development",
+    "technologies": ["Python", "AI", "Scraping"],
+    "categoryColor": "gray",
+    "projectUrl": "https://github.com/seekehr/XScrapper-AI",
+    "externalUrl": "https://github.com/seekehr/XScrapper-AI"
+  },
+  {
+    "id": 125,
+    "title": "VelocityMod-1.8.9",
+    "description": "Velocity mod for Minecraft 1.8.9. Command /velo help.",
+    "category": "mod",
+    "categoryLabel": "Mod",
+    "technologies": ["Java", "Forge", "Minecraft"],
+    "categoryColor": "gray",
+    "projectUrl": "https://github.com/seekehr/VelocityMod-1.8.9",
+    "externalUrl": "https://github.com/seekehr/VelocityMod-1.8.9"
+  },
+  {
+    "id": 126,
+    "title": "notesnook (fork)",
+    "description": "Fork of streetwriters/notesnook, a fully open source & end-to-end encrypted note taking alternative to Evernote.",
+    "category": "web",
+    "categoryLabel": "Web Development",
+    "technologies": ["TypeScript", "E2EE"],
+    "categoryColor": "gray",
+    "projectUrl": "https://github.com/seekehr/notesnook",
+    "externalUrl": "https://github.com/seekehr/notesnook"
+  },
+  {
+    "id": 127,
+    "title": "Hyflip-Website",
+    "description": "Website for Hyflip (private).",
+    "category": "web",
+    "categoryLabel": "Web Development",
+    "technologies": ["TypeScript"],
+    "categoryColor": "gray"
+  },
+  {
+    "id": 128,
+    "title": "UpworkJobScrapperAI",
+    "description": "A job scraper for Upwork, powered by AI models and RAG.",
+    "category": "ai",
+    "categoryLabel": "AI Development",
+    "technologies": ["Python", "AI", "RAG"],
+    "categoryColor": "gray",
+    "projectUrl": "https://github.com/seekehr/UpworkJobScrapperAI",
+    "externalUrl": "https://github.com/seekehr/UpworkJobScrapperAI"
+  },
+  {
+    "id": 129,
+    "title": "DiscordFreelanceX",
+    "description": "A self-bot for Discord that automatically notifies you about new job postings in specified servers, and lets you automatically advertise there.",
+    "category": "systems",
+    "categoryLabel": "Automation",
+    "technologies": ["Go", "Discord", "Automation"],
+    "categoryColor": "gray",
+    "projectUrl": "https://github.com/seekehr/DiscordFreelanceX",
+    "externalUrl": "https://github.com/seekehr/DiscordFreelanceX"
+  },
+  {
+    "id": 130,
+    "title": "PySpoof",
+    "description": "Python spoofing tool.",
+    "category": "systems",
+    "categoryLabel": "Systems",
+    "technologies": ["Python"],
+    "categoryColor": "gray",
+    "projectUrl": "https://github.com/seekehr/PySpoof",
+    "externalUrl": "https://github.com/seekehr/PySpoof"
+  },
+  {
+    "id": 131,
+    "title": "Seeker-External-CS2",
+    "description": "A legit, external cheat for CS2 written in C++.",
+    "category": "systems",
+    "categoryLabel": "Systems",
+    "technologies": ["C++", "Windows", "Memory"],
+    "categoryColor": "gray",
+    "projectUrl": "https://github.com/seekehr/Seeker-External-CS2",
+    "externalUrl": "https://github.com/seekehr/Seeker-External-CS2"
+  },
+  {
+    "id": 132,
+    "title": "Hyflip-Server",
+    "description": "Golang server for Hyflip.",
+    "category": "systems",
+    "categoryLabel": "Systems",
+    "technologies": ["Go", "Server"],
+    "categoryColor": "gray",
+    "projectUrl": "https://github.com/seekehr/Hyflip-Server",
+    "externalUrl": "https://github.com/seekehr/Hyflip-Server"
+  },
+  {
+    "id": 133,
+    "title": "Example-1.8.9-Mod-Kotlin",
+    "description": "Template Minecraft mod for Forge 1.8.9 written in Kotlin, demonstrating tools that boost mod development. Forked from hannibal002/Example-1.8.9-Mod.",
+    "category": "mod",
+    "categoryLabel": "Mod",
+    "technologies": ["Kotlin", "Forge", "Minecraft"],
+    "categoryColor": "gray",
+    "projectUrl": "https://github.com/seekehr/Example-1.8.9-Mod-Kotlin",
+    "externalUrl": "https://github.com/seekehr/Example-1.8.9-Mod-Kotlin"
+  },
+  {
+    "id": 134,
+    "title": "blog",
+    "description": "Personal blog.",
+    "category": "web",
+    "categoryLabel": "Web Development",
+    "technologies": ["Shell"],
+    "categoryColor": "gray",
+    "projectUrl": "https://github.com/seekehr/blog",
+    "externalUrl": "https://github.com/seekehr/blog"
+  },
+  {
+    "id": 135,
+    "title": "RedditVideoMakerBot-Updated",
+    "description": "Updated fork of RedditVideoMakerBot: added comment support, max words per segment, keyword searching, and more.",
+    "category": "cli",
+    "categoryLabel": "CLI",
+    "technologies": ["Python", "Automation", "Video"],
+    "categoryColor": "gray",
+    "projectUrl": "https://github.com/seekehr/RedditVideoMakerBot-Updated",
+    "externalUrl": "https://github.com/seekehr/RedditVideoMakerBot-Updated"
+  },
+  {
+    "id": 136,
+    "title": "DevSpoofGO",
+    "description": "A device spoofer that injects your desired application with the spoofed credentials, made using Go (injector) and C++ (DLL).",
+    "category": "systems",
+    "categoryLabel": "Systems",
+    "technologies": ["Go", "C++", "DLL Injection"],
+    "categoryColor": "gray",
+    "projectUrl": "https://github.com/seekehr/DevSpoofGO",
+    "externalUrl": "https://github.com/seekehr/DevSpoofGO"
+  },
+  {
+    "id": 137,
+    "title": "DevSpoofGOTest",
+    "description": "Test harness for DevSpoofGO.",
+    "category": "systems",
+    "categoryLabel": "Systems",
+    "technologies": ["Go"],
+    "categoryColor": "gray",
+    "projectUrl": "https://github.com/seekehr/DevSpoofGOTest",
+    "externalUrl": "https://github.com/seekehr/DevSpoofGOTest"
   }
 ]
