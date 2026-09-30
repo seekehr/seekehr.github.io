@@ -1,15 +1,15 @@
 ﻿[
   {
-    "id": 116,
-    "title": "Reversio",
-    "description": "A job scraper for Upwork, powered by AI models and RAG.",
-    "image": "/reversio.png",
-    "category": "ai",
-    "categoryLabel": "AI Development",
-    "technologies": ["Go", "C++", "Ghidra", "AI", "Reverse Engineering", "RAG"],
+    "id": 12932,
+    "title": "HDISTW",
+    "description": "HDISTW is an AI-powered local web recon tool that analyzes how websites load and expose data. It captures browser network activity, detects REST, GraphQL, Next.js data, embedded state, authentication, pagination, and client-side rendering, then recommends the most efficient extraction strategy for scraping.",
+    "image": "/hdistw.png",
+    "category": "Scraping",
+    "categoryLabel": "Scraping",
+    "technologies": ["Scraping", "AI-Powered", "Web Tool", "Script"],
     "categoryColor": "gray",
-    "projectUrl": "https://github.com/seekehr/Reversio/tree/main",
-    "externalUrl": "https://github.com/seekehr/Reversio/tree/main"
+    "projectUrl": "https://github.com/seekehr/HDISTW/tree/main",
+    "externalUrl": "https://github.com/seekehr/HDISTW/tree/main"
   },
   {
     "id": 113,
@@ -60,12 +60,24 @@
     "externalUrl": "https://github.com/seekehr/CambridgePastPapersAI/tree/main"
   },
   {
+    "id": 116,
+    "title": "Reversio",
+    "description": "A job scraper for Upwork, powered by AI models and RAG.",
+    "image": "/reversio.png",
+    "category": "ai",
+    "categoryLabel": "AI Development",
+    "technologies": ["Go", "C++", "Ghidra", "AI", "Reverse Engineering", "RAG"],
+    "categoryColor": "gray",
+    "projectUrl": "https://github.com/seekehr/Reversio/tree/main",
+    "externalUrl": "https://github.com/seekehr/Reversio/tree/main"
+  },
+  {
     "id": 110,
     "title": "Quizlet Flashcards Scraper",
     "description": "Backs up every public flashcard set in every public folder on a Quizlet profile, one text file per set.",
     "image": "/quizletscrapeflashcards.png",
-    "category": "Scrapping",
-    "categoryLabel": "Scrapping",
+    "category": "Scraping",
+    "categoryLabel": "Scraping",
     "technologies": ["Go", "Discord", "GUI", "Automation", "Bot"],
     "categoryColor": "gray",
     "projectUrl": "https://github.com/seekehr/Scrape-Quizlet-Flashcards/tree/main",
