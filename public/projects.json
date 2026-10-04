@@ -95,6 +95,17 @@
     "externalUrl": "https://github.com/seekehr/GetAIMade"
   },
   {
+    "id": 32312323,
+    "title": "Simple Notes Scraper",
+    "description": "Pulls notes from https://simplenote.com/ and saves them as text files.\n\n",
+    "category": "scraper",
+    "categoryLabel": "scraper",
+    "technologies": ["TypeScript", "Scraping"],
+    "categoryColor": "gray",
+    "projectUrl": "https://github.com/seekehr/SimpleNotesScraper/tree/main",
+    "externalUrl": "https://github.com/seekehr/SimpleNotesScraper/tree/main"
+  },
+  {
     "id": 120,
     "title": "ScheduleWith",
     "description": "An Expo-developed iOS exclusive streak-based app that handles daily schedules, and grants you XP and cool animations upon completing your tasks.",
