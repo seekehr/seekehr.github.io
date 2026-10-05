@@ -20,7 +20,6 @@
     "id": 113,
     "title": "shiabox",
     "description": "AI-powered search engine for Shi'a ahadith, utilising a RAG architecture with Qdrant for the vector database and mxbai-embed-large for embeddings.",
-    "image": "/shiabox.png",
     "category": "ai",
     "categoryLabel": "AI Development",
     "technologies": [
