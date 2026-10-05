@@ -1,4 +1,4 @@
-﻿[
+[
   {
     "id": 12932,
     "title": "HDISTW",
@@ -6,7 +6,12 @@
     "image": "/hdistw.png",
     "category": "Scraping",
     "categoryLabel": "Scraping",
-    "technologies": ["Scraping", "AI-Powered", "Web Tool", "Script"],
+    "technologies": [
+      "Scraping",
+      "AI-Powered",
+      "Web Tool",
+      "Script"
+    ],
     "categoryColor": "gray",
     "projectUrl": "https://github.com/seekehr/HDISTW/tree/main",
     "externalUrl": "https://github.com/seekehr/HDISTW/tree/main"
@@ -18,7 +23,13 @@
     "image": "/shiabox.png",
     "category": "ai",
     "categoryLabel": "AI Development",
-    "technologies": ["Python", "Qdrant", "MXBAI", "RAG", "AI"],
+    "technologies": [
+      "Python",
+      "Qdrant",
+      "MXBAI",
+      "RAG",
+      "AI"
+    ],
     "categoryColor": "blue",
     "projectUrl": "https://github.com/seekehr/shiabox",
     "externalUrl": "https://github.com/seekehr/shiabox"
@@ -30,7 +41,12 @@
     "image": "/findclients.png",
     "category": "ai",
     "categoryLabel": "AI Development",
-    "technologies": ["Playwright", "Express ", "Next.js", "Discord Webhooks"],
+    "technologies": [
+      "Playwright",
+      "Express ",
+      "Next.js",
+      "Discord Webhooks"
+    ],
     "categoryColor": "gray",
     "projectUrl": "https://github.com/seekehr/FindClients",
     "externalUrl": "https://github.com/seekehr/FindClients"
@@ -42,7 +58,13 @@
     "image": "/polymarket-bot.png",
     "category": "systems",
     "categoryLabel": "AI Development",
-    "technologies": ["Go", "Polymarket", "CLOB", "Trading", "Automation"],
+    "technologies": [
+      "Go",
+      "Polymarket",
+      "CLOB",
+      "Trading",
+      "Automation"
+    ],
     "categoryColor": "gray",
     "projectUrl": "https://github.com/seekehr/polymarket-bot",
     "externalUrl": "https://github.com/seekehr/polymarket-bot"
@@ -54,7 +76,12 @@
     "image": "/cppai.png",
     "category": "ai",
     "categoryLabel": "AI Development",
-    "technologies": ["TypeScript", "pdfjs-dist", "Vitest", "Zod"],
+    "technologies": [
+      "TypeScript",
+      "pdfjs-dist",
+      "Vitest",
+      "Zod"
+    ],
     "categoryColor": "gray",
     "projectUrl": "https://github.com/seekehr/CambridgePastPapersAI/tree/main",
     "externalUrl": "https://github.com/seekehr/CambridgePastPapersAI/tree/main"
@@ -66,7 +93,14 @@
     "image": "/reversio.png",
     "category": "ai",
     "categoryLabel": "AI Development",
-    "technologies": ["Go", "C++", "Ghidra", "AI", "Reverse Engineering", "RAG"],
+    "technologies": [
+      "Go",
+      "C++",
+      "Ghidra",
+      "AI",
+      "Reverse Engineering",
+      "RAG"
+    ],
     "categoryColor": "gray",
     "projectUrl": "https://github.com/seekehr/Reversio/tree/main",
     "externalUrl": "https://github.com/seekehr/Reversio/tree/main"
@@ -78,7 +112,13 @@
     "image": "/quizletscrapeflashcards.png",
     "category": "Scraping",
     "categoryLabel": "Scraping",
-    "technologies": ["Go", "Discord", "GUI", "Automation", "Bot"],
+    "technologies": [
+      "Go",
+      "Discord",
+      "GUI",
+      "Automation",
+      "Bot"
+    ],
     "categoryColor": "gray",
     "projectUrl": "https://github.com/seekehr/Scrape-Quizlet-Flashcards/tree/main",
     "externalUrl": "https://github.com/seekehr/Scrape-Quizlet-Flashcards/tree/main"
@@ -87,9 +127,13 @@
     "id": 119,
     "title": "GetAIMade",
     "description": "Get your AI made - a website!",
+    "image": "/getaimade.png",
     "category": "web",
     "categoryLabel": "Web Development",
-    "technologies": ["TypeScript", "Web"],
+    "technologies": [
+      "TypeScript",
+      "Web"
+    ],
     "categoryColor": "gray",
     "projectUrl": "https://github.com/seekehr/GetAIMade",
     "externalUrl": "https://github.com/seekehr/GetAIMade"
@@ -100,7 +144,10 @@
     "description": "Pulls notes from https://simplenote.com/ and saves them as text files.\n\n",
     "category": "scraper",
     "categoryLabel": "scraper",
-    "technologies": ["TypeScript", "Scraping"],
+    "technologies": [
+      "TypeScript",
+      "Scraping"
+    ],
     "categoryColor": "gray",
     "projectUrl": "https://github.com/seekehr/SimpleNotesScraper/tree/main",
     "externalUrl": "https://github.com/seekehr/SimpleNotesScraper/tree/main"
@@ -111,10 +158,15 @@
     "description": "An Expo-developed iOS exclusive streak-based app that handles daily schedules, and grants you XP and cool animations upon completing your tasks.",
     "category": "web",
     "categoryLabel": "App Development",
-    "technologies": ["TypeScript", "Expo", "iOS"],
+    "technologies": [
+      "TypeScript",
+      "Expo",
+      "iOS"
+    ],
     "categoryColor": "gray",
     "projectUrl": "https://github.com/seekehr/ScheduleWith",
-    "externalUrl": "https://github.com/seekehr/ScheduleWith"
+    "externalUrl": "https://github.com/seekehr/ScheduleWith",
+    "cover": "phone"
   },
   {
     "id": 121,
@@ -122,7 +174,11 @@
     "description": "Minecraft 1.8.9 mod.",
     "category": "mod",
     "categoryLabel": "Mod",
-    "technologies": ["Java", "Forge", "Minecraft"],
+    "technologies": [
+      "Java",
+      "Forge",
+      "Minecraft"
+    ],
     "categoryColor": "gray",
     "projectUrl": "https://github.com/seekehr/AC-Mod-1.8.9",
     "externalUrl": "https://github.com/seekehr/AC-Mod-1.8.9"
@@ -133,10 +189,15 @@
     "description": "Autoblock mod for Minecraft 1.8.9. Command /ab help.",
     "category": "mod",
     "categoryLabel": "Mod",
-    "technologies": ["Java", "Forge", "Minecraft"],
+    "technologies": [
+      "Java",
+      "Forge",
+      "Minecraft"
+    ],
     "categoryColor": "gray",
     "projectUrl": "https://github.com/seekehr/AutoblockMod-1.8.9",
-    "externalUrl": "https://github.com/seekehr/AutoblockMod-1.8.9"
+    "externalUrl": "https://github.com/seekehr/AutoblockMod-1.8.9",
+    "command": "/ab help"
   },
   {
     "id": 123,
@@ -144,8 +205,11 @@
     "description": "Private project written in Go.",
     "category": "systems",
     "categoryLabel": "Systems",
-    "technologies": ["Go"],
-    "categoryColor": "gray"
+    "technologies": [
+      "Go"
+    ],
+    "categoryColor": "gray",
+    "cover": "dots"
   },
   {
     "id": 124,
@@ -153,7 +217,11 @@
     "description": "Scrape X posts using keywords, and use AI to generate leads.",
     "category": "ai",
     "categoryLabel": "AI Development",
-    "technologies": ["Python", "AI", "Scraping"],
+    "technologies": [
+      "Python",
+      "AI",
+      "Scraping"
+    ],
     "categoryColor": "gray",
     "projectUrl": "https://github.com/seekehr/XScrapper-AI",
     "externalUrl": "https://github.com/seekehr/XScrapper-AI"
@@ -164,10 +232,15 @@
     "description": "Velocity mod for Minecraft 1.8.9. Command /velo help.",
     "category": "mod",
     "categoryLabel": "Mod",
-    "technologies": ["Java", "Forge", "Minecraft"],
+    "technologies": [
+      "Java",
+      "Forge",
+      "Minecraft"
+    ],
     "categoryColor": "gray",
     "projectUrl": "https://github.com/seekehr/VelocityMod-1.8.9",
-    "externalUrl": "https://github.com/seekehr/VelocityMod-1.8.9"
+    "externalUrl": "https://github.com/seekehr/VelocityMod-1.8.9",
+    "command": "/velo help"
   },
   {
     "id": 126,
@@ -175,7 +248,10 @@
     "description": "Fork of streetwriters/notesnook, a fully open source & end-to-end encrypted note taking alternative to Evernote.",
     "category": "web",
     "categoryLabel": "Web Development",
-    "technologies": ["TypeScript", "E2EE"],
+    "technologies": [
+      "TypeScript",
+      "E2EE"
+    ],
     "categoryColor": "gray",
     "projectUrl": "https://github.com/seekehr/notesnook",
     "externalUrl": "https://github.com/seekehr/notesnook"
@@ -186,7 +262,9 @@
     "description": "Website for Hyflip (private).",
     "category": "web",
     "categoryLabel": "Web Development",
-    "technologies": ["TypeScript"],
+    "technologies": [
+      "TypeScript"
+    ],
     "categoryColor": "gray"
   },
   {
@@ -195,7 +273,11 @@
     "description": "A job scraper for Upwork, powered by AI models and RAG.",
     "category": "ai",
     "categoryLabel": "AI Development",
-    "technologies": ["Python", "AI", "RAG"],
+    "technologies": [
+      "Python",
+      "AI",
+      "RAG"
+    ],
     "categoryColor": "gray",
     "projectUrl": "https://github.com/seekehr/UpworkJobScrapperAI",
     "externalUrl": "https://github.com/seekehr/UpworkJobScrapperAI"
@@ -204,9 +286,14 @@
     "id": 129,
     "title": "DiscordFreelanceX",
     "description": "A self-bot for Discord that automatically notifies you about new job postings in specified servers, and lets you automatically advertise there.",
+    "image": "/discordfreelancex.png",
     "category": "systems",
     "categoryLabel": "Automation",
-    "technologies": ["Go", "Discord", "Automation"],
+    "technologies": [
+      "Go",
+      "Discord",
+      "Automation"
+    ],
     "categoryColor": "gray",
     "projectUrl": "https://github.com/seekehr/DiscordFreelanceX",
     "externalUrl": "https://github.com/seekehr/DiscordFreelanceX"
@@ -217,7 +304,9 @@
     "description": "Python spoofing tool.",
     "category": "systems",
     "categoryLabel": "Systems",
-    "technologies": ["Python"],
+    "technologies": [
+      "Python"
+    ],
     "categoryColor": "gray",
     "projectUrl": "https://github.com/seekehr/PySpoof",
     "externalUrl": "https://github.com/seekehr/PySpoof"
@@ -228,7 +317,11 @@
     "description": "A legit, external cheat for CS2 written in C++.",
     "category": "systems",
     "categoryLabel": "Systems",
-    "technologies": ["C++", "Windows", "Memory"],
+    "technologies": [
+      "C++",
+      "Windows",
+      "Memory"
+    ],
     "categoryColor": "gray",
     "projectUrl": "https://github.com/seekehr/Seeker-External-CS2",
     "externalUrl": "https://github.com/seekehr/Seeker-External-CS2"
@@ -239,7 +332,10 @@
     "description": "Golang server for Hyflip.",
     "category": "systems",
     "categoryLabel": "Systems",
-    "technologies": ["Go", "Server"],
+    "technologies": [
+      "Go",
+      "Server"
+    ],
     "categoryColor": "gray",
     "projectUrl": "https://github.com/seekehr/Hyflip-Server",
     "externalUrl": "https://github.com/seekehr/Hyflip-Server"
@@ -250,7 +346,11 @@
     "description": "Template Minecraft mod for Forge 1.8.9 written in Kotlin, demonstrating tools that boost mod development. Forked from hannibal002/Example-1.8.9-Mod.",
     "category": "mod",
     "categoryLabel": "Mod",
-    "technologies": ["Kotlin", "Forge", "Minecraft"],
+    "technologies": [
+      "Kotlin",
+      "Forge",
+      "Minecraft"
+    ],
     "categoryColor": "gray",
     "projectUrl": "https://github.com/seekehr/Example-1.8.9-Mod-Kotlin",
     "externalUrl": "https://github.com/seekehr/Example-1.8.9-Mod-Kotlin"
@@ -261,7 +361,9 @@
     "description": "Personal blog.",
     "category": "web",
     "categoryLabel": "Web Development",
-    "technologies": ["Shell"],
+    "technologies": [
+      "Shell"
+    ],
     "categoryColor": "gray",
     "projectUrl": "https://github.com/seekehr/blog",
     "externalUrl": "https://github.com/seekehr/blog"
@@ -270,9 +372,14 @@
     "id": 135,
     "title": "RedditVideoMakerBot-Updated",
     "description": "Updated fork of RedditVideoMakerBot: added comment support, max words per segment, keyword searching, and more.",
+    "image": "/redditvideomakerbot.png",
     "category": "cli",
     "categoryLabel": "CLI",
-    "technologies": ["Python", "Automation", "Video"],
+    "technologies": [
+      "Python",
+      "Automation",
+      "Video"
+    ],
     "categoryColor": "gray",
     "projectUrl": "https://github.com/seekehr/RedditVideoMakerBot-Updated",
     "externalUrl": "https://github.com/seekehr/RedditVideoMakerBot-Updated"
@@ -281,9 +388,14 @@
     "id": 136,
     "title": "DevSpoofGO",
     "description": "A device spoofer that injects your desired application with the spoofed credentials, made using Go (injector) and C++ (DLL).",
+    "image": "/devspoofgo.png",
     "category": "systems",
     "categoryLabel": "Systems",
-    "technologies": ["Go", "C++", "DLL Injection"],
+    "technologies": [
+      "Go",
+      "C++",
+      "DLL Injection"
+    ],
     "categoryColor": "gray",
     "projectUrl": "https://github.com/seekehr/DevSpoofGO",
     "externalUrl": "https://github.com/seekehr/DevSpoofGO"
@@ -294,9 +406,12 @@
     "description": "Test harness for DevSpoofGO.",
     "category": "systems",
     "categoryLabel": "Systems",
-    "technologies": ["Go"],
+    "technologies": [
+      "Go"
+    ],
     "categoryColor": "gray",
     "projectUrl": "https://github.com/seekehr/DevSpoofGOTest",
-    "externalUrl": "https://github.com/seekehr/DevSpoofGOTest"
+    "externalUrl": "https://github.com/seekehr/DevSpoofGOTest",
+    "command": "go test ./..."
   }
 ]

@@ -1,349 +1,138 @@
-"use client";
+import { ArrowUpRight, Bot, Bug, Cpu, Server } from "lucide-react";
+import Placeholder from "@/components/placeholder";
+import { projects, urlOf, type Project } from "@/lib/projects";
+import clients from "@/public/clients.json";
 
-import { useEffect, useRef, useState } from "react";
-
-// ─── Types ────────────────────────────────────────────────────────────────────
-
-type FeaturedProject = {
-  num: string;
-  title: string;
-  desc: string;
-  tags: string[];
-  url: string;
-  image: string;
-};
-
-type RawProject = {
-  id: number;
-  title: string;
-  description: string;
-  image?: string;
-  technologies: string[];
-  projectUrl?: string;
-  externalUrl?: string;
-  [key: string]: unknown;
-};
-
-const SKILLS = [
-  { name: "Golang", pct: 100 },
-  { name: "AI / LLM Integration", pct: 100 },
-  { name: "React / Next.js", pct: 100 },
-  { name: "TypeScript", pct: 100 },
-  { name: "C++", pct: 80 },
+const STACK = [
+  ["Go", "services, CLIs, trading engines"],
+  ["TypeScript", "Next.js, Express, scrapers"],
+  ["Python", "RAG, LLM pipelines, automation"],
+  ["C++", "Windows internals, DLLs"],
+  ["Playwright", "browser automation at scale"],
+  ["Qdrant", "vector search"],
 ];
 
-// ─── Hooks ────────────────────────────────────────────────────────────────────
+const LINKS = [
+  ["email", "grouchyseeker@gmail.com", "mailto:grouchyseeker@gmail.com"],
+  ["github", "github.com/seekehr", "https://github.com/seekehr"],
+  ["discord", "discord.gg/bHEjbQdEcx", "https://discord.gg/bHEjbQdEcx"],
+  ["resume", "resume.pdf", "/resume.pdf"],
+];
 
-function useInView<T extends Element = HTMLDivElement>() {
-  const ref = useRef<T>(null);
-  const [inView, setInView] = useState(false);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      ([e]) => { if (e.isIntersecting) setInView(true); },
-      { threshold: 0.1 }
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
-  return { ref, inView };
-}
+// ─── Intro column ────────────────────────────────────────────────────────────
 
-// ─── Nav ──────────────────────────────────────────────────────────────────────
-
-function Nav() {
-  const [scrolled, setScrolled] = useState(false);
-  useEffect(() => {
-    const fn = () => setScrolled(window.scrollY > 60);
-    window.addEventListener("scroll", fn, { passive: true });
-    return () => window.removeEventListener("scroll", fn);
-  }, []);
-
+function Intro() {
   return (
-    <nav className={`pnav${scrolled ? " pnav--s" : ""}`}>
-      <a href="#" className="pnav-logo">.seekehr</a>
-      <div className="pnav-links">
-        <a href="/projects" className="pnav-link">projects</a>
-        <a href="#about" className="pnav-link">about</a>
-        <a href="#contact" className="pnav-link">contact</a>
-        <a
-          href="/resume.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="pnav-link pnav-accent"
-        >
-          resume&nbsp;↗
-        </a>
-      </div>
-    </nav>
-  );
-}
+    <aside className="intro">
+      <header className="intro-id">
+        <img src="/favicon.svg" alt="" className="avatar" />
+        <div>
+          <p className="handle">@seekehr</p>
+          <p className="role">BACKEND ENGINEER</p>
+        </div>
+      </header>
 
-// ─── Hero ─────────────────────────────────────────────────────────────────────
-
-function Hero() {
-  const [on, setOn] = useState(false);
-  useEffect(() => { setTimeout(() => setOn(true), 80); }, []);
-
-  return (
-    <section className="phero">
-      <div className="phero-grid" aria-hidden />
-
-      <div className={`phero-meta${on ? " phero-meta--on" : ""}`}>
-        <span className="phero-greeting">Hey, I&apos;m Seeker</span>
-        <span className="phero-status">
-          <span className="pdot" />
-          Available for work
-        </span>
-      </div>
-
-      <div className={`phero-hwrap${on ? " phero-hwrap--on" : ""}`}>
-        <h1 className="phero-h">
-          Building systems<br />
-          &amp; AI automation<br />
-          at scale.
-        </h1>
-      </div>
-
-      <p className={`phero-sub${on ? " phero-sub--on" : ""}`}>
-        AI automation &amp; backend systems engineer
+      <p className="bio">
+        A <b><Server className="ico" />backend engineer</b> building{" "}
+        <b><Bot className="ico" />AI-powered</b> data systems and automation. Currently{" "}
+        <span className="hl">open</span> to <b>freelance</b> and <b>full-time</b> work. This site
+        is a collection of things I&apos;ve built across{" "}
+        <b>scraping <Bug className="ico" /></b>, <b>RAG pipelines</b> and{" "}
+        <b>systems <Cpu className="ico" /></b>.
       </p>
 
-      <span className="phero-ghost" aria-hidden>backend engineer</span>
+      <a href="mailto:grouchyseeker@gmail.com" className="cta">GET IN TOUCH</a>
 
-      <a href="#projects" className={`phero-scroll${on ? " phero-scroll--on" : ""}`}>
-        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden>
-          <path
-            d="M9 3.5v11M4 9.5l5 5 5-5"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </a>
-    </section>
-  );
-}
+      <hr className="hatch" />
 
-// ─── Shared ───────────────────────────────────────────────────────────────────
-
-function SectionLabel({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="plabel">
-      <span>{children}</span>
-      <div className="pline" />
-    </div>
-  );
-}
-
-// ─── Projects ─────────────────────────────────────────────────────────────────
-
-function GridCard({ p, delay }: { p: FeaturedProject; delay: number }) {
-  const { ref, inView } = useInView<HTMLAnchorElement>();
-  return (
-    <a
-      ref={ref}
-      href={p.url ?? "#"}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={`pgcard${inView ? " pgcard--in" : ""}`}
-      style={{ transitionDelay: `${delay}ms` }}
-    >
-      <div className="pgcard-img-wrap">
-        {p.image && (
-          <img src={p.image} alt="" aria-hidden className="pgcard-img" />
-        )}
-        <span className="pgcard-num" aria-hidden>{p.num}</span>
-      </div>
-      <div className="pgcard-body">
-        <h3 className="pgcard-title">{p.title}</h3>
-        <p className="pgcard-desc">{p.desc}</p>
-        <div className="pgcard-foot">
-          <div className="pcard-tags">
-            {p.tags.slice(0, 3).map((t) => (
-              <span key={t} className="pcard-tag">{t}</span>
-            ))}
-          </div>
-        </div>
-      </div>
-    </a>
-  );
-}
-
-function Projects() {
-  const { ref, inView } = useInView();
-  const [featured, setFeatured] = useState<FeaturedProject[]>([]);
-
-  useEffect(() => {
-    fetch("/projects.json")
-      .then((r) => r.json())
-      .then((data: RawProject[]) => {
-        setFeatured(
-          data.slice(0, 6).map((p, i) => ({
-            num: String(i + 1).padStart(2, "0"),
-            title: p.title,
-            desc: p.description,
-            tags: p.technologies.slice(0, 3),
-            url: p.projectUrl || p.externalUrl || "#",
-            image: p.image || "",
-          }))
-        );
-      });
-  }, []);
-
-  return (
-    <section id="projects" className="psec">
-      <div ref={ref} className={`psec-hdr${inView ? " psec-hdr--in" : ""}`}>
-        <SectionLabel>Selected Work</SectionLabel>
-        <p className="psec-sub">30+ projects across AI, systems, and web</p>
-      </div>
-      <div className="pgrid-six">
-        {featured.map((p, i) => (
-          <GridCard key={p.num} p={p} delay={i * 55} />
-        ))}
-      </div>
-      <div className="pall">
-        <a href="/projects" className="pall-link">
-          all projects &rarr;
-        </a>
-      </div>
-    </section>
-  );
-}
-
-// ─── About ────────────────────────────────────────────────────────────────────
-
-function About() {
-  const txt = useInView();
-  const sk = useInView();
-  return (
-    <section id="about" className="psec psec--border">
-      <div className={`plabel-wrap${txt.inView ? " plabel-wrap--in" : ""}`}>
-        <SectionLabel>About</SectionLabel>
-      </div>
-      <div className="pabout">
-        <div
-          ref={txt.ref}
-          className={`pabout-txt${txt.inView ? " pabout-txt--in" : ""}`}
-        >
-          <p>
-              I’m a backend systems engineer focused on AI-powered data systems and automation. I build web scrapers, smart extraction pipelines, RAG systems, research and monitoring tools, lead intelligence systems, and the backend infrastructure that powers them.
-          </p>
-          <p>
-              From messy PDFs and dynamic websites to real-time data and searchable knowledge bases, I focus on turning unstructured information into reliable, structured systems that are fast, maintainable, and built to scale.
-          </p>
-          <div className="pstats">
-            <div className="pstat">
-              <span className="pstat-n">20+</span>
-              <span className="pstat-l">Projects</span>
-            </div>
-            <div className="pstat">
-              <span className="pstat-n">10+</span>
-              <span className="pstat-l">Clients</span>
-            </div>
-            <div className="pstat">
-              <span className="pstat-n">5+</span>
-              <span className="pstat-l">Core technologies</span>
-            </div>
-          </div>
-        </div>
-
-        <div
-          ref={sk.ref}
-          className={`pskills${sk.inView ? " pskills--in" : ""}`}
-        >
-          <p className="pskills-lbl">Core stack</p>
-          {SKILLS.map((s, i) => (
-            <div key={s.name} className="pskill">
-              <div className="pskill-meta">
-                <span className="pskill-name">{s.name}</span>
-                <span className="pskill-pct">{s.pct}%</span>
-              </div>
-              <div className="pskill-track">
-                <div
-                  className="pskill-bar"
-                  style={{
-                    width: sk.inView ? `${s.pct}%` : "0%",
-                    transitionDelay: `${i * 100}ms`,
-                  }}
-                />
-              </div>
-            </div>
+      <div className="marquee" aria-label="Clients">
+        <div className="marquee-track">
+          {[...clients, ...clients].map((c, i) => (
+            <span key={i} aria-hidden={i >= clients.length}>{c.name}</span>
           ))}
         </div>
       </div>
-    </section>
-  );
-}
 
-// ─── Contact ──────────────────────────────────────────────────────────────────
+      <hr className="hatch" />
 
-function Contact() {
-  const { ref, inView } = useInView();
-  return (
-    <section id="contact" className="pcont">
-      <div
-        ref={ref}
-        className={`pcont-inner${inView ? " pcont-inner--in" : ""}`}
-      >
-        <SectionLabel>Contact</SectionLabel>
-        <h2 className="pcont-h">Let&apos;s build something.</h2>
-        <p className="pcont-sub">
-          Open to freelance work, contracts, and interesting problems.
+      <section>
+        <h2 className="serif">Between data and code</h2>
+        <p className="prose">
+          I turn messy, unstructured information (dynamic websites, PDFs, live feeds) into
+          structured systems that are fast, maintainable and built to scale: scrapers, extraction
+          pipelines, RAG search and the backends behind them.
         </p>
-        <div className="pcont-links">
-          <a href="mailto:grouchyseeker@gmail.com" className="pcont-link">
-            grouchyseeker@gmail.com
-          </a>
-          <a
-            href="https://discord.gg/bHEjbQdEcx"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="pcont-link"
-          >
-            discord.gg/bHEjbQdEcx
-          </a>
-        </div>
-      </div>
-    </section>
+      </section>
+
+      <section>
+        <h2 className="serif">Stack</h2>
+        <ul className="rows">
+          {STACK.map(([k, v]) => (
+            <li key={k}><span>{k}</span><span className="dim">{v}</span></li>
+          ))}
+        </ul>
+      </section>
+
+      <section id="contact">
+        <h2 className="serif">Elsewhere</h2>
+        <ul className="rows">
+          {LINKS.map(([k, label, href]) => (
+            <li key={k}>
+              <span className="dim">{k}</span>
+              <a href={href} target={href.startsWith("http") || href.endsWith(".pdf") ? "_blank" : undefined} rel="noopener noreferrer">
+                {label} <ArrowUpRight className="ico" />
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <footer className="foot dim">
+        <span>© {new Date().getFullYear()} seekehr</span>
+        <a href="/projects/">index of /projects →</a>
+      </footer>
+    </aside>
   );
 }
 
-// ─── Footer ───────────────────────────────────────────────────────────────────
+// ─── Work grid ───────────────────────────────────────────────────────────────
 
-function Footer() {
+function Tile({ p, order }: { p: Project; order: number }) {
+  const url = urlOf(p);
+  const Tag = url ? "a" : "div";
   return (
-    <footer className="pfooter">
-      <span className="pfooter-copy">.seekehr &copy; {new Date().getFullYear()}</span>
-      <div className="pfooter-links">
-        <a href="https://github.com/seekehr" target="_blank" rel="noopener noreferrer">
-          GitHub
-        </a>
-        <a href="https://discord.gg/bHEjbQdEcx" target="_blank" rel="noopener noreferrer">
-          Discord
-        </a>
-        <a href="mailto:grouchyseeker@gmail.com">Email</a>
-        <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
-          Resume
-        </a>
+    <Tag
+      className="tile"
+      style={{ order }}
+      {...(url ? { href: url, target: "_blank", rel: "noopener noreferrer" } : {})}
+    >
+      <div className="tile-media">
+        {p.image ? <img src={p.image} alt={`${p.title} screenshot`} loading="lazy" /> : <Placeholder p={p} />}
       </div>
-    </footer>
+      <div className="tile-cap">
+        <div>
+          <p className="tile-title">{p.title}</p>
+          <p className="tile-desc">{p.description}</p>
+        </div>
+        {url && <ArrowUpRight className="tile-arrow" />}
+      </div>
+    </Tag>
   );
 }
-
-// ─── Root ─────────────────────────────────────────────────────────────────────
 
 export default function Portfolio() {
   return (
-    <div className="proot">
-      <Nav />
-      <Hero />
-      <Projects />
-      <About />
-      <Contact />
-      <Footer />
+    <div className="shell">
+      <Intro />
+      <main className="work" aria-label="Projects">
+        {/* Two columns filled alternately so reading order is left→right, top→bottom.
+            On narrow screens the columns dissolve and `order` restores JSON order. */}
+        {[0, 1].map((col) => (
+          <div key={col} className="work-col">
+            {projects.map((p, i) => i % 2 === col && <Tile key={p.id} p={p} order={i} />)}
+          </div>
+        ))}
+      </main>
     </div>
   );
 }
