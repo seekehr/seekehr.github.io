@@ -7,9 +7,8 @@ const STACK = [
   ["Go", "services, CLIs, trading engines"],
   ["TypeScript", "Next.js, Express, scrapers"],
   ["Python", "RAG, LLM pipelines, automation"],
-  ["C++", "Windows internals, DLLs"],
   ["Playwright", "browser automation at scale"],
-  ["Qdrant", "vector search"],
+  ["C++", "Windows internals, DLLs"],
 ];
 
 const LINKS = [
