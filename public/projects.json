@@ -168,35 +168,21 @@
     "cover": "phone"
   },
   {
-    "id": 121,
-    "title": "AC-Mod-1.8.9",
-    "description": "Minecraft 1.8.9 mod.",
-    "category": "mod",
-    "categoryLabel": "Mod",
+    "id": 138,
+    "title": "ASMathPDFParser",
+    "description": "Turns Cambridge 9709 past paper PDFs into a plain, topic-labelled Paper 3 booklet. It drops Paper 1 questions, removes visual clutter, repacks the content onto A4 pages while keeping maths as sharp selectable vector text, and orders each question with its examiner comment and mark scheme. A free vision model on OpenRouter tags questions across eight maths topics, with a topic index on page 1.",
+    "image": "/asqsparser.png",
+    "category": "ai",
+    "categoryLabel": "AI Development",
     "technologies": [
-      "Java",
-      "Forge",
-      "Minecraft"
+      "TypeScript",
+      "PDF",
+      "OpenRouter",
+      "Computer Vision"
     ],
     "categoryColor": "gray",
-    "projectUrl": "https://github.com/seekehr/AC-Mod-1.8.9",
-    "externalUrl": "https://github.com/seekehr/AC-Mod-1.8.9"
-  },
-  {
-    "id": 122,
-    "title": "AutoblockMod-1.8.9",
-    "description": "Autoblock mod for Minecraft 1.8.9. Command /ab help.",
-    "category": "mod",
-    "categoryLabel": "Mod",
-    "technologies": [
-      "Java",
-      "Forge",
-      "Minecraft"
-    ],
-    "categoryColor": "gray",
-    "projectUrl": "https://github.com/seekehr/AutoblockMod-1.8.9",
-    "externalUrl": "https://github.com/seekehr/AutoblockMod-1.8.9",
-    "command": "/ab help"
+    "projectUrl": "https://github.com/seekehr/ASMathPDFParser/tree/main",
+    "externalUrl": "https://github.com/seekehr/ASMathPDFParser/tree/main"
   },
   {
     "id": 123,
@@ -224,22 +210,6 @@
     "categoryColor": "gray",
     "projectUrl": "https://github.com/seekehr/XScrapper-AI",
     "externalUrl": "https://github.com/seekehr/XScrapper-AI"
-  },
-  {
-    "id": 125,
-    "title": "VelocityMod-1.8.9",
-    "description": "Velocity mod for Minecraft 1.8.9. Command /velo help.",
-    "category": "mod",
-    "categoryLabel": "Mod",
-    "technologies": [
-      "Java",
-      "Forge",
-      "Minecraft"
-    ],
-    "categoryColor": "gray",
-    "projectUrl": "https://github.com/seekehr/VelocityMod-1.8.9",
-    "externalUrl": "https://github.com/seekehr/VelocityMod-1.8.9",
-    "command": "/velo help"
   },
   {
     "id": 126,
@@ -338,21 +308,6 @@
     "categoryColor": "gray",
     "projectUrl": "https://github.com/seekehr/Hyflip-Server",
     "externalUrl": "https://github.com/seekehr/Hyflip-Server"
-  },
-  {
-    "id": 133,
-    "title": "Example-1.8.9-Mod-Kotlin",
-    "description": "Template Minecraft mod for Forge 1.8.9 written in Kotlin, demonstrating tools that boost mod development. Forked from hannibal002/Example-1.8.9-Mod.",
-    "category": "mod",
-    "categoryLabel": "Mod",
-    "technologies": [
-      "Kotlin",
-      "Forge",
-      "Minecraft"
-    ],
-    "categoryColor": "gray",
-    "projectUrl": "https://github.com/seekehr/Example-1.8.9-Mod-Kotlin",
-    "externalUrl": "https://github.com/seekehr/Example-1.8.9-Mod-Kotlin"
   },
   {
     "id": 134,
