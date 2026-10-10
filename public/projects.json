@@ -51,6 +51,22 @@
     "externalUrl": "https://github.com/seekehr/FindClients"
   },
   {
+    "id": 139,
+    "title": "SimpleNotesToGDSync",
+    "description": "Syncs Simplenote notes to Google Drive as Word documents. It runs SimpleNotesScraper to export the notes, converts each one from Markdown to .docx, and uploads it to a Drive folder. Only notes that changed since the last run get uploaded, and existing Drive files are updated in place rather than re-uploaded. You can organise the documents into subfolders inside the sync folder: notesync finds them there and keeps updating, renaming and deleting them where they are.",
+    "category": "systems",
+    "categoryLabel": "Systems",
+    "technologies": [
+      "Automation",
+      "Google Drive",
+      "Markdown",
+      "Word Documents"
+    ],
+    "categoryColor": "gray",
+    "projectUrl": "https://github.com/seekehr/SimpleNotes-to-GoogleDrive-Sync",
+    "externalUrl": "https://github.com/seekehr/SimpleNotes-to-GoogleDrive-Sync"
+  },
+  {
     "id": 103,
     "title": "PolyMarket Bot",
     "description": "A Go-based Polymarket CLOB trading engine with real-time market feed processing, EIP-712–derived API credentials, HMAC-L2 authentication, and latency-tuned automated order execution. ",
