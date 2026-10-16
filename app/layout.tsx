@@ -11,7 +11,7 @@ const serif = Instrument_Serif({ subsets: ["latin"], weight: "400", variable: "-
 export const metadata: Metadata = {
   title: "Seeker | Developer Portfolio",
   description:
-    "Backend systems engineer focused on AI-powered data systems and automation. I build web scrapers, smart extraction pipelines, RAG systems, research and monitoring tools, lead intelligence systems, and the backend infrastructure that powers them.",
+    "Backend systems engineer focused on AI-powered data systems, automation and bots. I build web scrapers, bots of all kinds (Telegram, Discord and more), smart extraction pipelines, RAG systems, research and monitoring tools, lead intelligence systems, and the backend infrastructure that powers them.",
   icons: {
     icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
     apple: "/favicon.svg",

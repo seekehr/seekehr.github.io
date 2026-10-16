@@ -1,20 +1,21 @@
 [
   {
-    "id": 12932,
-    "title": "HDISTW",
-    "description": "HDISTW is an AI-powered local web recon tool that analyzes how websites load and expose data. It captures browser network activity, detects REST, GraphQL, Next.js data, embedded state, authentication, pagination, and client-side rendering, then recommends the most efficient extraction strategy for scraping.",
-    "image": "/hdistw.png",
-    "category": "Scraping",
-    "categoryLabel": "Scraping",
+    "id": 103,
+    "title": "PolyMarket Bot",
+    "description": "A Go-based Polymarket CLOB trading engine with real-time market feed processing, EIP-712–derived API credentials, HMAC-L2 authentication, and latency-tuned automated order execution. ",
+    "image": "/polymarket-bot.png",
+    "category": "systems",
+    "categoryLabel": "AI Development",
     "technologies": [
-      "Scraping",
-      "AI-Powered",
-      "Web Tool",
-      "Script"
+      "Go",
+      "Polymarket",
+      "CLOB",
+      "Trading",
+      "Automation"
     ],
     "categoryColor": "gray",
-    "projectUrl": "https://github.com/seekehr/HDISTW/tree/main",
-    "externalUrl": "https://github.com/seekehr/HDISTW/tree/main"
+    "projectUrl": "https://github.com/seekehr/polymarket-bot",
+    "externalUrl": "https://github.com/seekehr/polymarket-bot"
   },
   {
     "id": 113,
@@ -67,22 +68,21 @@
     "externalUrl": "https://github.com/seekehr/SimpleNotes-to-GoogleDrive-Sync"
   },
   {
-    "id": 103,
-    "title": "PolyMarket Bot",
-    "description": "A Go-based Polymarket CLOB trading engine with real-time market feed processing, EIP-712–derived API credentials, HMAC-L2 authentication, and latency-tuned automated order execution. ",
-    "image": "/polymarket-bot.png",
-    "category": "systems",
-    "categoryLabel": "AI Development",
+    "id": 12932,
+    "title": "HDISTW",
+    "description": "HDISTW is an AI-powered local web recon tool that analyzes how websites load and expose data. It captures browser network activity, detects REST, GraphQL, Next.js data, embedded state, authentication, pagination, and client-side rendering, then recommends the most efficient extraction strategy for scraping.",
+    "image": "/hdistw.png",
+    "category": "Scraping",
+    "categoryLabel": "Scraping",
     "technologies": [
-      "Go",
-      "Polymarket",
-      "CLOB",
-      "Trading",
-      "Automation"
+      "Scraping",
+      "AI-Powered",
+      "Web Tool",
+      "Script"
     ],
     "categoryColor": "gray",
-    "projectUrl": "https://github.com/seekehr/polymarket-bot",
-    "externalUrl": "https://github.com/seekehr/polymarket-bot"
+    "projectUrl": "https://github.com/seekehr/HDISTW/tree/main",
+    "externalUrl": "https://github.com/seekehr/HDISTW/tree/main"
   },
   {
     "id": 118,

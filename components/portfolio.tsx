@@ -8,6 +8,7 @@ const STACK = [
   ["TypeScript", "Next.js, Express, scrapers"],
   ["Python", "RAG, LLM pipelines, automation"],
   ["Playwright", "browser automation at scale"],
+  ["Bots", "Telegram, Discord, Slack, WhatsApp"],
   ["C++", "Windows internals, DLLs"],
 ];
 
@@ -33,11 +34,11 @@ function Intro() {
 
       <p className="bio">
         A <b><Server className="ico" />backend engineer</b> building{" "}
-        <b><Bot className="ico" />AI-powered</b> data systems and automation. Currently{" "}
+        <b><Bot className="ico" />AI-powered</b> data systems, automation and bots. Currently{" "}
         <span className="hl">open</span> to <b>freelance</b> and <b>full-time</b> work. This site
         is a collection of things I&apos;ve built across{" "}
-        <b>scraping <Bug className="ico" /></b>, <b>RAG pipelines</b> and{" "}
-        <b>systems <Cpu className="ico" /></b>.
+        <b>scraping <Bug className="ico" /></b>, <b>bots</b> (<b>Telegram</b>, <b>Discord</b> and
+        more), <b>RAG pipelines</b> and <b>systems <Cpu className="ico" /></b>.
       </p>
 
       <a href="mailto:grouchyseeker@gmail.com" className="cta">GET IN TOUCH</a>
@@ -59,7 +60,8 @@ function Intro() {
         <p className="prose">
           I turn messy, unstructured information (dynamic websites, PDFs, live feeds) into
           structured systems that are fast, maintainable and built to scale: scrapers, extraction
-          pipelines, RAG search and the backends behind them.
+          pipelines, RAG search, bots of all kinds (Telegram, Discord and beyond) and the backends
+          behind them.
         </p>
       </section>
 
