@@ -9,9 +9,9 @@ const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono" });
 const serif = Instrument_Serif({ subsets: ["latin"], weight: "400", variable: "--font-serif" });
 
 export const metadata: Metadata = {
-  title: "Seeker | Developer Portfolio",
+  title: "Seeker | Crypto Trading Bots, Data Scraping & RAG Systems",
   description:
-    "Backend systems engineer focused on AI-powered data systems, automation and bots. I build web scrapers, bots of all kinds (Telegram, Discord and more), smart extraction pipelines, RAG systems, research and monitoring tools, lead intelligence systems, and the backend infrastructure that powers them.",
+    "Crypto trading bots, data scraping and RAG systems expert. I build automated trading engines for exchanges and prediction markets, real-time market data pipelines, large-scale web scrapers, RAG search and AI research tools, plus Telegram and Discord bots and the low-latency backends behind them.",
   icons: {
     icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
     apple: "/favicon.svg",

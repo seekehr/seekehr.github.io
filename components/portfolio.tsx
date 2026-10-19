@@ -4,11 +4,11 @@ import { projects, urlOf, type Project } from "@/lib/projects";
 import clients from "@/public/clients.json";
 
 const STACK = [
-  ["Go", "services, CLIs, trading engines"],
-  ["TypeScript", "Next.js, Express, scrapers"],
-  ["Python", "RAG, LLM pipelines, automation"],
-  ["Playwright", "browser automation at scale"],
-  ["Bots", "Telegram, Discord, Slack, WhatsApp"],
+  ["Go", "trading engines, order execution, services"],
+  ["TypeScript", "scrapers, dashboards, Next.js, Express"],
+  ["Python", "RAG, LLM pipelines, market data, automation"],
+  ["Playwright", "scraping and browser automation at scale"],
+  ["Bots", "trading, alerts, Telegram, Discord"],
   ["C++", "Windows internals, DLLs"],
 ];
 
@@ -28,17 +28,17 @@ function Intro() {
         <img src="/favicon.svg" alt="" className="avatar" />
         <div>
           <p className="handle">@seekehr</p>
-          <p className="role">BACKEND ENGINEER</p>
+          <p className="role">CRYPTO BOTS · SCRAPING · RAG</p>
         </div>
       </header>
 
       <p className="bio">
-        A <b><Server className="ico" />backend engineer</b> building{" "}
-        <b><Bot className="ico" />AI-powered</b> data systems, automation and bots. Currently{" "}
-        <span className="hl">open</span> to <b>freelance</b> and <b>full-time</b> work. This site
-        is a collection of things I&apos;ve built across{" "}
-        <b>scraping <Bug className="ico" /></b>, <b>bots</b> (<b>Telegram</b>, <b>Discord</b> and
-        more), <b>RAG pipelines</b> and <b>systems <Cpu className="ico" /></b>.
+        A <b><Server className="ico" />backend engineer</b> specialising in{" "}
+        <b><Bot className="ico" />crypto trading bots</b>, <b>data scraping</b> and{" "}
+        <b>RAG systems</b>. Currently <span className="hl">open</span> to <b>freelance</b> and{" "}
+        <b>full-time</b> work. This site is a collection of things I&apos;ve built across{" "}
+        <b>automated trading</b>, <b>market data</b>, <b>scraping <Bug className="ico" /></b>,{" "}
+        <b>AI pipelines</b> and the <b>low-latency systems <Cpu className="ico" /></b> that run them.
       </p>
 
       <a href="mailto:grouchyseeker@gmail.com" className="cta">GET IN TOUCH</a>
@@ -56,12 +56,13 @@ function Intro() {
       <hr className="hatch" />
 
       <section>
-        <h2 className="serif">Between data and code</h2>
+        <h2 className="serif">Between markets and data</h2>
         <p className="prose">
-          I turn messy, unstructured information (dynamic websites, PDFs, live feeds) into
-          structured systems that are fast, maintainable and built to scale: scrapers, extraction
-          pipelines, RAG search, bots of all kinds (Telegram, Discord and beyond) and the backends
-          behind them.
+          I build trading bots that read live market feeds, sign and authenticate against exchange
+          and prediction-market APIs, and execute orders with low latency. Around them sit the data
+          systems that give them an edge: scrapers for dynamic sites and APIs, real-time monitoring
+          and alerts (Telegram, Discord), and RAG pipelines that turn unstructured information into
+          signals you can search and act on.
         </p>
       </section>
 

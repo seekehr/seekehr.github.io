@@ -15,7 +15,7 @@ export default function ProjectsPage() {
       </nav>
 
       <h1 className="serif index-h">Index of /projects</h1>
-      <p className="dim">{projects.length} entries · scraping, AI, systems and the web</p>
+      <p className="dim">{projects.length} entries · trading bots, scraping, RAG and systems</p>
 
       <div className="filters" role="tablist">
         {["all", ...categories].map((c) => (
