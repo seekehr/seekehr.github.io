@@ -4,18 +4,35 @@
     "title": "PolyMarket Bot",
     "description": "A Go-based Polymarket CLOB trading engine with real-time market feed processing, EIP-712–derived API credentials, HMAC-L2 authentication, and latency-tuned automated order execution.",
     "image": "/polymarket-bot.png",
-    "category": "systems",
-    "categoryLabel": "AI Development",
+    "category": "bots",
+    "categoryLabel": "Bot Development",
     "technologies": [
       "Go",
       "Polymarket",
       "CLOB",
       "Trading",
+      "Telegram",
       "Automation"
     ],
     "categoryColor": "gray",
     "projectUrl": "https://github.com/seekehr/polymarket-bot",
     "externalUrl": "https://github.com/seekehr/polymarket-bot"
+  },
+  {
+    "id": 2313221,
+    "title": "Hilol Discord Bot",
+    "description": "Built a configurable Discord chatbot using TypeScript, Node.js, discord.js, and the Groq API. Features channel-based conversation memory, customizable personalities, interactive slash-command setup, and automated replies. Includes token-aware API rate limiting, persistent settings, automated tests with Vitest, and Docker deployment support.",
+    "image": "/hilol-discord-bot.png",
+    "category": "bots",
+    "categoryLabel": "Bot Development",
+    "technologies": [
+      "TypeScript",
+      "Discord",
+      "Automation"
+    ],
+    "categoryColor": "gray",
+    "projectUrl": "https://github.com/seekehr/hilol-Discord-Bot",
+    "externalUrl": "https://github.com/seekehr/hilol-Discord-Bot"
   },
   {
     "id": 113,
