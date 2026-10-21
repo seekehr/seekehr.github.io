@@ -5,11 +5,11 @@
   "author": "Seeker",
   "type": "module",
   "scripts": {
-    "build": "next build",
-    "build:gh-pages": "next build",
-    "dev": "next dev",
+    "build": "node init && next build",
+    "build:gh-pages": "node init && next build",
+    "dev": "node init && next dev",
     "lint": "eslint .",
-    "start": "next start"
+    "start": "node init && next start"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
