@@ -102,6 +102,22 @@
     "externalUrl": "https://github.com/seekehr/HDISTW/tree/main"
   },
   {
+    "id": 2313222,
+    "title": "untitled.stream Downloader",
+    "description": "Built a TypeScript/Node.js downloader for untitled.stream that downloads entire projects or selected tracks in parallel without the platform's ZIP size limit. Reuses the user's existing Chrome login through Playwright, preserves original audio quality, cover art, and metadata, supports configurable concurrency and output paths, and automatically skips completed tracks so interrupted downloads can be resumed.",
+    "category": "scraping",
+    "categoryLabel": "scraping",
+    "technologies": [
+      "TypeScript",
+      "Playwright",
+      "Automation",
+      "Scraping"
+    ],
+    "categoryColor": "gray",
+    "projectUrl": "https://github.com/seekehr/untitled-dot-stream-downloader",
+    "externalUrl": "https://github.com/seekehr/untitled-dot-stream-downloader"
+  },
+  {
     "id": 118,
     "title": "CambridgePastPapersAI",
     "description": "Turns Cambridge past paper PDFs into one JSON record per question, tagged with topic and question type by Gemini.",
@@ -142,8 +158,8 @@
     "title": "Quizlet Flashcards Scraper",
     "description": "Backs up every public flashcard set in every public folder on a Quizlet profile, one text file per set.",
     "image": "/quizletscrapeflashcards.png",
-    "category": "Scraping",
-    "categoryLabel": "Scraping",
+    "category": "scraping",
+    "categoryLabel": "scraping",
     "technologies": [
       "Go",
       "Discord",
@@ -174,8 +190,8 @@
     "id": 32312323,
     "title": "Simple Notes Scraper",
     "description": "Pulls notes from https://simplenote.com/ and saves them as text files.\n\n",
-    "category": "scraper",
-    "categoryLabel": "scraper",
+    "category": "scraping",
+    "categoryLabel": "scraping",
     "technologies": [
       "TypeScript",
       "Scraping"
