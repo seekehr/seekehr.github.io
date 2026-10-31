@@ -73,3 +73,5 @@ next-env.d.ts
 
 config.bat
 >>>>>>> 4e235819bc47200f8a69c28939d581a10e48afdc
+
+.vscode/
